@@ -6,7 +6,7 @@ Un premier essai concernant le workflow des données RERO DOC en json.
 
 	mkvirtualenv dojson
 	cdvirtualenv dojson
-	mkdir src
+	mkdir src; cd src
 	git clone git@gitlab.rero.ch:maj/rerodoc-dojson.git
 	cd rerodoc-dojson
 	pip install -e .
