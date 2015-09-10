@@ -8,7 +8,10 @@ setup(
     author_email="doc.support@rero.ch",
     description="RERO DOC - Digital Library",
     install_requires=[
-        "dojson==0.1.1"
+        "dojson==0.1.1",
+        "PyLD>=0.6.8",
+        "rdflib-jsonld>=0.3",
+        "jsonschema>=2.5.1"
     ],
     test_suite='rerodoc.testsuite',
     entry_points={
