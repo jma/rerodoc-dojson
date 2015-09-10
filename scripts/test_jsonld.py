@@ -22,13 +22,15 @@ from rdflib import Graph
 
 # local modules
 
-def get_demo_record():
+def get_demo_record(verbose=False):
     """Get a record in Json format from a MarcXML."""
 
     from dojson.contrib.marc21.utils import create_record
     from rerodoc.dojson.book import book
     from rerodoc.testsuite.test_dojson import MIN_BASE_RECORD
     blob = create_record(MIN_BASE_RECORD)
+    if verbose:
+        print(json.dumps(blob, indent=2))
     return book.do(blob)
 
 
@@ -63,8 +65,11 @@ if __name__ == '__main__':
     if len(args) != 0:
         parser.error("Error: incorrect number of arguments, try --help")
 
-    doc = get_demo_record()
+    doc = get_demo_record(options.verbose)
     validate(doc)
+    if options.verbose:
+        from rerodoc.dojson.book import book2marc
+        print(json.dumps(book2marc.do(doc), indent=2))
 
     from rerodoc.dojson.utils import get_context
     context = get_context("book")

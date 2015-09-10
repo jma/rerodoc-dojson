@@ -1,7 +1,7 @@
-#from .fields import (
-#    bd20x24x,
-#)
+from .fields import (
+    bd01x09x
+)
 
-from .model import book
+from .model import book, book2marc
 
-__all__ = ('book',)
+__all__ = ('book', 'book2marc')

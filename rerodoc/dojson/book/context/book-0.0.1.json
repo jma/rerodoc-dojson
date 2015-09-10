@@ -1,8 +1,14 @@
 {
     "@context": {
         "dcmitype": "http://purl.org/dc/dcmitype/",
+        "bibo": "http://purl.org/ontology/bibo/",
         "dc": "http://purl.org/dc/elements/1.1/",
         "dct": "http://purl.org/dc/terms/",
+        "edm": "http://www.europeana.eu/schemas/edm/",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "rdau": "http://rdaregistry.info/Elements/u/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns# ",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
 
         "type": "@type",
         "recid": "@id",
@@ -12,8 +18,10 @@
 
         "@base": "http://doc.rero.ch/record/",
 
-        "Book": "dcmitype:Text",
+        "book": "dcmitype:Text",
         "language": "dct:language",
-        "title": "dc:title"
+        "title": "dc:title",
+        "isbn10": "bibo:isbn10",
+        "isbn13": "bibo:isbn13"
     }
 }
