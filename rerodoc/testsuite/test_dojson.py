@@ -7,6 +7,9 @@ BOOK_SCHEMA = get_schema("book")
 MIN_BASE_RECORD = """
 <record>
   <controlfield tag="001">1234</controlfield>
+  <datafield tag="020" ind1=" " ind2=" ">
+    <subfield code="a">9782600017626</subfield>
+  </datafield>
   <datafield tag="024" ind1="8" ind2=" ">
     <subfield code="a">oai:doc.rero.ch:20150908091223-PN</subfield>
   </datafield>

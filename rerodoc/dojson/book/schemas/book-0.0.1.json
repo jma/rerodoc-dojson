@@ -4,17 +4,38 @@
     "required": [
         "title",
         "language",
-        "recid"
-    ],
+        "recid",
+        "type"
+        ],
     "id": "http://doc.rero.ch/schemas/book-0.0.1.json",
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "type":{
+            "uniqueItems": true,
+            "minItems": 1,
+            "type": "string",
+            "title": "Document type"
+        },
         "recid":{
             "uniqueItems": true,
             "minItems": 1,
             "type": "string",
             "title": "identifier"
+        },
+        "isbn10":{
+            "uniqueItems": true,
+            "minItems": 1,
+            "type": "string",
+            "title": "ISBN identifier with 10 digits",
+            "pattern": "^[0-9]{1,5}-[0-9]{1,7}-[0-9]{1,7}-[0-9,X]{1}$"
+        },
+        "isbn13":{
+            "uniqueItems": true,
+            "minItems": 1,
+            "type": "string",
+            "title": "ISBN identifier with 13 digits",
+            "pattern": "^978[0-9]{9}[0-9]{1}$"
         },
         "language": {
             "uniqueItems": true,
@@ -32,8 +53,8 @@
                 "type": "object",
                 "required": [
                     "title",
-                    "lang"
-                ],
+                "lang"
+                    ],
                 "properties": {
                     "lang": {
                         "type": "string",
