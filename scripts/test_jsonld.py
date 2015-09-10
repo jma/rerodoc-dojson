@@ -23,11 +23,22 @@ from rdflib import Graph
 # local modules
 
 def get_demo_record():
+    """Get a record in Json format from a MarcXML."""
+
     from dojson.contrib.marc21.utils import create_record
     from rerodoc.dojson.book import book
     from rerodoc.testsuite.test_dojson import MIN_BASE_RECORD
     blob = create_record(MIN_BASE_RECORD)
     return book.do(blob)
+
+
+def validate(record, schema_name="book"):
+    """Record validation with a given schema."""
+
+    from jsonschema import validate
+    from rerodoc.dojson.utils import get_schema
+    schema = get_schema(schema_name)
+    validate(record, schema)
 
 #---------------------------- Main Part ---------------------------------------
 
@@ -52,9 +63,11 @@ if __name__ == '__main__':
     if len(args) != 0:
         parser.error("Error: incorrect number of arguments, try --help")
 
+    doc = get_demo_record()
+    validate(doc)
+
     from rerodoc.dojson.utils import get_context
     context = get_context("book")
-    doc = get_demo_record()
     doc.update(context)
 
     if options.verbose:
