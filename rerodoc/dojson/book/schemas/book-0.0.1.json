@@ -1,0 +1,59 @@
+{
+    "description": "A book document...",
+    "title": "Book",
+    "required": [
+        "title",
+        "language",
+        "recid"
+    ],
+    "id": "http://doc.rero.ch/schemas/book-0.0.1.json",
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "recid":{
+            "uniqueItems": true,
+            "minItems": 1,
+            "type": "string",
+            "title": "identifier"
+        },
+        "language": {
+            "uniqueItems": true,
+            "minItems": 1,
+            "type": "string",
+            "description": "FIXME: we shall provide the ISO enum",
+            "title": "Language"
+        },
+        "title": {
+            "uniqueItems": true,
+            "minItems": 1,
+            "type": "object",
+            "title": "Document title",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "lang"
+                ],
+                "properties": {
+                    "lang": {
+                        "type": "string",
+                        "title": "Title language"
+                    },
+                    "full": {
+                        "type": "string",
+                        "title": "Concatenation of title and subtitle"
+                    },
+                    "subtitle": {
+                        "type": "string",
+                        "title": "Subtitle of the document"
+                    },
+                    "maintitle": {
+                        "type": "string",
+                        "title": "Main title of the document"
+                    }
+                },
+                "title": "Title information"
+            }
+        }
+    }
+}

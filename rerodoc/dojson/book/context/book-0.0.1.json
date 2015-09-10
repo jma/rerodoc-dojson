@@ -1,0 +1,19 @@
+{
+    "@context": {
+        "dcmitype": "http://purl.org/dc/dcmitype/",
+        "dc": "http://purl.org/dc/elements/1.1/",
+        "dct": "http://purl.org/dc/terms/",
+
+        "type": "@type",
+        "recid": "@id",
+        "content": "@value",
+        "full": "@value",
+        "lang": "@language",
+
+        "@base": "http://doc.rero.ch/record/",
+
+        "Book": "dcmitype:Text",
+        "language": "dct:language",
+        "title": "dc:title"
+    }
+}
