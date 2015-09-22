@@ -14,7 +14,10 @@
         "type":{
             "uniqueItems": true,
             "minItems": 1,
-            "type": "string",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
             "title": "Document type"
         },
         "recid":{
@@ -24,29 +27,21 @@
             "title": "identifier"
         },
         "isbn10":{
-            "uniqueItems": true,
-            "minItems": 1,
             "type": "string",
             "title": "ISBN identifier with 10 digits",
             "pattern": "^[0-9]{1,5}-[0-9]{1,7}-[0-9]{1,7}-[0-9,X]{1}$"
         },
         "isbn13":{
-            "uniqueItems": true,
-            "minItems": 1,
             "type": "string",
             "title": "ISBN identifier with 13 digits",
             "pattern": "^978[0-9]{9}[0-9]{1}$"
         },
         "language": {
-            "uniqueItems": true,
-            "minItems": 1,
             "type": "string",
             "description": "FIXME: we shall provide the ISO enum",
             "title": "Language"
         },
         "title": {
-            "uniqueItems": true,
-            "minItems": 1,
             "type": "object",
             "title": "Document title",
             "items": {

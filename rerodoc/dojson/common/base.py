@@ -79,11 +79,11 @@ def language2marc(self, key, value):
 @book.over('type', '^980__')
 def document_type(self, key, value):
     """Record Document Type."""
-    return value.get("a").lower()
+    return ["bibrec", value.get("a").lower()]
 
 @book2marc.over('980', 'type')
 def document_type2marc(self, key, value):
     """Record Document Type."""
     return {
-        "a": value
+        "a": value[1].upper()
     }

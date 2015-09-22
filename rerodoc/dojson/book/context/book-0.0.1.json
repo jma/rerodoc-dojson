@@ -19,6 +19,7 @@
         "@base": "http://doc.rero.ch/record/",
 
         "book": "dcmitype:Text",
+        "bibrec": "dct:BibliographicResource",
         "language": "dct:language",
         "title": "dc:title",
         "isbn10": "bibo:isbn10",
