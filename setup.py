@@ -1,5 +1,23 @@
 from setuptools import setup
 
+from distutils.core import setup, Command
+# you can also import from setuptools
+
+class PyTest(Command):
+    user_options = []
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        import subprocess
+        import sys
+        errno = subprocess.call(["py.test", 'rerodoc/tests'])
+        raise SystemExit(errno)
+
+
 setup(
     name="RERO DOC",
     version="0.1.dev0",
@@ -8,12 +26,12 @@ setup(
     author_email="doc.support@rero.ch",
     description="RERO DOC - Digital Library",
     install_requires=[
-        "dojson==0.1.1",
+        "dojson>=0.1.1",
         "PyLD>=0.6.8",
         "rdflib-jsonld>=0.3",
         "jsonschema>=2.5.1"
     ],
-    test_suite='rerodoc.testsuite',
+    cmdclass = {'test': PyTest},
     entry_points={
         "invenio.config": ["rerodoc = rerodoc.config"]
     }

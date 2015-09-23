@@ -1,10 +1,13 @@
-# -*- coding: utf8 -*-
-import unittest
-import os
-from rerodoc.dojson.utils import get_schema
-BOOK_SCHEMA = get_schema("book")
+# -*- coding: utf-8 -*-
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
 
-MIN_BASE_RECORD = """
+import pytest
+
+
+@pytest.fixture(scope='session')
+def simple_book_record():
+    """A sample book record."""
+    return """
 <record>
   <controlfield tag="001">1234</controlfield>
   <datafield tag="020" ind1=" " ind2=" ">
@@ -44,16 +47,8 @@ MIN_BASE_RECORD = """
 </collection>
 """
 
-class MinBaseRecordTests(unittest.TestCase):
-
-    def test_rec_id_marc21_from_xml(self):
-      from jsonschema import validate
-      from dojson.contrib.marc21.utils import create_record
-      from rerodoc.dojson.book import book
-      blob = create_record(MIN_BASE_RECORD)
-      data = book.do(blob)
-      validate(data, BOOK_SCHEMA)
-
-
-if __name__ == '__main__':
-    unittest.main()
+@pytest.fixture(scope='session')
+def book_schema():
+    """Session-wide config file with a bad db password."""
+    from rerodoc.dojson.utils import get_schema
+    return get_schema("book")
