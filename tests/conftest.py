@@ -4,10 +4,21 @@
 import pytest
 
 
+def get_demo_record(rec):
+    """Get a record in Json format from a MarcXML."""
+
+    from dojson.contrib.marc21.utils import create_record
+    from rerodoc.dojson.book import book
+    from rerodoc.testsuite.test_dojson import MIN_BASE_RECORD
+    blob = create_record(rec)
+    data = book.do(blob)
+    return data
+
+
 @pytest.fixture(scope='session')
 def simple_book_record():
     """A sample book record."""
-    return """
+    return get_demo_record("""
 <record>
   <controlfield tag="001">1234</controlfield>
   <datafield tag="020" ind1=" " ind2=" ">
@@ -45,10 +56,18 @@ def simple_book_record():
   </datafield>
 </record>
 </collection>
-"""
+""")
+
 
 @pytest.fixture(scope='session')
 def book_schema():
-    """Session-wide config file with a bad db password."""
+    """Session-wide book schema."""
     from rerodoc.dojson.utils import get_schema
     return get_schema("book")
+
+
+@pytest.fixture(scope='session')
+def book_context():
+    """Session-wide book context."""
+    from rerodoc.dojson.utils import get_context
+    return get_context("book")
