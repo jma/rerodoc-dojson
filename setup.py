@@ -14,7 +14,7 @@ class PyTest(Command):
     def run(self):
         import subprocess
         import sys
-        errno = subprocess.call(["py.test", 'rerodoc/tests'])
+        errno = subprocess.call(["py.test", 'tests'])
         raise SystemExit(errno)
 
 

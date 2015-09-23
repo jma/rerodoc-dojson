@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 #
 # This file is part of INSPIRE.
@@ -26,6 +25,7 @@
 from dojson import utils
 from ..book.model import book, book2marc
 
+
 @book.over('title', '^245[10_][0_]')
 @utils.filter_values
 def title(self, key, value):
@@ -52,10 +52,12 @@ def title2marc(self, key, value):
         '9': value.get('lang'),
     }
 
+
 @book.over('recid', '^001')
 def control_number(self, key, value):
     """Record Identifier."""
     return value[0]
+
 
 @book2marc.over('001', 'control_number')
 def control_number2marc(self, key, value):
@@ -76,10 +78,12 @@ def language2marc(self, key, value):
         'a': value
     }
 
+
 @book.over('type', '^980__')
 def document_type(self, key, value):
     """Record Document Type."""
     return ["bibrec", value.get("a").lower()]
+
 
 @book2marc.over('980', 'type')
 def document_type2marc(self, key, value):

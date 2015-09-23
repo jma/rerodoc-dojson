@@ -41,7 +41,5 @@ def convert_marcxml(source):
 def _collection_in_record(record, collection):
     """Return a list of collections (lowercased) from 980__a."""
     colls = force_list(record.get("980__", []))
-    return collection in [
-            coll.get('a', "").lower()
-            for coll in colls if coll
-        ]
+    return collection in [coll.get('a', "").lower()
+                          for coll in colls if coll]

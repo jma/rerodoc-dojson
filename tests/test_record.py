@@ -1,6 +1,17 @@
 import pytest
 
 
+class TestConfig:
+
+    def test_get_wrong_schema(self):
+        from rerodoc.dojson.utils import get_schema
+        assert get_schema("not_exists") == None
+
+    def test_get_wrong_context(self):
+        from rerodoc.dojson.utils import get_context
+        assert get_context("not_exists") == None
+
+
 class TestRecord:
 
     def test_validate_record(self, book_schema, simple_book_record):
@@ -18,3 +29,7 @@ class TestRecord:
         compacted = jsonld.compact(rec, book_context)
         graph = Graph().parse(data=json.dumps(compacted, indent=2), format="json-ld")
         print(graph.serialize(format="turtle"))
+
+    def test_marc_xml_export(self, simple_book_record):
+        from rerodoc.dojson.book import book2marc
+        print book2marc.do(simple_book_record)
