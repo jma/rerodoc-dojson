@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = "Johnny Mariethoz <Johnny.Mariethoz@rero.ch>"
-__version__ = "0.0.0"
-__copyright__ = "Copyright (c) 2012 Rero, Johnny Mariethoz"
-__license__ = "Internal Use Only"
-
-
 #---------------------------- Modules -----------------------------------------
 import sys
 
@@ -19,8 +13,11 @@ import json
 import rdflib_jsonld
 from rdflib import Graph
 
+__author__ = "Johnny Mariethoz <Johnny.Mariethoz@rero.ch>"
+__version__ = "0.0.0"
+__copyright__ = "Copyright (c) 2012 Rero, Johnny Mariethoz"
+__license__ = "Internal Use Only"
 
-# local modules
 
 def get_demo_record(verbose=False):
     """Get a record in Json format from a MarcXML."""
@@ -52,17 +49,15 @@ if __name__ == '__main__':
 
     parser = OptionParser(usage)
 
-    parser.set_description ("Get a demo record and extract RDF triples")
+    parser.set_description("Get a demo record and extract RDF triples")
 
-    parser.add_option ("-v", "--verbose", dest="verbose",
-                       help="Verbose mode",
-                       action="store_true", default=False)
+    parser.add_option("-v", "--verbose", dest="verbose", help="Verbose mode",
+                      action="store_true", default=False)
 
-    parser.add_option ("-f", "--format", dest="format",
-                       help="Output format",
-                       type="string", default="turtle")
+    parser.add_option("-f", "--format", dest="format", help="Output format",
+                      type="string", default="turtle")
 
-    (options, args) = parser.parse_args ()
+    (options, args) = parser.parse_args()
 
     if len(args) != 0:
         parser.error("Error: incorrect number of arguments, try --help")
