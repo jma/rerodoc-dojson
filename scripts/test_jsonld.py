@@ -12,6 +12,7 @@ from pyld import jsonld
 import json
 import rdflib_jsonld
 from rdflib import Graph
+import pytest
 
 __author__ = "Johnny Mariethoz <Johnny.Mariethoz@rero.ch>"
 __version__ = "0.0.0"
@@ -19,13 +20,12 @@ __copyright__ = "Copyright (c) 2012 Rero, Johnny Mariethoz"
 __license__ = "Internal Use Only"
 
 
-def get_demo_record(verbose=False):
+def get_demo_record(file_name, verbose=False):
     """Get a record in Json format from a MarcXML."""
 
     from dojson.contrib.marc21.utils import create_record
     from rerodoc.dojson.book import book
-    from rerodoc.testsuite.test_dojson import MIN_BASE_RECORD
-    blob = create_record(MIN_BASE_RECORD)
+    blob = create_record(file(file_name).read())
     data = book.do(blob)
     if verbose:
         print(json.dumps(blob, indent=2))
@@ -59,10 +59,10 @@ if __name__ == '__main__':
 
     (options, args) = parser.parse_args()
 
-    if len(args) != 0:
+    if len(args) != 1:
         parser.error("Error: incorrect number of arguments, try --help")
 
-    doc = get_demo_record(options.verbose)
+    doc = get_demo_record(file_name=args[0], verbose=options.verbose)
     validate(doc)
     if options.verbose:
         from rerodoc.dojson.book import book2marc
