@@ -76,6 +76,50 @@
                 },
                 "title": "Title information"
             }
+        },
+        "authors": {
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "title": "Author name",
+                        "type": "string",
+                        "description": "author name as it appears in the paper",
+                        "format": ".+, .+"
+                    },
+                    "full": {
+                        "title": "Author name",
+                        "type": "string",
+                        "description": "author name, author dates, role"
+                    },
+                     "affiliation": {
+                        "title": "Author name",
+                        "type": "string",
+                        "description": "author's affiliation"
+                    },
+                    "orcid": {
+                        "pattern": "\\d{4}-\\d{4}-\\d{4}-\\d{4}",
+                        "title": "ORCID ID",
+                        "type": "string",
+                        "description": "ORCID Id when available",
+                        "format": "orcid"
+                    },
+                    "role": {
+                        "enum": [
+                            "Dir.",
+                            "Codir."
+                        ],
+                        "type": "string",
+                        "description": "Role of the author within the paper.",
+                        "title": "Role of the person"
+                    }
+                },
+                "title": "Author"
+            },
+            "type": "array",
+            "description": "List with all the authors",
+            "title": "Authors"
         }
     }
 }

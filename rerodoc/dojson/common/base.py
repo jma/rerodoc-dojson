@@ -111,3 +111,57 @@ def document_type2marc(self, key, value):
     return {
         "a": value[1].upper()
     }
+
+
+@book.over('authors', '^[17]00__')
+# @utils.filter_values
+def authors(self, key, value):
+    """Record Document Type."""
+    value = utils.force_list(value)
+
+    def get_value(value):
+        full = value.get("a")
+        if value.get("d"):
+            full = full + " " + value.get("d")
+        if value.get("e"):
+            full = full + " (" + value.get("e") + ")"
+
+        to_return = {
+            "name": value.get("a"),
+            "date": value.get("d"),
+            "role": value.get("e"),
+            "full": full,
+            "affiliation": value.get("u")
+        }
+        return {k: v for k, v in to_return.items() if v}
+    authors = self.get('authors', [])
+
+    if key.startswith('100'):
+        authors.insert(0, get_value(value[0]))
+    else:
+        for val in value:
+            authors.append(get_value(val))
+    return authors
+
+
+@book2marc.over('100', 'authors')
+# @utils.filter_values
+def authors2marc(self, key, value):
+    """Main Entry-Personal Name."""
+    value = utils.force_list(value)
+
+    def get_value(value):
+        to_return = {
+            'a': value.get('name'),
+            'e': value.get('role'),
+            'd': value.get('date'),
+            'u': value.get('affiliation')
+        }
+        return {k: v for k, v in to_return.items() if v}
+
+    if len(value) > 1:
+        self["700"] = []
+    for author in value[1:]:
+        self["700"].append(get_value(author))
+
+    return get_value(value[0])

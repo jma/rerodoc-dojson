@@ -28,6 +28,9 @@
             "@id": "dct:language"
             },
         "title": "dc:title",
+        "authors": {
+            "@id": "dc:creator"
+            },
         "isbn10": "bibo:isbn10",
         "isbn13": "bibo:isbn13",
         "rero_id": {
