@@ -77,10 +77,12 @@ if __name__ == '__main__':
         print(json.dumps(doc, indent=2))
 
     compacted = jsonld.compact(doc, context)
-    #expanded = jsonld.expand(compacted)
+    #print compacted
+    expanded = jsonld.expand(compacted)
+    #import pprint
+    #pprint.pprint(expanded)
     #flattened = jsonld.flatten(doc)
     #framed = jsonld.frame(doc, context)
     #normalized = jsonld.normalize(doc, {'format': 'application/nquads'})
-
-    graph = Graph().parse(data=json.dumps(compacted, indent=2), format="json-ld")
+    graph = Graph().parse(data=json.dumps(expanded, indent=2), format="json-ld")
     print(graph.serialize(format=options.format))
