@@ -15,14 +15,24 @@
         "content": "@value",
         "full": "@value",
         "lang": "@language",
-
+        
+        "media_type": {
+            "@id": "rdau:mediaType",
+            "@type": "@id"
+            },
         "@base": "http://doc.rero.ch/record/",
 
         "book": "dcmitype:Text",
         "bibrec": "dct:BibliographicResource",
-        "language": "dct:language",
+        "language": {
+            "@id": "dct:language"
+            },
         "title": "dc:title",
         "isbn10": "bibo:isbn10",
-        "isbn13": "bibo:isbn13"
+        "isbn13": "bibo:isbn13",
+        "rero_id": {
+            "@id": "dct:hasFormat",
+            "@type": "@id"
+        }
     }
 }

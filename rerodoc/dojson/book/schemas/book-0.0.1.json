@@ -21,10 +21,16 @@
             "title": "Document type"
         },
         "recid":{
-            "uniqueItems": true,
-            "minItems": 1,
             "type": "string",
             "title": "identifier"
+        },
+        "rero_id":{
+            "type": "string",
+            "title": "rero identifier"
+        },
+        "media_type":{
+            "type": "string",
+            "title": "rero identifier"
         },
         "isbn10":{
             "type": "string",

@@ -65,6 +65,20 @@ def control_number2marc(self, key, value):
     return value
 
 
+@book.over('rero_id', '^035__')
+def rero_id(self, key, value):
+    """Language Code."""
+    return "http://data.rero.ch/01-" + value.get('a')
+
+
+@book2marc.over('035', 'rero_id')
+def language2marc(self, key, value):
+    """Language Code."""
+    return {
+        'a': value.replace("http://data.rero.ch/01-", "")
+    }
+
+
 @book.over('language', '^041[10_].')
 def language(self, key, value):
     """Language Code."""
@@ -77,6 +91,12 @@ def language2marc(self, key, value):
     return {
         'a': value
     }
+
+
+@book.over('media_type', '^980__')
+def media_type(self, key, value):
+    """Record Document Type."""
+    return "http://rdvocab.info/termList/RDAMediaType/1003"
 
 
 @book.over('type', '^980__')
