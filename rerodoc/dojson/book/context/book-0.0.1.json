@@ -28,6 +28,7 @@
             "@id": "dct:language"
             },
         "title": "dc:title",
+        "other_title": "dct:alternative",
         "authors": {
             "@id": "dc:creator"
             },

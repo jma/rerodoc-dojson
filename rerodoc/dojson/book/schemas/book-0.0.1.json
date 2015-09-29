@@ -47,6 +47,32 @@
             "description": "FIXME: we shall provide the ISO enum",
             "title": "Language"
         },
+        "other_title": {
+            "type": "object",
+            "title": "Alternative document title",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "lang": {
+                        "type": "string",
+                        "title": "Title language"
+                    },
+                    "full": {
+                        "type": "string",
+                        "title": "Concatenation of title and subtitle"
+                    },
+                    "subtitle": {
+                        "type": "string",
+                        "title": "Subtitle of the document"
+                    },
+                    "maintitle": {
+                        "type": "string",
+                        "title": "Main title of the document"
+                    }
+                },
+                "title": "Alternative title information"
+            }
+        },
         "title": {
             "type": "object",
             "title": "Document title",

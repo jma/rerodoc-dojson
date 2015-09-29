@@ -26,10 +26,32 @@ from dojson import utils
 from ..book.model import book, book2marc
 
 
-@book.over('title', '^245[10_][0_]')
+@book.over('other_title', '^246__')
+@utils.filter_values
+def other_title(self, key, value):
+    """Title Statement."""
+    return {
+        'maintitle': value.get('a'),
+        'full': value.get('a'),
+        'lang': value.get('9')
+    }
+
+
+@book2marc.over('246', 'other_title')
+@utils.for_each_value
+@utils.filter_values
+def title2marc(self, key, value):
+    """Title Statement."""
+    return {
+        'a': value.get('maintitle'),
+        '9': value.get('lang')
+    }
+
+
+@book.over('title', '^245__')
 @utils.filter_values
 def title(self, key, value):
-    """Title Statement."""
+    """Other title Statement."""
     full = [value.get('a')]
     if value.get('b'):
         full.append(value.get('b'))
@@ -49,7 +71,7 @@ def title2marc(self, key, value):
     return {
         'a': value.get('maintitle'),
         'b': value.get('subtitle'),
-        '9': value.get('lang'),
+        '9': value.get('lang')
     }
 
 
