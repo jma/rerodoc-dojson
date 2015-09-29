@@ -26,10 +26,35 @@ from dojson import utils
 from ..book.model import book, book2marc
 
 
+@book.over('edition', '^250__')
+@utils.filter_values
+def edition(self, key, value):
+    """Title Statement."""
+    full = value.get('a')
+    if value.get('b'):
+        full = full + " " + value.get('b')
+    return {
+        'name': value.get('a'),
+        'full': full,
+        'remainder': value.get('b')
+    }
+
+
+@book2marc.over('250', 'edition')
+@utils.for_each_value
+@utils.filter_values
+def edition2marc(self, key, value):
+    """Edition Statement."""
+    return {
+        'a': value.get('name'),
+        'b': value.get('remainder')
+    }
+
+
 @book.over('other_title', '^246__')
 @utils.filter_values
 def other_title(self, key, value):
-    """Title Statement."""
+    """Other title Statement."""
     return {
         'maintitle': value.get('a'),
         'full': value.get('a'),
@@ -40,7 +65,7 @@ def other_title(self, key, value):
 @book2marc.over('246', 'other_title')
 @utils.for_each_value
 @utils.filter_values
-def title2marc(self, key, value):
+def other_title2marc(self, key, value):
     """Title Statement."""
     return {
         'a': value.get('maintitle'),

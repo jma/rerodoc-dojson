@@ -49,6 +49,28 @@
         },
         "other_title": {
             "type": "object",
+            "title": "Edition",
+            "items": {
+                "type": "object",
+                "properties": { 
+                    "full": {
+                        "type": "string",
+                        "title": "Concatenation of title and subtitle"
+                    },
+                    "name": {
+                        "type": "string",
+                        "title": "Edition name"
+                    },
+                    "remainder": {
+                        "type": "string",
+                        "title": "Remainder of the edition"
+                    }
+                },
+                "title": "Edition"
+            }
+        },
+        "other_title": {
+            "type": "object",
             "title": "Alternative document title",
             "items": {
                 "type": "object",

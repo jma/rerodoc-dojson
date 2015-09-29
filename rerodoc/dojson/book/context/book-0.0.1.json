@@ -37,6 +37,7 @@
         "rero_id": {
             "@id": "dct:hasFormat",
             "@type": "@id"
-        }
+        },
+        "edition": "bibo:edition"
     }
 }
