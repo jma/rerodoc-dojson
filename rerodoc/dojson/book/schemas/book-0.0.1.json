@@ -12,9 +12,11 @@
     "type": "object",
     "properties": {
         "type":{
+            "propertyOrder": 1,
             "uniqueItems": true,
             "minItems": 1,
             "type": "array",
+            "format": "table",
             "items": {
                 "type": "string",
                 "enum": [
@@ -26,14 +28,19 @@
             "title": "Document type"
         },
         "recid":{
+            "propertyOrder": 2,
             "type": "string",
-            "title": "RERO DOC identifier"
+            "title": "RERO DOC identifier",
+            "readOnly": true,
+            "default": "1234"
         },
         "rero_id":{
+            "propertyOrder": 3,
             "type": "string",
             "title": "RERO identifier"
         },
         "media_type":{
+            "propertyOrder": 4,
             "type": "string",
             "title": "media type",
             "enum": [
@@ -41,16 +48,19 @@
             ]
         },
         "isbn10":{
+            "propertyOrder": 5,
             "type": "string",
             "title": "ISBN identifier with 10 digits",
             "pattern": "^[0-9]{1,5}-[0-9]{1,7}-[0-9]{1,7}-[0-9,X]{1}$"
         },
         "isbn13":{
+            "propertyOrder": 5,
             "type": "string",
             "title": "ISBN identifier with 13 digits",
             "pattern": "^978[0-9]{9}[0-9]{1}$"
         },
         "language": {
+            "propertyOrder": 6,
             "type": "string",
             "description": "FIXME: we shall provide the ISO enum",
             "title": "Language",
@@ -67,6 +77,7 @@
             }]
         },
         "title": {
+            "propertyOrder": 7,
             "type": "object",
             "title": "Document title",
             "required": [
@@ -165,6 +176,7 @@
             }
         },
         "other_title": {
+            "propertyOrder": 7,
             "type": "object",
             "title": "Alternative document title",
             "properties": {
@@ -281,6 +293,7 @@
             
         },
         "authors": {
+            "propertyOrder": 8,
             "uniqueItems": true,
             "minItems" : 1,
             "items": {
