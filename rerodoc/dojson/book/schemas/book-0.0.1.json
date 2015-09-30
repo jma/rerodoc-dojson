@@ -225,6 +225,24 @@
                 "title": "Publication date"
             }
         },
+        "series": {
+            "type": "object",
+            "title": "Part of series",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "title": "Name of the series"
+                    },
+                    "volume": {
+                        "type": "string",
+                        "title": "Volume number of the series"
+                    }
+                },
+                "title": "Series informations"
+            }
+        },
         "authors": {
             "uniqueItems": true,
             "items": {

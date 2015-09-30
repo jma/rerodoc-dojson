@@ -25,9 +25,29 @@
 from dojson import utils
 from ..book.model import book, book2marc
 from .. import utils as myutils
-
-
 import re
+
+
+@book.over('series', '^490__')
+@utils.filter_values
+def series(self, key, value):
+    """Series Statement."""
+    return {
+        'name': value.get('a'),
+        'volume': value.get('v'),
+        'full': myutils.concatenate(value, ['a', 'v'], " ; ")
+    }
+
+
+@book2marc.over('490', 'series')
+@utils.for_each_value
+@utils.filter_values
+def series2marc(self, key, value):
+    """Collation Statement."""
+    return {
+        'a': value.get('name'),
+        'b': value.get('volume')
+    }
 
 
 @book.over('n_pages', '^300__')
