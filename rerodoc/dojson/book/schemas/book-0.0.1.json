@@ -47,7 +47,7 @@
             "description": "FIXME: we shall provide the ISO enum",
             "title": "Language"
         },
-        "other_title": {
+        "edition": {
             "type": "object",
             "title": "Edition",
             "items": {
@@ -64,6 +64,40 @@
                     "remainder": {
                         "type": "string",
                         "title": "Remainder of the edition"
+                    }
+                },
+                "title": "Edition"
+            }
+        },
+        "publication": {
+            "type": "object",
+            "title": "publication",
+            "items": {
+                "type": "object",
+                "properties": { 
+                    "full": {
+                        "type": "string",
+                        "title": "Concatenation other fields"
+                    },
+                    "location": {
+                        "type": "string",
+                        "title": "Publication location"
+                    },
+                    "publisher": {
+                        "type": "string",
+                        "title": "Publisher of the publication"
+                    },
+                    "date": {
+                        "type": "string",
+                        "title": "Date of the publication"
+                    },
+                    "print_location": {
+                        "type": "string",
+                        "title": "Location of the printer of the publication"
+                    },
+                    "printer": {
+                        "type": "string",
+                        "title": "Printer of the publication"
                     }
                 },
                 "title": "Edition"

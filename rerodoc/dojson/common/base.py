@@ -26,6 +26,39 @@ from dojson import utils
 from ..book.model import book, book2marc
 
 
+@book.over('publication', '^260__')
+@utils.filter_values
+def publication(self, key, value):
+    """Title Statement."""
+    full = []
+    subfields = ['a', 'b', 'c', 'e', 'f']
+    for sf in subfields:
+        if value.get(sf):
+            full.append(value.get(sf))
+    return {
+        'location': value.get('a'),
+        'publisher': value.get('b'),
+        'date': value.get('c'),
+        'print_location': value.get('e'),
+        'printer': value.get('f'),
+        'full': " ".join(full)
+    }
+
+
+@book2marc.over('260', 'publication')
+@utils.for_each_value
+@utils.filter_values
+def publication2marc(self, key, value):
+    """Edition Statement."""
+    return {
+        'a': value.get('location'),
+        'b': value.get('publisher'),
+        'c': value.get('date'),
+        'e': value.get('print_location'),
+        'f': value.get('printer')
+    }
+
+
 @book.over('edition', '^250__')
 @utils.filter_values
 def edition(self, key, value):
