@@ -27,12 +27,13 @@ class TestRecord:
         rec = copy.deepcopy(simple_book_record)
         rec.update(book_context)
         compacted = jsonld.compact(rec, book_context)
-        graph = Graph().parse(data=json.dumps(compacted, indent=2), format="json-ld")
-        print(graph.serialize(format="turtle"))
+        expanded = jsonld.expand(compacted)
+        graph = Graph().parse(data=json.dumps(expanded, indent=2), format="json-ld")
+        print(graph.serialize(format="json-ld"))
 
-    def test_marc_xml_export(self, simple_book_record):
-        from rerodoc.dojson.book import book2marc
-        print book2marc.do(simple_book_record)
+    # def test_marc_xml_export(self, simple_book_record):
+    #     from rerodoc.dojson.book import book2marc
+    #     print book2marc.do(simple_book_record)
 
     def test_book_simple_date(self):
         from rerodoc.dojson.book import book

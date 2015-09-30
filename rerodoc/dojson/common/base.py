@@ -32,7 +32,6 @@ import re
 @utils.ignore_value
 def publication_date(self, key, value):
     """Title Statement."""
-    print value
     raw_date = value.get('c')
     if not raw_date:
         return None
