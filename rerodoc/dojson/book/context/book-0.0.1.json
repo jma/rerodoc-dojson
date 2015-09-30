@@ -40,7 +40,8 @@
         },
         "edition": "bibo:edition",
         "publication": "rdau:publicationStatement",
-        "publication_date": "dct:issued"
+        "publication_date": "dct:issued",
+        "collation": "dc:format"
 
     }
 }

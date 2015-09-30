@@ -62,3 +62,52 @@ class TestRecord:
             '260__': {'c': '209 jfkad afje788'}
         })
         assert data.get("publication_date", None) == None
+
+    def test_book_simple_n_pages_fr(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '300__': {'a': '25 p.'}
+        })
+        assert data.get("n_pages") == 25
+
+    def test_book_n_pages_ger(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '300__': {'a': '230 s.'}
+        })
+        assert data.get("n_pages") == 230
+
+    def test_book_n_pages_sheet(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '300__': {'a': '230 f.'}
+        })
+        assert data.get("n_pages") == 230
+
+    def test_book_simple_n_pages(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '300__': {'a': '25'}
+        })
+        assert data.get("n_pages") == 25
+
+    def test_book_simple_bad_pages(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '300__': {'a': 'A25 j. fjklad'}
+        })
+        assert data.get("n_pages") == None
+
+    def test_book_simple_dimension(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '300__': {'c': '25 cm'}
+        })
+        assert data.get("dimension") == {"width": 25}
+
+    def test_book_full_dimension(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '300__': {'c': '25 x 30 cm'}
+        })
+        assert data.get("dimension") == {"width": 25, "height": 30}

@@ -159,6 +159,50 @@
                 "title": "Title information"
             }
         },
+        "collation": {
+            "type": "object",
+            "title": "Collation of the document",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "pages": {
+                        "type": "string",
+                        "title": "Number of pages"
+                    },
+                    "full": {
+                        "type": "string",
+                        "title": "String version of the collation"
+                    },
+                    "other": {
+                        "type": "string",
+                        "title": "Other infos"
+                    },
+                    "dimension": {
+                        "type": "string",
+                        "title": "Dimension of the document"
+                    }
+                },
+                "title": "Collation"
+            }
+        },
+        "dimension": {
+            "type": "object",
+            "title": "Dimension of the document",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "width": {
+                        "type": "integer",
+                        "title": "Width of the book"
+                    },    
+                    "height": {
+                        "type": "integer",
+                        "title": "Height of the book"
+                    }
+                },
+                "title": "Dimension in cm"
+            }
+        },
         "publication_date": {
             "type": "object",
             "title": "Date of publication",

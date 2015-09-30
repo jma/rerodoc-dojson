@@ -30,6 +30,73 @@ from .. import utils as myutils
 import re
 
 
+@book.over('n_pages', '^300__')
+@utils.ignore_value
+def number_of_pages(self, key, value):
+    """Number of pages Statement."""
+    raw_pages = value.get('a')
+    if not raw_pages:
+        return None
+
+    n_pages = re.findall(r'(\d+)\s*(?:p|s|f)', raw_pages, re.IGNORECASE)
+    if n_pages:
+        return int(n_pages[0])
+    else:
+        n_pages = re.findall(r'^(\d+)$', raw_pages)
+        if n_pages:
+            return int(n_pages[0])
+    return None
+
+
+@book.over('dimension', '^300__')
+@utils.ignore_value
+def dimension(self, key, value):
+    """Document dimension in cm."""
+    raw_dimension = value.get('c')
+    if not raw_dimension:
+        return None
+
+    dimension = re.findall(r'(\d+)\s*x\s*(\d+)\s*cm', raw_dimension, re.IGNORECASE)
+
+    if dimension:
+        return {
+            "width": int(dimension[0][0]),
+            "height": int(dimension[0][1])
+        }
+    else:
+        dimension = re.findall(r'(\d+)\s*cm', raw_dimension, re.IGNORECASE)
+
+        if dimension:
+            return {
+                "width": int(dimension[0])
+            }
+    return None
+
+
+@book.over('collation', '^300__')
+@utils.filter_values
+def publication(self, key, value):
+    """Collation Statement."""
+    return {
+        'pages': value.get('a'),
+        'other': value.get('b'),
+        'dimension': value.get('c'),
+        'full': myutils.concatenate(value, ['a', 'b', 'c'])
+    }
+
+
+@book2marc.over('300', 'collation')
+@utils.for_each_value
+@utils.filter_values
+def publication2marc(self, key, value):
+    """Collation Statement."""
+    return {
+        'a': value.get('pages'),
+        'b': value.get('other'),
+        'c': value.get('dimension')
+    }
+
+
 @book.over('publication_date', '^260__')
 @utils.ignore_value
 def publication_date(self, key, value):
