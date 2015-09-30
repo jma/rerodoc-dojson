@@ -3,13 +3,13 @@ import json
 import functools
 
 
-def concatenate(data, subfields):
+def concatenate(data, subfields, sep=" "):
     to_concatenate = []
     for sf in subfields:
         if data.get(sf):
             to_concatenate.append(data.get(sf))
     if to_concatenate:
-        return ' '.join(to_concatenate)
+        return sep.join(to_concatenate)
     return None
 
 
