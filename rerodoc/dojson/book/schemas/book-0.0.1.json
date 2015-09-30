@@ -159,6 +159,28 @@
                 "title": "Title information"
             }
         },
+        "publication_date": {
+            "type": "object",
+            "title": "Date of publication",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "from": {
+                        "type": "integer",
+                        "title": "From date"
+                    },
+                    "full": {
+                        "type": "string",
+                        "title": "String version of the date"
+                    },
+                    "to": {
+                        "type": "integer",
+                        "title": "To date"
+                    }
+                },
+                "title": "Publication date"
+            }
+        },
         "authors": {
             "uniqueItems": true,
             "items": {

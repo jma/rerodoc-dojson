@@ -25,6 +25,42 @@
 from dojson import utils
 from ..book.model import book, book2marc
 
+import re
+
+
+@book.over('publication_date', '^260__')
+@utils.ignore_value
+def publication_date(self, key, value):
+    """Title Statement."""
+    print value
+    raw_date = value.get('c')
+    if not raw_date:
+        return None
+
+    res = re.findall(r"(\d{4})", raw_date)
+    res = [int(v) for v in res]
+    if not res:
+        return None
+
+    if len(res) == 1:
+        if re.search(r'\d{4}-', raw_date):
+            return {
+                'full': '%d-' % res[0],
+                'from': res[0]
+            }
+        else:
+            return {
+                'full': '%d' % res[0],
+                'from': res[0],
+                'to': res[0]
+            }
+    res.sort()
+    return {
+        'full': '%d-%d' % (res[0], res[-1]),
+        'from': res[0],
+        'to': res[-1]
+    }
+
 
 @book.over('publication', '^260__')
 @utils.filter_values

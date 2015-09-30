@@ -33,3 +33,31 @@ class TestRecord:
     def test_marc_xml_export(self, simple_book_record):
         from rerodoc.dojson.book import book2marc
         print book2marc.do(simple_book_record)
+
+    def test_book_simple_date(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '260__': {'c': '2015'}
+        })
+        assert data.get("publication_date") == {'to': 2015, 'full': '2015', 'from': 2015}
+
+    def test_book_from_date(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '260__': {'c': '2015-'}
+        })
+        assert data.get("publication_date") == {'full': '2015-', 'from': 2015}
+
+    def test_book_full_date(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '260__': {'c': '2015 bla 2013 bla 2001'}
+        })
+        assert data.get("publication_date") == {'to': 2015, 'full': '2001-2015', 'from': 2001}
+
+    def test_book_invalid_date(self):
+        from rerodoc.dojson.book import book
+        data = book.do({
+            '260__': {'c': '209 jfkad afje788'}
+        })
+        assert data.get("publication_date", None) == None

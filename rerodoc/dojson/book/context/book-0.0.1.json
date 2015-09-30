@@ -39,6 +39,8 @@
             "@type": "@id"
         },
         "edition": "bibo:edition",
-        "publication": "rdau:publicationStatement"
+        "publication": "rdau:publicationStatement",
+        "publication_date": "dct:issued"
+
     }
 }
