@@ -1,5 +1,16 @@
 import os
 import json
+import functools
+
+
+def concatenate(data, subfields):
+    to_concatenate = []
+    for sf in subfields:
+        if data.get(sf):
+            to_concatenate.append(data.get(sf))
+    if to_concatenate:
+        return ' '.join(to_concatenate)
+    return None
 
 
 def get_schema(name, version="0.0.1"):

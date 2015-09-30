@@ -24,6 +24,8 @@
 
 from dojson import utils
 from ..book.model import book, book2marc
+from .. import utils as myutils
+
 
 import re
 
@@ -64,19 +66,14 @@ def publication_date(self, key, value):
 @book.over('publication', '^260__')
 @utils.filter_values
 def publication(self, key, value):
-    """Title Statement."""
-    full = []
-    subfields = ['a', 'b', 'c', 'e', 'f']
-    for sf in subfields:
-        if value.get(sf):
-            full.append(value.get(sf))
+    """Publication Statement."""
     return {
         'location': value.get('a'),
         'publisher': value.get('b'),
         'date': value.get('c'),
         'print_location': value.get('e'),
         'printer': value.get('f'),
-        'full': " ".join(full)
+        'full': myutils.concatenate(value, ['a', 'b', 'c', 'e', 'f'])
     }
 
 
@@ -97,13 +94,10 @@ def publication2marc(self, key, value):
 @book.over('edition', '^250__')
 @utils.filter_values
 def edition(self, key, value):
-    """Title Statement."""
-    full = value.get('a')
-    if value.get('b'):
-        full = full + " " + value.get('b')
+    """Edition Statement."""
     return {
         'name': value.get('a'),
-        'full': full,
+        'full': myutils.concatenate(value, ['a', 'b']),
         'remainder': value.get('b')
     }
 
@@ -145,13 +139,10 @@ def other_title2marc(self, key, value):
 @utils.filter_values
 def title(self, key, value):
     """Other title Statement."""
-    full = [value.get('a')]
-    if value.get('b'):
-        full.append(value.get('b'))
     return {
         'maintitle': value.get('a'),
         'subtitle': value.get('b'),
-        'full': ": ".join(full),
+        'full': myutils.concatenate(value, ['a', 'b']),
         'lang': value.get('9')
     }
 
@@ -235,9 +226,7 @@ def authors(self, key, value):
     value = utils.force_list(value)
 
     def get_value(value):
-        full = value.get("a")
-        if value.get("d"):
-            full = full + " " + value.get("d")
+        full = myutils.concatenate(value, ['a', 'd'])
         if value.get("e"):
             full = full + " (" + value.get("e") + ")"
 
