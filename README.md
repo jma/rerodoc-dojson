@@ -1,6 +1,15 @@
 # RERO DOC dojson
 
-Un premier essai concernant le workflow des données RERO DOC en json.
+This project will try to validate the data workflow for RERO DOC.
+
+## Workflow
+
+This is the actual workflow:
+
+	1. convert the record in MarcXML into a MarcJson
+	2. convert the MarcJson into our own Json definition
+	3. (optionnal) validate the generated Json with the defined schema
+	4. Triplets RDF generation given the json and a specific context
 
 ## Installation
 
@@ -11,22 +20,18 @@ Un premier essai concernant le workflow des données RERO DOC en json.
 	cd rerodoc-dojson
 	pip install -e .
 
-## Tester
+## Tests
 
-Il est possible d'exécuter les tests unitaires avec:
+You can run the tests from the root project by running:
 
-	python rerodoc/testsuite/test_dojson.py
+	py.test
 
-ou de tester avec un script convertissant du MarcXML en triplets:
-	
-	python ./scripts/test_jsonld.py	
+`tests` directory contains all the test that run the workflow.
 
-## Workflow
+Alternatively it is possible to run the workflow with:
 
-L'idée principale est la suivante:
+	./scripts/test_jsonld.py tests/book_record.xml
 
-	1. convertir le MarcXML en MarcJson
-	2. convertir le MarcJson en Json comme définit dans notre overlay
-	3. (optionnel) validation du Json généré avec jsonschema
-	4. Génération des triplets RDF avec json-ld et le contexte définit dans notre overlay
-
+ In order to validate the schema an json schema editor can be run using a local web server with:
+    
+    ./scripts/json_editor.py
