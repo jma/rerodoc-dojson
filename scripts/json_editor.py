@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 #---------------------------- Modules -----------------------------------------
 # import of standard modules
 import sys
 import os
 from optparse import OptionParser
 import json
+from flask import Flask
 
 # third party modules
 
@@ -17,23 +17,22 @@ __version__ = "0.0.0"
 __copyright__ = "Copyright (c) 2009-2015 Rero, Johnny Mariethoz"
 __license__ = "Internal Use Only"
 
-from flask import Flask
 app = Flask(__name__)
+
 
 @app.route('/')
 def json_editor():
     from rerodoc.dojson.utils import get_schema
     schema = get_schema("book")
-    print schema
     return """
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>JSON Editor to Test Submission</title>
-	<!-- Latest compiled and minified CSS -->
+  <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
     <script src="/static/bower_components/json-editor/dist/jsoneditor.js"></script>
   </head>
 

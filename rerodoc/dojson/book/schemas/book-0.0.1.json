@@ -47,9 +47,9 @@
             "propertyOrder": 4,
             "type": "string",
             "title": "media type",
-            "enum": [
-                "http://rdvocab.info/termList/RDAMediaType/1003"
-            ]
+            "readOnly": true,
+            "format": "uri",
+            "default": "http://rdvocab.info/termList/RDAMediaType/1003"
         },
         "isbn10":{
             "propertyOrder": 5,
@@ -75,6 +75,12 @@
                 },{
                     "value": "eng",
                     "title": "English"
+                },{
+                    "value": "ger",
+                    "title": "German"
+                },{
+                    "value": "ita",
+                    "title": "Italian"
                 }],
                 "title": "{{item.title}}",
                 "value": "{{item.value}}"
@@ -90,24 +96,39 @@
             ],
             "properties": {
                 "lang": {
+                    "propertyOrder": 1,
                     "type": "string",
                     "title": "Title language",
-                    "enum": [
-                        "fre",
-                        "ger",
-                        "eng",
-                        "ita"
-                    ]
+                    "enumSource": [{
+                        "source": [{
+                            "value": "fre",
+                            "title": "French"
+                        },{
+                            "value": "eng",
+                            "title": "English"
+                        },{
+                            "value": "ger",
+                            "title": "German"
+                        },{
+                            "value": "ita",
+                            "title": "Italian"
+                        }],
+                        "title": "{{item.title}}",
+                        "value": "{{item.value}}"
+                    }]
                 },
                 "maintitle": {
+                    "propertyOrder": 2,
                     "type": "string",
                     "title": "Main title of the document"
                 },
                 "subtitle": {
+                    "propertyOrder": 3,
                     "type": "string",
                     "title": "Subtitle of the document"
                 },
                 "full": {
+                    "propertyOrder": 4,
                     "type": "string",
                     "title": "Concatenation of title and subtitle",
                     "template": "{{maintitle}}: {{subtitle}}",
@@ -118,85 +139,45 @@
                 }
             }
         },
-        "edition": {
-            "type": "object",
-            "title": "Edition",
-            "properties": { 
-                "name": {
-                    "type": "string",
-                    "title": "Edition name"
-                },
-                "remainder": {
-                    "type": "string",
-                    "title": "Remainder of the edition"
-                },
-                "full": {
-                    "type": "string",
-                    "title": "Edition as string",
-                    "template": "{{name}} {{remainder}}",
-                    "watch": {
-                        "name": "edition.name",
-                        "remainder": "edition.remainder"
-                    }
-                }
-            }
-        },
-        "publication": {
-            "type": "object",
-            "title": "publication",
-            "properties": { 
-                "location": {
-                    "type": "string",
-                    "title": "Publication location"
-                },
-                "publisher": {
-                    "type": "string",
-                    "title": "Publisher of the publication"
-                },
-                "date": {
-                    "type": "string",
-                    "title": "Publication date"
-                },
-                "print_location": {
-                    "type": "string",
-                    "title": "Location of the printer of the publication"
-                },
-                "printer": {
-                    "type": "string",
-                    "title": "Printer of the publication"
-                },
-                 "full": {
-                    "type": "string",
-                    "title": "Publication as string",
-                    "template": "{{location}} {{publisher}} {{date}} {{print_location}} {{printer}}",
-                    "watch": {
-                        "location": "publication.location",
-                        "publisher": "publication.publisher",
-                        "date": "publication.date",
-                        "print_location": "publication.print_location",
-                        "printer": "publication.printer"
-                    }
-                }
-            }
-        },
         "other_title": {
             "propertyOrder": 7,
             "type": "object",
             "title": "Alternative document title",
             "properties": {
                 "lang": {
+                    "propertyOrder": 1,
                     "type": "string",
-                    "title": "Title language"
-                },
-                "subtitle": {
-                    "type": "string",
-                    "title": "Subtitle of the document"
+                    "title": "Title language",
+                    "enumSource": [{
+                        "source": [{
+                            "value": "fre",
+                            "title": "French"
+                        },{
+                            "value": "eng",
+                            "title": "English"
+                        },{
+                            "value": "ger",
+                            "title": "German"
+                        },{
+                            "value": "ita",
+                            "title": "Italian"
+                        }],
+                        "title": "{{item.title}}",
+                        "value": "{{item.value}}"
+                    }]
                 },
                 "maintitle": {
+                    "propertyOrder": 2,
                     "type": "string",
                     "title": "Main title of the document"
                 },
+                "subtitle": {
+                    "propertyOrder": 3,
+                    "type": "string",
+                    "title": "Subtitle of the document"
+                },
                 "full": {
+                    "propertyOrder": 4,
                     "type": "string",
                     "title": "Alternative title as string",
                     "template": "{{maintitle}} {{subtitle}}",
@@ -207,95 +188,6 @@
                 }
             }
         },
-        
-        "collation": {
-            "type": "object",
-            "title": "Collation of the document",
-            "properties": {
-                "pages": {
-                    "type": "string",
-                    "title": "Number of pages"
-                },
-                "other": {
-                    "type": "string",
-                    "title": "Other infos"
-                },
-                "dimension": {
-                    "type": "string",
-                    "title": "Dimension of the document",
-                    "template": "{{width}} x {{height}}",
-                    "watch": {
-                        "width": "dimension.width",
-                        "height": "dimension.height"
-                    }
-                },
-                "full": {
-                    "type": "string",
-                    "title": "Collation as string",
-                    "template": "{{pages}} p. {{other}} {{dimension}} cm",
-                    "watch": {
-                        "pages": "collation.pages",
-                        "other": "collation.other",
-                        "dimension": "collation.dimension"
-                    }
-                }
-            }
-        },
-        "dimension": {
-            "type": "object",
-            "title": "Dimension of the document in cm",
-            "properties": {
-                "width": {
-                    "type": "integer",
-                    "title": "Width of the book"
-                },    
-                "height": {
-                    "type": "integer",
-                    "title": "Height of the book"
-                }
-            }
-        },
-        "publication_date": {
-            "type": "object",
-            "title": "Date of publication",
-            "properties": {
-                "from": {
-                    "type": "integer",
-                    "title": "From date",
-                    "default": 2005
-                    },
-
-                "to": {
-                    "type": "integer",
-                    "title": "To date",
-                    "default": 2015
-                },
-                "full": {
-                    "type": "string",
-                    "title": "Date as string",
-                    "template": "{{fdate}}-{{tdate}}",
-                    "watch": {
-                        "fdate": "publication_date.from",
-                        "tdate": "publication_date.to"
-                    }
-                }
-            }  
-        },
-        "series": {
-            "type": "object",
-            "title": "Part of series",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "title": "Name of the series"
-                },
-                "volume": {
-                    "type": "string",
-                    "title": "Volume number of the series"
-                }
-            }
-            
-        },
         "authors": {
             "propertyOrder": 8,
             "uniqueItems": true,
@@ -304,23 +196,41 @@
                 "type": "object",
                 "id": "author_item",
                 "properties": {
+                    "first_name": {
+                        "propertyOrder": 1,
+                        "title": "First name",
+                        "type": "string"
+                    },
+                    "last_name": {
+                        "propertyOrder": 2,
+                        "title": "Last name",
+                        "type": "string"
+                    },
                     "name": {
+                        "propertyOrder": 3,
                         "title": "Author name",
                         "type": "string",
                         "description": "author name as it appears in the paper",
-                        "format": ".+, .+"
+                        "format": ".+, .+",
+                        "template": "{{last_name}}, {{first_name}}",
+                        "watch": {
+                            "first_name": "author_item.first_name",
+                            "last_name": "author_item.last_name"
+                        }
                     },
                     "date": {
+                        "propertyOrder": 4,
                         "title": "Birth and death date of the author",
-                        "type": "string",
-                        "description": "Should be of the form <yyyy-mm-dd> - <yyyy-mm-dd>"
+                        "type": "string"
                     },
                      "affiliation": {
-                        "title": "Author name",
+                        "propertyOrder": 5,
+                        "title": "Affiliation",
                         "type": "string",
                         "description": "author's affiliation"
                     },
                     "orcid": {
+                        "propertyOrder": 6,
                         "pattern": "\\d{4}-\\d{4}-\\d{4}-\\d{4}",
                         "title": "ORCID ID",
                         "type": "string",
@@ -328,6 +238,7 @@
                         "format": "orcid"
                     },
                     "role": {
+                        "propertyOrder": 7,
                         "enum": [
                             "Dir.",
                             "Codir."
@@ -337,6 +248,7 @@
                         "title": "Role of the person"
                     },
                     "full": {
+                        "propertyOrder": 8,
                         "title": "Author name",
                         "type": "string",
                         "description": "Author as string",
@@ -353,6 +265,176 @@
             "type": "array",
             "description": "List with all the authors",
             "title": "Authors"
+        },
+        "edition": {
+            "type": "object",
+            "title": "Edition",
+            "properties": { 
+                "name": {
+                    "propertyOrder": 1,
+                    "type": "string",
+                    "title": "Edition name"
+                },
+                "remainder": {
+                    "propertyOrder": 2,
+                    "type": "string",
+                    "title": "Remainder of the edition"
+                },
+                "full": {
+                    "propertyOrder": 3,
+                    "type": "string",
+                    "title": "Edition as string",
+                    "template": "{{name}} {{remainder}}",
+                    "watch": {
+                        "name": "edition.name",
+                        "remainder": "edition.remainder"
+                    }
+                }
+            }
+        },
+        "publication": {
+            "type": "object",
+            "title": "publication",
+            "properties": { 
+                "location": {
+                    "propertyOrder": 1,
+                    "type": "string",
+                    "title": "Publication location"
+                },
+                "publisher": {
+                    "propertyOrder": 2,
+                    "type": "string",
+                    "title": "Publisher of the publication"
+                },
+                "date": {
+                    "propertyOrder": 3,
+                    "type": "string",
+                    "title": "Publication date"
+                },
+                "print_location": {
+                    "propertyOrder": 4,
+                    "type": "string",
+                    "title": "Location of the printer of the publication"
+                },
+                "printer": {
+                    "propertyOrder": 5,
+                    "type": "string",
+                    "title": "Printer of the publication"
+                },
+                 "full": {
+                    "propertyOrder": 6,
+                    "type": "string",
+                    "title": "Publication as string",
+                    "template": "{{location}} {{publisher}} {{date}} {{print_location}} {{printer}}",
+                    "watch": {
+                        "location": "publication.location",
+                        "publisher": "publication.publisher",
+                        "date": "publication.date",
+                        "print_location": "publication.print_location",
+                        "printer": "publication.printer"
+                    }
+                }
+            }
+        },
+        
+        "collation": {
+            "type": "object",
+            "title": "Collation of the document",
+            "properties": {
+                "pages": {
+                    "propertyOrder": 1,
+                    "type": "string",
+                    "title": "Number of pages"
+                },
+                "other": {
+                    "propertyOrder": 2,
+                    "type": "string",
+                    "title": "Other infos"
+                },
+                "dimension": {
+                    "propertyOrder": 3,
+                    "type": "string",
+                    "title": "Dimension of the document",
+                    "template": "{{width}} x {{height}}",
+                    "watch": {
+                        "width": "dimension.width",
+                        "height": "dimension.height"
+                    }
+                },
+                "full": {
+                    "propertyOrder": 4,
+                    "type": "string",
+                    "title": "Collation as string",
+                    "template": "{{pages}} p. {{other}} {{dimension}} cm",
+                    "watch": {
+                        "pages": "collation.pages",
+                        "other": "collation.other",
+                        "dimension": "collation.dimension"
+                    }
+                }
+            }
+        },
+        "dimension": {
+            "type": "object",
+            "title": "Dimension of the document in cm",
+            "properties": {
+                "width": {
+                    "propertyOrder": 1,
+                    "type": "integer",
+                    "title": "Width of the book"
+                },    
+                "height": {
+                    "propertyOrder": 2,
+                    "type": "integer",
+                    "title": "Height of the book"
+                }
+            }
+        },
+        "publication_date": {
+            "type": "object",
+            "title": "Date of publication",
+            "properties": {
+                "from": {
+                    "propertyOrder": 1,
+                    "type": "integer",
+                    "title": "From date",
+                    "default": 2005
+                    },
+
+                "to": {
+                    "propertyOrder": 2,
+                    "type": "integer",
+                    "title": "To date",
+                    "default": 2015
+                },
+                "full": {
+                    "propertyOrder": 3,
+                    "type": "string",
+                    "title": "Date as string",
+                    "template": "{{fdate}}-{{tdate}}",
+                    "watch": {
+                        "fdate": "publication_date.from",
+                        "tdate": "publication_date.to"
+                    }
+                }
+            }  
+        },
+        "series": {
+            "type": "object",
+            "title": "Part of series",
+            "properties": {
+                "name": {
+                    "propertyOrder": 1,
+                    "type": "string",
+                    "title": "Name of the series"
+                },
+                "volume": {
+                    "propertyOrder": 2,
+                    "type": "string",
+                    "title": "Volume number of the series"
+                }
+            }
+            
         }
     }
 }
