@@ -18,6 +18,8 @@ This is the actual workflow:
 	mkdir src; cd src
 	git clone git@gitlab.rero.ch:maj/rerodoc-dojson.git
 	cd rerodoc-dojson
+	#will be require until the next official version
+	pip install git+ssh://git@github.com/inveniosoftware/dojson.git
 	pip install -e .
 
 ## Tests

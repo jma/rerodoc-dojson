@@ -29,7 +29,11 @@ setup(
         "dojson>=0.1.1",
         "PyLD>=0.6.8",
         "rdflib-jsonld>=0.3",
-        "jsonschema>=2.5.1"
+        "jsonschema>=2.5.1",
+        "pytest>=2.8.0",
+        "pytest-cache>=1.0",
+        "pytest-cov>=2.1.0",
+        "pytest-pep8>=1.0.6"
     ],
     cmdclass = {'test': PyTest},
     entry_points={
