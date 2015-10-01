@@ -27,6 +27,7 @@ setup(
     description="RERO DOC - Digital Library",
     install_requires=[
         "dojson>=0.1.1",
+        "Flask>=0.10.1",
         "PyLD>=0.6.8",
         "rdflib-jsonld>=0.3",
         "jsonschema>=2.5.1",
