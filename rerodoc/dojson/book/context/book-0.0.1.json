@@ -42,7 +42,8 @@
         "publication": "rdau:publicationStatement",
         "publication_date": "dct:issued",
         "collation": "dc:format",
-        "series": "dct:bibliographicCitation"
+        "series": "dct:bibliographicCitation",
+        "meeting": "dc:creator"
 
     }
 }

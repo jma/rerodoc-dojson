@@ -306,6 +306,30 @@ def document_type2marc(self, key, value):
     }
 
 
+@book.over('meeting', '^711__')
+@utils.filter_values
+def meeting(self, key, value):
+    return {
+        'name': value.get('a'),
+        'full': myutils.concatenate(value, ['a', 'n', 'd', 'c']),
+        'location': value.get('c'),
+        'date': value.get('d'),
+        'number': value.get('n')
+    }
+
+
+@book2marc.over('711', 'meeting')
+@utils.filter_values
+def meeting2marc(self, key, value):
+    """Meeting Statement."""
+    return {
+        "a": value.get("name"),
+        "c": value.get("location"),
+        "d": value.get("date"),
+        "n": value.get("number")
+    }
+
+
 @book.over('authors', '^[17]00__')
 # @utils.filter_values
 def authors(self, key, value):
