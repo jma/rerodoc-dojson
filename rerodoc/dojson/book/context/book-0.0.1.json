@@ -43,7 +43,8 @@
         "publication_date": "dct:issued",
         "collation": "dc:format",
         "series": "dct:bibliographicCitation",
-        "meeting": "dc:creator"
+        "meeting": "dc:creator",
+        "corporate": "dc:creator"
 
     }
 }

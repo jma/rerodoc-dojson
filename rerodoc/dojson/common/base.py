@@ -235,7 +235,6 @@ def title(self, key, value):
 
 
 @book2marc.over('245', 'title')
-@utils.for_each_value
 @utils.filter_values
 def title2marc(self, key, value):
     """Title Statement."""
@@ -303,6 +302,26 @@ def document_type2marc(self, key, value):
     """Record Document Type."""
     return {
         "a": value[1].upper()
+    }
+
+
+@book.over('corporate', '^710__')
+@utils.for_each_value
+@utils.filter_values
+def corporate(self, key, value):
+    return {
+        'name': value.get('a'),
+        'full': value.get('a')
+    }
+
+
+@book2marc.over('710', 'corporate')
+@utils.for_each_value
+@utils.filter_values
+def meeting2marc(self, key, value):
+    """Meeting Statement."""
+    return {
+        "a": value.get("name")
     }
 
 

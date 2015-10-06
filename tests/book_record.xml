@@ -36,6 +36,9 @@
   <datafield tag="700" ind1=" " ind2=" ">
     <subfield code="a">Author, 3</subfield>
   </datafield>
+    <datafield tag="710" ind1=" " ind2=" ">
+    <subfield code="a">Corporate Author, 4</subfield>
+  </datafield>
   <datafield tag="711" ind1=" " ind2=" ">
     <subfield code="a">Jeux olympiques d'hiver</subfield>
     <subfield code="c">Vancouver</subfield>
