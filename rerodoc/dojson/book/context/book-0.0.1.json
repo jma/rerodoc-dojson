@@ -12,7 +12,6 @@
 
         "type": "@type",
         "recid": "@id",
-        "content": "@value",
         "full": "@value",
         "lang": "@language",
         
@@ -20,24 +19,29 @@
             "@id": "rdau:mediaType",
             "@type": "@id"
             },
+
         "@base": "http://doc.rero.ch/record/",
 
         "book": "dcmitype:Text",
         "bibrec": "dct:BibliographicResource",
+
         "language": {
             "@id": "dct:language"
-            },
+        },
         "title": "dc:title",
         "other_title": "dct:alternative",
         "authors": {
             "@id": "dc:creator"
-            },
+        },
+
         "isbn10": "bibo:isbn10",
         "isbn13": "bibo:isbn13",
+        
         "rero_id": {
             "@id": "dct:hasFormat",
             "@type": "@id"
         },
+        
         "edition": "bibo:edition",
         "publication": "rdau:publicationStatement",
         "publication_date": "dct:issued",

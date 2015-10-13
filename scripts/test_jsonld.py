@@ -54,7 +54,8 @@ if __name__ == '__main__':
     parser.add_option("-v", "--verbose", dest="verbose", help="Verbose mode",
                       action="store_true", default=False)
 
-    parser.add_option("-f", "--format", dest="format", help="Output format",
+    parser.add_option("-f", "--format", dest="format",
+                      help="Output format such as json-ld, xml, turtle (default: turtle)",
                       type="string", default="turtle")
 
     (options, args) = parser.parse_args()
@@ -84,5 +85,5 @@ if __name__ == '__main__':
     #flattened = jsonld.flatten(doc)
     #framed = jsonld.frame(doc, context)
     #normalized = jsonld.normalize(doc, {'format': 'application/nquads'})
-    graph = Graph().parse(data=json.dumps(expanded, indent=2), format="json-ld")
+    graph = Graph().parse(data=json.dumps(compacted, indent=2), format="json-ld")
     print(graph.serialize(format=options.format))
