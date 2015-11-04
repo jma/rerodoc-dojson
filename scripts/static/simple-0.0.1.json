@@ -1,0 +1,48 @@
+{
+    "description": "A Simple document...",
+    "title": "Simple",
+    "id": "http://doc.rero.ch/schemas/simple-0.0.1.json",
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "title": {
+            "id": "simple_title_item",
+            "propertyOrder": 7,
+            "type": "object",
+            "title": "Document title",
+            "required": [
+                "maintitle",
+                "lang"
+            ],
+            "properties": {
+                "lang": {
+                    "type": "string",
+                    "title": "Title language",
+                    "enum": [
+                        "fre",
+                        "ger",
+                        "eng",
+                        "ita"
+                    ]
+                },
+                "maintitle": {
+                    "type": "string",
+                    "title": "Main title of the document"
+                },
+                "subtitle": {
+                    "type": "string",
+                    "title": "Subtitle of the document"
+                },
+                "full": {
+                    "type": "string",
+                    "title": "Concatenation of title and subtitle",
+                    "template": "{{maintitle}}: {{subtitle}}",
+                    "watch": {
+                        "maintitle": "simple_title_item.maintitle",
+                        "subtitle": "simple_title_item.subtitle"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,2 +1,3 @@
 recursive-include rerodoc/dojson *.json
 recursive-include scripts/static *.js
+recursive-include scripts/static *.json
