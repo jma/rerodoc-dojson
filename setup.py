@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 from distutils.core import setup, Command
 # you can also import from setuptools
@@ -25,6 +25,8 @@ setup(
     author="Johnny Mariethoz - RERO",
     author_email="doc.support@rero.ch",
     description="RERO DOC - Digital Library",
+    packages=find_packages(),
+    include_package_data=True,
     install_requires=[
         "dojson>=0.1.1",
         "Flask>=0.10.1",

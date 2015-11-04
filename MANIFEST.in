@@ -1,0 +1,1 @@
+recursive-include rerodoc/dojson *.json
