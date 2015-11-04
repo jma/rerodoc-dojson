@@ -367,7 +367,7 @@ def authors(self, key, value):
             "full": full,
             "affiliation": value.get("u")
         }
-        return {k: v for k, v in to_return.items() if v}
+        return dict((k, v) for k, v in to_return.items() if v)
     authors = self.get('authors', [])
 
     if key.startswith('100'):
@@ -391,7 +391,7 @@ def authors2marc(self, key, value):
             'd': value.get('date'),
             'u': value.get('affiliation')
         }
-        return {k: v for k, v in to_return.items() if v}
+        return dict((k, v) for k, v in to_return.items() if v)
 
     if len(value) > 1:
         self["700"] = []
