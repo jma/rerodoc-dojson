@@ -29,7 +29,7 @@ class TestRecord:
         compacted = jsonld.compact(rec, book_context)
         expanded = jsonld.expand(compacted)
         graph = Graph().parse(data=json.dumps(expanded, indent=2), format="json-ld")
-        print(graph.serialize(format="json-ld"))
+        #print("JSONL: %s" % graph.serialize(format="json-ld"))
 
     # def test_marc_xml_export(self, simple_book_record):
     #     from rerodoc.dojson.book import book2marc

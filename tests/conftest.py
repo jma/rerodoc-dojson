@@ -5,6 +5,29 @@ import pytest
 import os
 
 
+def marc2record(marc):
+    from rerodoc.dojson.book import book
+    return book.do(marc)
+
+
+def marc2marc(marc):
+    from rerodoc.dojson.book import book, book2marc
+    record = book.do(marc)
+    return book2marc.do(record)
+
+
+def record2jsonld(record, context):
+    from pyld import jsonld
+    import json
+    import rdflib_jsonld
+    from rdflib import Graph
+    import copy
+    rec = copy.deepcopy(record)
+    rec.update(context)
+    compacted = jsonld.compact(rec, context)
+    return jsonld.expand(compacted)
+
+
 def get_demo_record(rec):
     """Get a record in Json format from a MarcXML."""
 
