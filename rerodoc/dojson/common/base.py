@@ -155,7 +155,6 @@ def other_title(self, key, value):
 
 
 @book2marc.over('246__', 'other_title')
-@utils.for_each_value
 @utils.filter_values
 def other_title2marc(self, key, value):
     """Title Statement."""

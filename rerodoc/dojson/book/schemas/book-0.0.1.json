@@ -55,55 +55,7 @@
         },
         "language": {"$ref": "language#"},
         "title": {"$ref": "title#"},
-        "other_title": {
-            "propertyOrder": 7,
-            "type": "object",
-            "title": "Alternative document title",
-            "properties": {
-                "lang": {
-                    "propertyOrder": 1,
-                    "type": "string",
-                    "title": "Title language",
-                    "enumSource": [{
-                        "source": [{
-                            "value": "fre",
-                            "title": "French"
-                        },{
-                            "value": "eng",
-                            "title": "English"
-                        },{
-                            "value": "ger",
-                            "title": "German"
-                        },{
-                            "value": "ita",
-                            "title": "Italian"
-                        }],
-                        "title": "{{item.title}}",
-                        "value": "{{item.value}}"
-                    }]
-                },
-                "maintitle": {
-                    "propertyOrder": 2,
-                    "type": "string",
-                    "title": "Main title of the document"
-                },
-                "subtitle": {
-                    "propertyOrder": 3,
-                    "type": "string",
-                    "title": "Subtitle of the document"
-                },
-                "full": {
-                    "propertyOrder": 4,
-                    "type": "string",
-                    "title": "Alternative title as string",
-                    "template": "{{maintitle}} {{subtitle}}",
-                    "watch": {
-                        "maintitle": "other_title.maintitle",
-                        "subtitle": "other_title.subtitle"
-                    }
-                }
-            }
-        },
+        "other_title": {"$ref": "other_title#"},
         "authors": {"$ref": "recid#"},
         "corporate":{
             "propertyOrder": 9,
