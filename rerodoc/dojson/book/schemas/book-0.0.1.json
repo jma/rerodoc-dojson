@@ -403,7 +403,6 @@
                 }
             }
         },
-        
         "collation": {
             "type": "object",
             "title": "Collation of the document",
@@ -500,8 +499,7 @@
                     "type": "string",
                     "title": "Volume number of the series"
                 }
-            }
-            
+            }        
         }
     }
 }
