@@ -1,0 +1,53 @@
+ {
+    "propertyOrder": 7,
+    "type": "object",
+    "title": "Document title",
+    "required": [
+        "maintitle",
+        "lang"
+    ],
+    "properties": {
+        "lang": {
+            "propertyOrder": 1,
+            "type": "string",
+            "title": "Title language",
+            "enumSource": [{
+                "source": [{
+                    "value": "fre",
+                    "title": "French"
+                },{
+                    "value": "eng",
+                    "title": "English"
+                },{
+                    "value": "ger",
+                    "title": "German"
+                },{
+                    "value": "ita",
+                    "title": "Italian"
+                }],
+                "title": "{{item.title}}",
+                "value": "{{item.value}}"
+            }]
+        },
+        "maintitle": {
+            "propertyOrder": 2,
+            "type": "string",
+            "title": "Main title of the document"
+        },
+        "subtitle": {
+            "propertyOrder": 3,
+            "type": "string",
+            "title": "Subtitle of the document"
+        },
+        "full": {
+            "propertyOrder": 4,
+            "type": "string",
+            "title": "Concatenation of title and subtitle",
+            "template": "{{maintitle}}: {{subtitle}}",
+            "watch": {
+                "maintitle": "title.maintitle",
+                "subtitle": "title.subtitle"
+            }
+        }
+    }
+}
