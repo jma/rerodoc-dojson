@@ -1,14 +1,22 @@
 import pytest
 from conftest import marc2record, marc2marc, record2jsonld
+from jsonschema import validate, ValidationError
 
 
 class TestRecId:
 
+    # helpers
+    def get_schema(self):
+        from rerodoc.dojson.utils import get_schema
+        return get_schema('recid', 'common')
+
+    def test_validate_record(self):
+        validate('1234', self.get_schema())
+    
     def test_from_marc(self):
         record = marc2record({
             '001': ['1234']
         })
-        print record
         assert record.get('recid') == '1234'
 
     def test_marc2marc(self):

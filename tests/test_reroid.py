@@ -1,8 +1,17 @@
 import pytest
 from conftest import marc2record, marc2marc, record2jsonld
+from jsonschema import validate, ValidationError
 
 
 class TestREROID:
+
+    # helpers
+    def get_schema(self):
+        from rerodoc.dojson.utils import get_schema
+        return get_schema('rero_id', 'common')
+
+    def test_validate_record(self):
+        validate('http://data.rero.ch/01-R1234', self.get_schema())
 
     def test_from_marc(self):
         record = marc2record({
@@ -28,3 +37,7 @@ class TestREROID:
             }]
         }]
         assert converted == jsonld
+
+    def test_wrong_value(self):
+        with pytest.raises(ValidationError):
+            validate('R1234', self.get_schema())

@@ -1,0 +1,6 @@
+{
+    "propertyOrder": 3,
+    "type": "string",
+    "title": "RERO identifier",
+    "pattern": "^http://data.rero.ch/01-.*$"
+}

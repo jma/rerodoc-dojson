@@ -1,13 +1,17 @@
 import pytest
 from conftest import marc2record, marc2marc, record2jsonld
+from jsonschema import validate, ValidationError
 
 
 class TestLanguage:
 
-    def test_validate_record(self):
+    # helpers
+    def get_schema(self):
         from rerodoc.dojson.utils import get_schema
-        from jsonschema import validate
-        validate('eng', get_schema('language', 'book'))
+        return get_schema('language', 'common')
+
+    def test_validate_record(self):
+        validate('eng', self.get_schema())
 
     def test_from_marc(self):
         record = marc2record({
@@ -35,7 +39,5 @@ class TestLanguage:
         assert converted == jsonld
 
     def test_wrong_value(self):
-        from rerodoc.dojson.utils import get_schema
-        from jsonschema import validate, ValidationError
         with pytest.raises(ValidationError):
-            validate('en', get_schema('language', 'book'))
+            validate('en', self.get_schema())

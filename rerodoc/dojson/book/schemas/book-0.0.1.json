@@ -31,18 +31,8 @@
             },
             "title": "Document type"
         },
-        "recid":{
-            "propertyOrder": 2,
-            "type": "string",
-            "title": "RERO DOC identifier",
-            "readOnly": true,
-            "default": "1234"
-        },
-        "rero_id":{
-            "propertyOrder": 3,
-            "type": "string",
-            "title": "RERO identifier"
-        },
+        "recid":{"$ref": "recid#"},
+        "rero_id": {"$ref": "rero_id#"},
         "media_type":{
             "propertyOrder": 4,
             "type": "string",
