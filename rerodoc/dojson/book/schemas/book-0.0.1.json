@@ -63,29 +63,7 @@
             "title": "ISBN identifier with 13 digits",
             "pattern": "^978[0-9]{9}[0-9]{1}$"
         },
-        "language": {
-            "propertyOrder": 6,
-            "type": "string",
-            "description": "FIXME: we shall provide the ISO enum",
-            "title": "Language",
-            "enumSource": [{
-                "source": [{
-                    "value": "fre",
-                    "title": "French"
-                },{
-                    "value": "eng",
-                    "title": "English"
-                },{
-                    "value": "ger",
-                    "title": "German"
-                },{
-                    "value": "ita",
-                    "title": "Italian"
-                }],
-                "title": "{{item.title}}",
-                "value": "{{item.value}}"
-            }]
-        },
+        "language": {"$ref": "language#"},
         "title": {
             "propertyOrder": 7,
             "type": "object",

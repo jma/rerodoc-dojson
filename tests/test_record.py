@@ -14,27 +14,6 @@ class TestConfig:
 
 class TestRecord:
 
-    def test_validate_record(self, book_schema, simple_book_record):
-        from jsonschema import validate
-        validate(simple_book_record, book_schema)
-
-    def test_json_ld(self, book_context, book_schema, simple_book_record):
-        from pyld import jsonld
-        import json
-        import rdflib_jsonld
-        from rdflib import Graph
-        import copy
-        rec = copy.deepcopy(simple_book_record)
-        rec.update(book_context)
-        compacted = jsonld.compact(rec, book_context)
-        expanded = jsonld.expand(compacted)
-        graph = Graph().parse(data=json.dumps(expanded, indent=2), format="json-ld")
-        #print("JSONL: %s" % graph.serialize(format="json-ld"))
-
-    # def test_marc_xml_export(self, simple_book_record):
-    #     from rerodoc.dojson.book import book2marc
-    #     print book2marc.do(simple_book_record)
-
     def test_book_simple_date(self):
         from rerodoc.dojson.book import book
         data = book.do({

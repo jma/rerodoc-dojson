@@ -68,8 +68,8 @@ def concatenate(data, subfields, sep=" "):
     return None
 
 
-def get_schema(name, version="0.0.1"):
-    schema_file_name = os.path.join(os.path.dirname(__file__), name,
+def get_schema(name, base='common', version="0.0.1"):
+    schema_file_name = os.path.join(os.path.dirname(__file__), base,
                                     "schemas", name + "-" + version + ".json")
     if not os.path.isfile(schema_file_name):
         return None
