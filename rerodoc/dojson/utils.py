@@ -1,6 +1,61 @@
 import os
 import json
 import functools
+import six
+
+
+def legacy_export_as_marc(json, tabsize=4):
+    """Create the MARCXML representation using the producer rules."""
+
+    def encode_for_marcxml(value):
+        from xml.sax.saxutils import escape
+        if isinstance(value, unicode):
+            value = value.encode('utf8')
+        return escape(str(value))
+
+    export = ['<record>\n']
+
+    for key, value in sorted(six.iteritems(json)):
+        if not value:
+            continue
+        if key.startswith('00') and len(key) == 3:
+            # Controlfield
+            if isinstance(value, list):
+                value = value[0]
+            export += ['\t<controlfield tag="%s">%s'
+                       '</controlfield>\n'.expandtabs(tabsize)
+                       % (key, encode_for_marcxml(value))]
+        else:
+            tag = key[:3]
+            try:
+                ind1 = key[3].replace("_", "")
+            except:
+                ind1 = ""
+            try:
+                ind2 = key[4].replace("_", "")
+            except:
+                ind2 = ""
+            if isinstance(value, dict):
+                value = [value]
+            for field in value:
+                export += ['\t<datafield tag="%s" ind1="%s" '
+                           'ind2="%s">\n'.expandtabs(tabsize)
+                           % (tag, ind1, ind2)]
+                for code, subfieldvalue in six.iteritems(field):
+                    if subfieldvalue:
+                        if isinstance(subfieldvalue, list):
+                            for val in subfieldvalue:
+                                export += ['\t\t<subfield code="%s">%s'
+                                           '</subfield>\n'.expandtabs(tabsize)
+                                           % (code, encode_for_marcxml(val))]
+                        else:
+                            export += ['\t\t<subfield code="%s">%s'
+                                       '</subfield>\n'.expandtabs(tabsize)
+                                       % (code,
+                                          encode_for_marcxml(subfieldvalue))]
+                export += ['\t</datafield>\n'.expandtabs(tabsize)]
+    export += ['</record>\n']
+    return "".join(export)
 
 
 def concatenate(data, subfields, sep=" "):
