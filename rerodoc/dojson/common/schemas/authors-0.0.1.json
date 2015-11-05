@@ -1,0 +1,78 @@
+{
+	"propertyOrder": 8,
+    "uniqueItems": true,
+    "minItems" : 1,
+    "items": {
+        "type": "object",
+        "id": "author_item",
+        "properties": {
+            "first_name": {
+                "propertyOrder": 1,
+                "title": "First name",
+                "type": "string"
+            },
+            "last_name": {
+                "propertyOrder": 2,
+                "title": "Last name",
+                "type": "string"
+            },
+            "name": {
+                "propertyOrder": 3,
+                "title": "Author name",
+                "type": "string",
+                "description": "author name as it appears in the paper",
+                "format": ".+, .+",
+                "template": "{{last_name}}, {{first_name}}",
+                "watch": {
+                    "first_name": "author_item.first_name",
+                    "last_name": "author_item.last_name"
+                }
+            },
+            "date": {
+                "propertyOrder": 4,
+                "title": "Birth and death date of the author",
+                "type": "string"
+            },
+             "affiliation": {
+                "propertyOrder": 5,
+                "title": "Affiliation",
+                "type": "string",
+                "description": "author's affiliation"
+            },
+            "orcid": {
+                "propertyOrder": 6,
+                "pattern": "^http://orcid.org/\\d{4}-\\d{4}-\\d{4}-\\d{4}$",
+                "title": "ORCID ID",
+                "type": "string",
+                "description": "ORCID Id when available",
+                "format": "orcid"
+            },
+            "role": {
+                "propertyOrder": 7,
+                "enum": [
+                    "Dir.",
+                    "Codir."
+                ],
+                "type": "string",
+                "description": "Role of the author within the paper.",
+                "title": "Role of the person"
+            },
+            "full": {
+                "propertyOrder": 8,
+                "title": "Author name",
+                "type": "string",
+                "description": "Author as string",
+                "template": "{{name}} {{date}} ({{role}})",
+                "watch": {
+                    "name": "author_item.name",
+                    "date": "author_item.date",
+                    "role": "author_item.role"
+                }
+            }
+        },
+        "title": "Author"
+    },
+    "type": "array",
+    "description": "List with all the authors",
+    "title": "Authors"
+}

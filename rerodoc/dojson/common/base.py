@@ -76,8 +76,8 @@ def authors(self, key, value):
 
     def get_value(value):
         full = myutils.concatenate(value, ['a', 'd'])
-        if value.get("e"):
-            full = full + " (" + value.get("e") + ")"
+        #if value.get("e"):
+        #    full = full + " (" + value.get("e") + ")"
 
         to_return = {
             "name": value.get("a"),
@@ -113,9 +113,9 @@ def authors2marc(self, key, value):
         return dict((k, v) for k, v in to_return.items() if v)
 
     if len(value) > 1:
-        self["700"] = []
+        self["700__"] = []
     for author in value[1:]:
-        self["700"].append(get_value(author))
+        self["700__"].append(get_value(author))
 
     return get_value(value[0])
 

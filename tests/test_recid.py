@@ -12,7 +12,7 @@ class TestRecId:
 
     def test_validate_record(self):
         validate('1234', self.get_schema())
-    
+
     def test_from_marc(self):
         record = marc2record({
             '001': ['1234']

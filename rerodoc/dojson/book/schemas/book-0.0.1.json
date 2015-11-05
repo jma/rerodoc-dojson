@@ -54,59 +54,7 @@
             "pattern": "^978[0-9]{9}[0-9]{1}$"
         },
         "language": {"$ref": "language#"},
-        "title": {
-            "propertyOrder": 7,
-            "type": "object",
-            "title": "Document title",
-            "required": [
-                "maintitle",
-                "lang"
-            ],
-            "properties": {
-                "lang": {
-                    "propertyOrder": 1,
-                    "type": "string",
-                    "title": "Title language",
-                    "enumSource": [{
-                        "source": [{
-                            "value": "fre",
-                            "title": "French"
-                        },{
-                            "value": "eng",
-                            "title": "English"
-                        },{
-                            "value": "ger",
-                            "title": "German"
-                        },{
-                            "value": "ita",
-                            "title": "Italian"
-                        }],
-                        "title": "{{item.title}}",
-                        "value": "{{item.value}}"
-                    }]
-                },
-                "maintitle": {
-                    "propertyOrder": 2,
-                    "type": "string",
-                    "title": "Main title of the document"
-                },
-                "subtitle": {
-                    "propertyOrder": 3,
-                    "type": "string",
-                    "title": "Subtitle of the document"
-                },
-                "full": {
-                    "propertyOrder": 4,
-                    "type": "string",
-                    "title": "Concatenation of title and subtitle",
-                    "template": "{{maintitle}}: {{subtitle}}",
-                    "watch": {
-                        "maintitle": "title.maintitle",
-                        "subtitle": "title.subtitle"
-                    }
-                }
-            }
-        },
+        "title": {"$ref": "title#"},
         "other_title": {
             "propertyOrder": 7,
             "type": "object",
@@ -156,84 +104,7 @@
                 }
             }
         },
-        "authors": {
-            "propertyOrder": 8,
-            "uniqueItems": true,
-            "minItems" : 1,
-            "items": {
-                "type": "object",
-                "id": "author_item",
-                "properties": {
-                    "first_name": {
-                        "propertyOrder": 1,
-                        "title": "First name",
-                        "type": "string"
-                    },
-                    "last_name": {
-                        "propertyOrder": 2,
-                        "title": "Last name",
-                        "type": "string"
-                    },
-                    "name": {
-                        "propertyOrder": 3,
-                        "title": "Author name",
-                        "type": "string",
-                        "description": "author name as it appears in the paper",
-                        "format": ".+, .+",
-                        "template": "{{last_name}}, {{first_name}}",
-                        "watch": {
-                            "first_name": "author_item.first_name",
-                            "last_name": "author_item.last_name"
-                        }
-                    },
-                    "date": {
-                        "propertyOrder": 4,
-                        "title": "Birth and death date of the author",
-                        "type": "string"
-                    },
-                     "affiliation": {
-                        "propertyOrder": 5,
-                        "title": "Affiliation",
-                        "type": "string",
-                        "description": "author's affiliation"
-                    },
-                    "orcid": {
-                        "propertyOrder": 6,
-                        "pattern": "\\d{4}-\\d{4}-\\d{4}-\\d{4}",
-                        "title": "ORCID ID",
-                        "type": "string",
-                        "description": "ORCID Id when available",
-                        "format": "orcid"
-                    },
-                    "role": {
-                        "propertyOrder": 7,
-                        "enum": [
-                            "Dir.",
-                            "Codir."
-                        ],
-                        "type": "string",
-                        "description": "Role of the author within the paper.",
-                        "title": "Role of the person"
-                    },
-                    "full": {
-                        "propertyOrder": 8,
-                        "title": "Author name",
-                        "type": "string",
-                        "description": "Author as string",
-                        "template": "{{name}} {{date}} ({{role}})",
-                        "watch": {
-                            "name": "author_item.name",
-                            "date": "author_item.date",
-                            "role": "author_item.role"
-                        }
-                    }
-                },
-                "title": "Author"
-            },
-            "type": "array",
-            "description": "List with all the authors",
-            "title": "Authors"
-        },
+        "authors": {"$ref": "recid#"},
         "corporate":{
             "propertyOrder": 9,
             "uniqueItems": true,
