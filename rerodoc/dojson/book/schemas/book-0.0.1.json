@@ -7,32 +7,13 @@
         "recid",
         "type"
         ],
-    "id": "http://doc.rero.ch/schemas/book-0.0.1.json",
+    "id": "http://doc.rero.ch/schema/book-0.0.1.json",
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
-        "type":{
-            "propertyOrder": 1,
-            "uniqueItems": true,
-            "minItems": 2,
-            "maxItems": 2,
-            "type": "array",
-            "default": [
-                "bibrec",
-                "book"
-            ],
-            "readOnly": true,
-            "items": {
-                "type": "string",
-                "enum": [
-                    "book",
-                    "bibrec"
-                ]
-            },
-            "title": "Document type"
-        },
-        "recid":{"$ref": "recid#"},
-        "rero_id": {"$ref": "rero_id#"},
+        "type": {"$ref": "/schema/type"},
+        "recid":{"$ref": "/schema/recid"},
+        "rero_id": {"$ref": "/schema/rero_id"},
         "media_type":{
             "propertyOrder": 4,
             "type": "string",
@@ -53,10 +34,10 @@
             "title": "ISBN identifier with 13 digits",
             "pattern": "^978[0-9]{9}[0-9]{1}$"
         },
-        "language": {"$ref": "language#"},
-        "title": {"$ref": "title#"},
-        "other_title": {"$ref": "other_title#"},
-        "authors": {"$ref": "recid#"},
+        "language": {"$ref": "/schema/language"},
+        "title": {"$ref": "/schema/title"},
+        "other_title": {"$ref": "/schema/other_title"},
+        "authors": {"$ref": "/schema/authors"},
         "corporate":{
             "propertyOrder": 9,
             "uniqueItems": true,

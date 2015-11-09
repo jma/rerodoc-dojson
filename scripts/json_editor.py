@@ -61,10 +61,10 @@ def json_editor():
           schema: {
                   "title": "Choose",
                   "oneOf": [
-                    %s,
+                    {$ref: "schema/book"},
                     {
                         $ref: "static/simple-0.0.1.json",
-                        title: "Title Only"
+                        "title": "schema/title"
                     }
                   ]
           },
@@ -76,7 +76,18 @@ def json_editor():
     </script>
   </body>
 </html>
-""" % json.dumps(schema, indent=2)
+"""
+
+
+@app.route('/schema/<name>')
+def get_schema(name):
+    from rerodoc.dojson.utils import get_schema
+    schema = get_schema(name, 'common')
+    if not schema:
+        schema = get_schema(name, 'book')
+
+    from flask import jsonify
+    return jsonify(schema)
 
 
 #---------------------------- Main Part ---------------------------------------

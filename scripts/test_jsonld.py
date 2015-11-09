@@ -39,7 +39,10 @@ def validate(record, schema_name="book"):
     from jsonschema import validate
     from rerodoc.dojson.utils import get_schema
     schema = get_schema(schema_name)
-    validate(record, schema)
+    try:
+        validate(record, schema)
+    except:
+        print("Error cannot validate")
 
 #---------------------------- Main Part ---------------------------------------
 
