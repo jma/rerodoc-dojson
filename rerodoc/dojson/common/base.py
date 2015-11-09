@@ -176,7 +176,6 @@ def edition(self, key, value):
 
 
 @book2marc.over('250__', 'edition')
-@utils.for_each_value
 @utils.filter_values
 def edition2marc(self, key, value):
     """Edition Statement."""

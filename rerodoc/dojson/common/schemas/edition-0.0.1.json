@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "title": "Edition",
+    "properties": { 
+        "name": {
+            "propertyOrder": 1,
+            "type": "string",
+            "title": "Edition name"
+        },
+        "remainder": {
+            "propertyOrder": 2,
+            "type": "string",
+            "title": "Remainder of the edition"
+        },
+        "full": {
+            "propertyOrder": 3,
+            "type": "string",
+            "title": "Edition as string",
+            "template": "{{name}} {{remainder}}",
+            "watch": {
+                "name": "edition.name",
+                "remainder": "edition.remainder"
+            }
+        }
+   }
+}

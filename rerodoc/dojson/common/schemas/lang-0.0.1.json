@@ -1,0 +1,17 @@
+{
+      "type": "string",
+    "enum": [
+        "fre",
+        "ger",
+        "eng",
+        "ita"
+    ],
+    "options": {
+        "enum_titles": [
+          "French",
+          "German",
+          "English",
+          "Italian"
+        ]
+    }
+}
