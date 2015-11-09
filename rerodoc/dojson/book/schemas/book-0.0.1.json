@@ -203,35 +203,7 @@
                 }
             }
         },
-        "publication_date": {
-            "type": "object",
-            "title": "Date of publication",
-            "properties": {
-                "from": {
-                    "propertyOrder": 1,
-                    "type": "integer",
-                    "title": "From date",
-                    "default": 2005
-                    },
-
-                "to": {
-                    "propertyOrder": 2,
-                    "type": "integer",
-                    "title": "To date",
-                    "default": 2015
-                },
-                "full": {
-                    "propertyOrder": 3,
-                    "type": "string",
-                    "title": "Date as string",
-                    "template": "{{fdate}}-{{tdate}}",
-                    "watch": {
-                        "fdate": "publication_date.from",
-                        "tdate": "publication_date.to"
-                    }
-                }
-            }  
-        },
+        "publication_date": {"$ref": "/schema/common/book"},
         "series": {
             "type": "object",
             "title": "Part of series",
