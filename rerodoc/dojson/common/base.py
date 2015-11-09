@@ -233,7 +233,6 @@ def publication(self, key, value):
 
 
 @book2marc.over('260__', 'publication')
-@utils.for_each_value
 @utils.filter_values
 def publication2marc(self, key, value):
     """Edition Statement."""

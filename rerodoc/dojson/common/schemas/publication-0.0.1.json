@@ -1,0 +1,44 @@
+{
+	"type": "object",
+    "title": "publication",
+    "properties": { 
+        "location": {
+            "propertyOrder": 1,
+            "type": "string",
+            "title": "Publication location"
+        },
+        "publisher": {
+            "propertyOrder": 2,
+            "type": "string",
+            "title": "Publisher of the publication"
+        },
+        "date": {
+            "propertyOrder": 3,
+            "type": "string",
+            "title": "Publication date"
+        },
+        "print_location": {
+            "propertyOrder": 4,
+            "type": "string",
+            "title": "Location of the printer of the publication"
+        },
+        "printer": {
+            "propertyOrder": 5,
+            "type": "string",
+            "title": "Printer of the publication"
+        },
+         "full": {
+            "propertyOrder": 6,
+            "type": "string",
+            "title": "Publication as string",
+            "template": "{{location}} {{publisher}} {{date}} {{print_location}} {{printer}}",
+            "watch": {
+                "location": "publication.location",
+                "publisher": "publication.publisher",
+                "date": "publication.date",
+                "print_location": "publication.print_location",
+                "printer": "publication.printer"
+            }
+        }
+    }
+}
