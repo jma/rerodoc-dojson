@@ -1,29 +1,9 @@
 {
-    "propertyOrder": 6,
-    "type": "string",
-    "description": "FIXME: we shall provide the ISO enum",
-    "title": "Language",
-    "enum": [
-        "fre",
-        "ger",
-        "eng",
-        "ita"
-    ],
-    "enumSource": [{
-        "source": [{
-            "value": "fre",
-            "title": "French"
-        },{
-            "value": "eng",
-            "title": "English"
-        },{
-            "value": "ger",
-            "title": "German"
-        },{
-            "value": "ita",
-            "title": "Italian"
-        }],
-        "title": "{{item.title}}",
-        "value": "{{item.value}}"
+    "allOf": [{
+            "propertyOrder": 6,
+            "description": "FIXME: we shall provide the ISO enum",
+            "title": "Language"
+        }, {
+            "$ref": "/schema/common/lang"
     }]
 }

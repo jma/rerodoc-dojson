@@ -8,7 +8,7 @@ class TestLanguage:
     # helpers
     def get_schema(self):
         from rerodoc.dojson.utils import get_schema
-        return get_schema('language', 'common')
+        return get_schema('lang', 'common')
 
     def test_validate_record(self):
         validate('eng', self.get_schema())
@@ -37,7 +37,3 @@ class TestLanguage:
             }]
         }]
         assert converted == jsonld
-
-    def test_wrong_value(self):
-        with pytest.raises(ValidationError):
-            validate('en', self.get_schema())

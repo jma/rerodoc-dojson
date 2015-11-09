@@ -61,7 +61,7 @@ def json_editor():
           schema: {
                   "title": "Choose",
                   "oneOf": [
-                    {$ref: "schema/book"},
+                    {$ref: "schema/book/book"},
                     {
                         $ref: "static/simple-0.0.1.json",
                         "title": "schema/title"
@@ -79,13 +79,10 @@ def json_editor():
 """
 
 
-@app.route('/schema/<name>')
-def get_schema(name):
+@app.route('/schema/<base>/<name>')
+def get_schema(base, name):
     from rerodoc.dojson.utils import get_schema
-    schema = get_schema(name, 'common')
-    if not schema:
-        schema = get_schema(name, 'book')
-
+    schema = get_schema(name, base)
     from flask import jsonify
     return jsonify(schema)
 

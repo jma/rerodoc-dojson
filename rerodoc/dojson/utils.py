@@ -73,7 +73,24 @@ def get_schema(name, base='common', version="0.0.1"):
                                     "schemas", name + "-" + version + ".json")
     if not os.path.isfile(schema_file_name):
         return None
-    return json.load(file(schema_file_name))
+
+    def expand_schema(schema):
+        if isinstance(schema, list):
+            for s in schema:
+                expand_schema(s)
+        if isinstance(schema, dict):
+            if schema.get('$ref'):
+                name = schema.get('$ref')
+                base, name = name.split('/')[2:]
+                sub_schema = get_schema(name, base)
+                schema.update(sub_schema)
+                del(schema['$ref'])
+            for k, v in schema.iteritems():
+                expand_schema(v)
+
+    schema = json.load(file(schema_file_name))
+    expand_schema(schema)
+    return schema
 
 
 def get_context(name, version="0.0.1"):
