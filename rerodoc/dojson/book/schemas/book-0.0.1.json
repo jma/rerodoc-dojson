@@ -1,4 +1,3 @@
-{
     "description": "A book document...",
     "title": "Book",
     "required": [
@@ -14,14 +13,7 @@
         "type": {"$ref": "/schema/common/type"},
         "recid":{"$ref": "/schema/common/recid"},
         "rero_id": {"$ref": "/schema/common/rero_id"},
-        "media_type":{
-            "propertyOrder": 4,
-            "type": "string",
-            "title": "media type",
-            "readOnly": true,
-            "format": "uri",
-            "default": "http://rdvocab.info/termList/RDAMediaType/1003"
-        },
+        "media_type":{"$ref": "/schema/common/media_type"},
         "isbn10":{
             "propertyOrder": 5,
             "type": "string",
