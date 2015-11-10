@@ -31,7 +31,7 @@ def isbn102marc(self, key, value):
 def isbn13(self, key, value):
     """Other Standard Identifier."""
     isbn = value.get('a')
-    if ISBN13_REGEX.match(isbn) == 13:
+    if ISBN13_REGEX.match(isbn):
         return value.get('a')
     return None
 
