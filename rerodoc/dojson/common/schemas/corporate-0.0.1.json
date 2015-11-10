@@ -1,0 +1,9 @@
+{
+    "propertyOrder": 9,
+    "uniqueItems": true,
+    "type": "array",
+    "title": "Corporate Authors",
+    "items": {  
+        "type": "string"
+    }
+}

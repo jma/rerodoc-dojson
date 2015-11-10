@@ -334,21 +334,16 @@ def series2marc(self, key, value):
 
 @book.over('corporate', '^710__')
 @utils.for_each_value
-@utils.filter_values
 def corporate(self, key, value):
-    return {
-        'name': value.get('a'),
-        'full': value.get('a')
-    }
+    return value.get('a')
 
 
 @book2marc.over('710__', 'corporate')
 @utils.for_each_value
-@utils.filter_values
-def meeting2marc(self, key, value):
+def corporate2marc(self, key, value):
     """Meeting Statement."""
     return {
-        "a": value.get("name")
+        "a": value
     }
 
 
@@ -357,10 +352,10 @@ def meeting2marc(self, key, value):
 def meeting(self, key, value):
     return {
         'name': value.get('a'),
-        'full': myutils.concatenate(value, ['a', 'n', 'd', 'c']),
         'location': value.get('c'),
         'date': value.get('d'),
-        'number': value.get('n')
+        'number': value.get('n'),
+        'full': myutils.concatenate(value, ['a', 'n', 'd', 'c'])
     }
 
 

@@ -38,73 +38,8 @@
         "title": {"$ref": "/schema/common/title"},
         "other_title": {"$ref": "/schema/common/other_title"},
         "authors": {"$ref": "/schema/common/authors"},
-        "corporate":{
-            "propertyOrder": 9,
-            "uniqueItems": true,
-            "type": "array",
-            "title": "Corporate Authors",
-            "items": {  
-                "type": "object",
-                "id": "corporate_item",
-                "properties": {
-                    "name": {
-                        "propertyOrder": 1,
-                        "title": "name",
-                        "type": "string"
-                    },
-                    "full": {
-                        "template": "{{name}}",
-                        "type": "string",
-                        "title": "name as string",
-                        "watch": {
-                            "name": "corporate_item.name"
-                        }
-                    }
-                }
-            }
-        },
-        "meeting": {
-            "propertyOrder": 10,
-            "type": "object",
-            "id": "meeting",
-            "title": "Meeting",
-            "properties": {
-                "name": {
-                    "propertyOrder": 1,
-                    "title": "name",
-                    "type": "string"
-                },
-                "location": {
-                    "propertyOrder": 2,
-                    "title": "location",
-                    "type": "string"
-                },
-                "date": {
-                    "propertyOrder": 3,
-                    "title": "Meeting date event",
-                    "type": "string"
-                },
-                "number": {
-                    "propertyOrder": 4,
-                    "title": "Number",
-                    "type": "string",
-                    "description": "meeting number"
-                },
-                "full": {
-                    "propertyOrder": 5,
-                    "title": "Author name",
-                    "type": "string",
-                    "description": "Author as string",
-                    "template": "{{name}} {{number}} {{date}} {{location}}",
-                    "watch": {
-                        "name": "meeting.name",
-                        "location": "meeting.location",
-                        "date": "meeting.date",
-                        "number": "meeting.number"
-                    }
-                }
-            }
-        },
+        "corporate":{"$ref": "/schema/common/corporate"},
+        "meeting": {"$ref": "/schema/common/meeting"},
         "edition": {"$ref": "/schema/common/edition"},
         "publication": {"$ref": "/schema/common/publication"},
         "collation": {"$ref": "/schema/common/collation"},
