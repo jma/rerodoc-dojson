@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "title": "Dimension of the document in cm",
+    "properties": {
+        "width": {
+            "propertyOrder": 1,
+            "type": "integer",
+            "title": "Width of the book"
+        },    
+        "height": {
+            "propertyOrder": 2,
+            "type": "integer",
+            "title": "Height of the book"
+        }
+    }
+}
