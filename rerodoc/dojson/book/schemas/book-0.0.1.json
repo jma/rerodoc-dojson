@@ -111,21 +111,6 @@
         "dimension": {"$ref": "/schema/common/dimension"},
         "n_pages": {"$ref": "/schema/common/n_pages"},
         "publication_date": {"$ref": "/schema/common/publication_date"},
-        "series": {
-            "type": "object",
-            "title": "Part of series",
-            "properties": {
-                "name": {
-                    "propertyOrder": 1,
-                    "type": "string",
-                    "title": "Name of the series"
-                },
-                "volume": {
-                    "propertyOrder": 2,
-                    "type": "string",
-                    "title": "Volume number of the series"
-                }
-            }        
-        }
+        "series": {"$ref": "/schema/common/series"}
     }
 }

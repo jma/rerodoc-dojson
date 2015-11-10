@@ -323,13 +323,12 @@ def series(self, key, value):
 
 
 @book2marc.over('490__', 'series')
-@utils.for_each_value
 @utils.filter_values
 def series2marc(self, key, value):
     """Collation Statement."""
     return {
         'a': value.get('name'),
-        'b': value.get('volume')
+        'v': value.get('volume')
     }
 
 

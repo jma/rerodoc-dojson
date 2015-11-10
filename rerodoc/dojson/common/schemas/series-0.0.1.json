@@ -1,0 +1,16 @@
+{
+    "type": "object",
+    "title": "Part of series",
+    "properties": {
+        "name": {
+            "propertyOrder": 1,
+            "type": "string",
+            "title": "Name of the series"
+        },
+        "volume": {
+            "propertyOrder": 2,
+            "type": "string",
+            "title": "Volume number of the series"
+        }
+    }
+}
