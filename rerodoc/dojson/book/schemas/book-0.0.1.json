@@ -14,18 +14,8 @@
         "recid":{"$ref": "/schema/common/recid"},
         "rero_id": {"$ref": "/schema/common/rero_id"},
         "media_type":{"$ref": "/schema/common/media_type"},
-        "isbn10":{
-            "propertyOrder": 5,
-            "type": "string",
-            "title": "ISBN identifier with 10 digits",
-            "pattern": "^[0-9]{1,5}-[0-9]{1,7}-[0-9]{1,7}-[0-9,X]{1}$"
-        },
-        "isbn13":{
-            "propertyOrder": 5,
-            "type": "string",
-            "title": "ISBN identifier with 13 digits",
-            "pattern": "^978[0-9]{9}[0-9]{1}$"
-        },
+        "isbn10":{"$ref": "/schema/common/isbn10"},
+        "isbn13":{"$ref": "/schema/common/isbn13"},
         "language": {"$ref": "/schema/common/language"},
         "title": {"$ref": "/schema/common/title"},
         "other_title": {"$ref": "/schema/common/other_title"},
