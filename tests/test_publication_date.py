@@ -53,6 +53,12 @@ class TestPubDate:
         })
         assert record.get("publication_date", None) == None
 
+    def test_missing_from_marc(self):
+        record = marc2record({
+            '260__': {'a': 'Name'}
+        })
+        assert record.get("publication_date", None) == None
+
     def test_jsonld(self, book_context):
         record = {
             'recid': '1234',
