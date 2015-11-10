@@ -301,7 +301,6 @@ def publication(self, key, value):
 
 
 @book2marc.over('300__', 'collation')
-@utils.for_each_value
 @utils.filter_values
 def publication2marc(self, key, value):
     """Collation Statement."""

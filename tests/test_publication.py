@@ -27,8 +27,7 @@ class TestPublication:
                 'b': 'Publisher',
                 'c': '2015-',
                 'e': 'Print Location',
-                'f': 'Printer',
-                'full': 'Location Publisher 2015- Print Location Printer'
+                'f': 'Printer'
             }
         })
         assert record.get('publication') == {
@@ -57,11 +56,11 @@ class TestPublication:
         record = {
             'recid': '1234',
             'publication': {
-                'a': 'Location',
-                'b': 'Publisher',
-                'c': '2015-',
-                'e': 'Print Location',
-                'f': 'Printer',
+                'location': 'Location',
+                'publisher': 'Publisher',
+                'date': '2015-',
+                'print_location': 'Print Location',
+                'printer': 'Printer',
                 'full': 'Location Publisher 2015- Print Location Printer'
             }
         }
