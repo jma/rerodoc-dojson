@@ -1,5 +1,5 @@
 from .fields import (
-    bd01x09x
+    isbn
 )
 
 from .model import book, book2marc
