@@ -105,4 +105,5 @@ if __name__ == '__main__':
     if len(args) != 0:
         parser.error("Error: incorrect number of arguments, try --help")
 
+    app.debug = True
     app.run("0.0.0.0")

@@ -114,7 +114,11 @@
                 "pages": {
                     "propertyOrder": 1,
                     "type": "string",
-                    "title": "Number of pages"
+                    "template": "{{n_pages}} p.",
+                    "title": "Number of pages",
+                    "watch": {
+                        "n_pages": "n_pages"
+                    }
                 },
                 "other": {
                     "propertyOrder": 2,
@@ -160,7 +164,8 @@
                 }
             }
         },
-        "publication_date": {"$ref": "/schema/common/book"},
+        "n_pages": {"$ref": "/schema/common/n_pages"},
+        "publication_date": {"$ref": "/schema/common/publication_date"},
         "series": {
             "type": "object",
             "title": "Part of series",
