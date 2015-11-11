@@ -1,3 +1,4 @@
+{
     "description": "A book document...",
     "title": "Book",
     "required": [
@@ -5,7 +6,7 @@
         "language",
         "recid",
         "type"
-        ],
+    ],
     "id": "http://doc.rero.ch/schema/book/book-0.0.1.json",
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
@@ -14,8 +15,8 @@
         "recid":{"$ref": "/schema/common/recid"},
         "rero_id": {"$ref": "/schema/common/rero_id"},
         "media_type":{"$ref": "/schema/common/media_type"},
-        "isbn10":{"$ref": "/schema/common/isbn10"},
-        "isbn13":{"$ref": "/schema/common/isbn13"},
+        "isbn10":{"$ref": "/schema/book/isbn10"},
+        "isbn13":{"$ref": "/schema/book/isbn13"},
         "language": {"$ref": "/schema/common/language"},
         "title": {"$ref": "/schema/common/title"},
         "other_title": {"$ref": "/schema/common/other_title"},

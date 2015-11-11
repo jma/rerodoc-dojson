@@ -380,7 +380,8 @@ def media_type(self, key, value):
 @book.over('type', '^980__')
 def document_type(self, key, value):
     """Record Document Type."""
-    return ["bibrec", value.get("a").lower()]
+    doc_type = value.get("a")
+    return ['bibrec', doc_type.lower(), 'text']
 
 
 @book2marc.over('980__', 'type')

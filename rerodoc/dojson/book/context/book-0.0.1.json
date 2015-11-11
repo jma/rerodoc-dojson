@@ -22,7 +22,8 @@
 
         "@base": "http://doc.rero.ch/record/",
 
-        "book": "dcmitype:Text",
+        "text": "dcmitype:Text",
+        "book": "bibo:Book",
         "bibrec": "dct:BibliographicResource",
 
         "language": {

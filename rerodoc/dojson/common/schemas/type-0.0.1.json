@@ -1,19 +1,21 @@
 {
    "propertyOrder": 1,
    "uniqueItems": true,
-   "minItems": 2,
-   "maxItems": 2,
+   "minItems": 3,
+   "maxItems": 3,
    "type": "array",
    "default": [
        "bibrec",
-       "book"
+       "book",
+       "text"
    ],
    "readOnly": true,
    "items": {
        "type": "string",
        "enum": [
-           "book",
-           "bibrec"
+          "bibrec",
+          "book",
+          "text"
        ]
    },
    "title": "Document type"

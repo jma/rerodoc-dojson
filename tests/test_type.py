@@ -11,13 +11,13 @@ class TestType:
         return get_schema('type', 'common')
 
     def test_validate_record(self):
-        validate(['bibrec', 'book'], self.get_schema())
+        validate(['bibrec', 'book', 'text'], self.get_schema())
 
     def test_from_marc(self):
         record = marc2record({
             '980__': {'a': 'BOOK'}
         })
-        assert record.get('type') == ['bibrec', 'book']
+        assert record.get('type') == ['bibrec', 'book', 'text']
 
     def test_marc2marc(self):
         marc = {'980__': {'a': 'BOOK'}}
@@ -27,14 +27,15 @@ class TestType:
     def test_jsonld(self, book_context):
         record = {
             'recid': '1234',
-            'type': ['book', 'bibrec']
+            'type': ['bibrec', 'book', 'text']
         }
         converted = record2jsonld(record, book_context)
         jsonld = [{
             '@id': 'http://doc.rero.ch/record/1234',
             '@type': [
+                'http://purl.org/dc/terms/BibliographicResource',
+                'http://purl.org/ontology/bibo/Book',
                 'http://purl.org/dc/dcmitype/Text',
-                'http://purl.org/dc/terms/BibliographicResource'
             ]
         }]
         assert converted == jsonld
