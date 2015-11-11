@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import pytest
 from conftest import marc2record, marc2marc, record2jsonld
 from jsonschema import validate, ValidationError
@@ -32,6 +34,23 @@ class TestTitle:
                 'subtitle': 'Subtitle',
                 'lang': 'eng',
                 'full': 'Main Title Subtitle'
+            }
+        }
+
+    def test_from_marc_utf8(self):
+        record = marc2record({
+            '245__': {
+                'a': 'Neuchâtel mon amour',
+                'b': "Subtitle",
+                '9': 'eng'
+            }
+        })
+        assert record == {
+            'title': {
+                'maintitle': 'Neuchâtel mon amour',
+                'subtitle': 'Subtitle',
+                'lang': 'eng',
+                'full': 'Neuchâtel mon amour Subtitle'
             }
         }
 
