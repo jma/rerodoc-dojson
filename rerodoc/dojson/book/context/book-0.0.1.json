@@ -49,7 +49,12 @@
         "collation": "dc:format",
         "series": "dct:bibliographicCitation",
         "meeting": "dc:contributor",
-        "corporate": "dc:contributor"
+        "corporate": "dc:contributor",
+        "udc": {
+            "@id": "dct:subject",
+            "@type": "@id"
+        },
+        "uri": "@set"
 
     }
 }

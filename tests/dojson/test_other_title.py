@@ -13,7 +13,7 @@ class TestOtherTitle:
     def test_validate_record(self):
         validate({
             'maintitle': 'Other Title',
-            'lang': 'eng',
+            'lang': 'en',
             'full': 'Other Title'
         }, self.get_schema())
 
@@ -21,13 +21,13 @@ class TestOtherTitle:
         record = marc2record({
             '246__': {
                 'a': 'Other Title',
-                '9': 'eng'
+                '9': 'en'
             }
         })
         assert record == {
             'other_title': {
                 'maintitle': 'Other Title',
-                'lang': 'eng',
+                'lang': 'en',
                 'full': 'Other Title'
             }
         }
@@ -36,7 +36,7 @@ class TestOtherTitle:
         marc = {
             '246__': {
                 'a': 'Other Title',
-                '9': 'eng'
+                '9': 'en'
             }
         }
         converted = marc2marc(marc)
@@ -47,7 +47,7 @@ class TestOtherTitle:
             'recid': '1234',
             'other_title': {
                 'maintitle': 'Other Title',
-                'lang': 'eng',
+                'lang': 'en',
                 'full': 'Other Title'
             }
         }
@@ -56,11 +56,11 @@ class TestOtherTitle:
             '@id': 'http://doc.rero.ch/record/1234',
             'http://purl.org/dc/terms/alternative': [{
                 '@value': 'Other Title',
-                '@language': 'eng'
+                '@language': 'en'
             }]
         }]
         assert converted == jsonld
 
     def test_wrong_value(self):
         with pytest.raises(ValidationError):
-            validate({'other_title': {'lang': 'en'}}, self.get_schema())
+            validate({'other_title': {'lang': 'eng'}}, self.get_schema())

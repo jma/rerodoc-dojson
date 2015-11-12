@@ -16,7 +16,7 @@ class TestTitle:
         validate({
             'maintitle': 'Main Title',
             'subtitle': 'Subtitle',
-            'lang': 'eng',
+            'lang': 'en',
             'full': 'Main Title Subtitle'
         }, self.get_schema())
 
@@ -25,14 +25,14 @@ class TestTitle:
             '245__': {
                 'a': 'Main Title',
                 'b': "Subtitle",
-                '9': 'eng'
+                '9': 'en'
             }
         })
         assert record == {
             'title': {
                 'maintitle': 'Main Title',
                 'subtitle': 'Subtitle',
-                'lang': 'eng',
+                'lang': 'en',
                 'full': 'Main Title Subtitle'
             }
         }
@@ -42,14 +42,14 @@ class TestTitle:
             '245__': {
                 'a': 'Neuchâtel mon amour',
                 'b': "Subtitle",
-                '9': 'eng'
+                '9': 'en'
             }
         })
         assert record == {
             'title': {
                 'maintitle': 'Neuchâtel mon amour',
                 'subtitle': 'Subtitle',
-                'lang': 'eng',
+                'lang': 'en',
                 'full': 'Neuchâtel mon amour Subtitle'
             }
         }
@@ -59,7 +59,7 @@ class TestTitle:
             '245__': {
                 'a': 'Main Title',
                 'b': "Subtitle",
-                '9': 'eng'
+                '9': 'en'
             }
         }
         converted = marc2marc(marc)
@@ -71,7 +71,7 @@ class TestTitle:
             'title': {
                 'maintitle': 'Main Title',
                 'subtitle': 'Subtitle',
-                'lang': 'eng',
+                'lang': 'en',
                 'full': 'Main Title Subtitle'
             }
         }
@@ -80,11 +80,11 @@ class TestTitle:
             '@id': 'http://doc.rero.ch/record/1234',
             'http://purl.org/dc/terms/title': [{
                 '@value': 'Main Title Subtitle',
-                '@language': 'eng'
+                '@language': 'en'
             }]
         }]
         assert converted == jsonld
 
     def test_wrong_value(self):
         with pytest.raises(ValidationError):
-            validate({'title': {'lang': 'en'}}, self.get_schema())
+            validate({'title': {'lang': 'eng'}}, self.get_schema())

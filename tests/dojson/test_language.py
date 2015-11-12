@@ -11,29 +11,29 @@ class TestLanguage:
         return get_schema('lang', 'common')
 
     def test_validate_record(self):
-        validate('eng', self.get_schema())
+        validate('en', self.get_schema())
 
     def test_from_marc(self):
         record = marc2record({
-            '041__': {'a': 'eng'}
+            '041__': {'a': 'en'}
         })
-        assert record.get('language') == 'eng'
+        assert record.get('language') == 'en'
 
     def test_marc2marc(self):
-        marc = {'041__': {'a': 'eng'}}
+        marc = {'041__': {'a': 'en'}}
         converted = marc2marc(marc)
         assert marc == converted
 
     def test_jsonld(self, book_context):
         record = {
             'recid': '1234',
-            'language': 'eng'
+            'language': 'en'
         }
         converted = record2jsonld(record, book_context)
         jsonld = [{
             '@id': 'http://doc.rero.ch/record/1234',
             'http://purl.org/dc/terms/language': [{
-                '@value': 'eng'
+                '@value': 'en'
             }]
         }]
         assert converted == jsonld

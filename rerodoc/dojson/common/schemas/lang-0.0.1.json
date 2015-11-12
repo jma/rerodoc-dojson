@@ -1,10 +1,10 @@
 {
       "type": "string",
     "enum": [
-        "fre",
-        "ger",
-        "eng",
-        "ita"
+        "fr",
+        "de",
+        "en",
+        "it"
     ],
     "options": {
         "enum_titles": [

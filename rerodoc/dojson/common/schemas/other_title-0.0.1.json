@@ -4,27 +4,13 @@
     "title": "Alternative document title",
     "properties": {
         "lang": {
-        	"propertyOrder": 1,
-        	"type": "string",
-        	"title": "Title language",
-        	"enumSource": [{
-            	"source": [{
-                	"value": "fre",
-                	"title": "French"
-            	},{
-            	    "value": "eng",
-            	    "title": "English"
-            	},{
-            	    "value": "ger",
-            	    "title": "German"
-            	},{
-            	    "value": "ita",
-            	    "title": "Italian"
-            	}],
-            	"title": "{{item.title}}",
-            	"value": "{{item.value}}"
-        	}]
-    	},
+             "allOf": [{
+                    "propertyOrder": 1,
+                    "title": "Title language"
+                }, {
+                    "$ref": "/schema/common/lang"
+            }]
+        },
     	"maintitle": {
     	    "propertyOrder": 2,
     	    "type": "string",
