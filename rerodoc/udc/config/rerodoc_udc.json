@@ -1,0 +1,500 @@
+{
+  "615.84": {
+    "fr": "Technique en radiologie médicale", 
+    "en": "Medical Radiation Technology", 
+    "de": "Medizinische Strahlenphysik Technologie", 
+    "it": "Radiazioni Medical Technology"
+  }, 
+  "621": {
+    "fr": "Génie industriel", 
+    "en": "Industrial Engineering", 
+    "de": "Industrial Engineering", 
+    "it": "Génie industriel"
+  }, 
+  "65": {
+    "fr": "Sciences de l'information, de la communication et des médias", 
+    "en": "Information, communication and media sciences", 
+    "de": "Informations-, Kommunikations- und Medienwissenschaften", 
+    "it": "Sciences de l'information, de la communication et des médias"
+  }, 
+  "81": {
+    "fr": "Langue, Linguistique", 
+    "en": "Language, Linguistics", 
+    "de": "Sprache, Linguistik", 
+    "it": "Langue, Linguistique"
+  }, 
+  "36": {
+    "fr": "Travail social", 
+    "en": "Social work", 
+    "de": "Sozialarbeit", 
+    "it": "Lavoro sociale"
+  }, 
+  "37": {
+    "fr": "Education, Enseignement", 
+    "en": "Education, Teaching", 
+    "de": "Erziehung, Unterricht", 
+    "it": "Educazione, Insegnamento"
+  }, 
+  "664": {
+    "fr": "Fabrication et conservation des aliments", 
+    "en": "Food production and preservation", 
+    "de": "Lebensmittelherstellung und -konservierung", 
+    "it": "Fabrication et conservation des aliments"
+  }, 
+  "663": {
+    "fr": "Industrie des boissons", 
+    "en": "Beverage industry", 
+    "de": "Getränkeindustrie", 
+    "it": "Industrie des boissons"
+  }, 
+  "574": {
+    "fr": "Ecologie", 
+    "en": "Ecology", 
+    "de": "Ökologie", 
+    "it": "Ecologie"
+  }, 
+  "60": {
+    "fr": "Biotechnologies", 
+    "en": "Biotechnology", 
+    "de": "Biotechnologie", 
+    "it": "Biotechnologies"
+  }, 
+  "61": {
+    "fr": "Santé", 
+    "en": "Health", 
+    "de": "Gesundheit", 
+    "it": "Santé"
+  }, 
+  "63": {
+    "fr": "Agriculture, Agronomie", 
+    "en": "Agriculture, Agronomy", 
+    "de": "Landwirtschaft, Agronomie", 
+    "it": "Agriculture, Agronomie"
+  }, 
+  "35": {
+    "fr": "Administration publique", 
+    "en": "Public administration", 
+    "de": "Öffentliche Verwaltung", 
+    "it": "Administration publique"
+  }, 
+  "66": {
+    "fr": "Chimie industrielle", 
+    "en": "Chemical technology", 
+    "de": "Chemische Verfahrenstechnik", 
+    "it": "Chimie industrielle"
+  }, 
+  "524.8": {
+    "fr": "Cosmologie", 
+    "en": "Cosmology", 
+    "de": "Kosmologie", 
+    "it": "Cosmologie"
+  }, 
+  "903": {
+    "fr": "Préhistoire", 
+    "en": "Pre-history", 
+    "de": "Vorgeschichte", 
+    "it": "Préhistoire"
+  }, 
+  "34": {
+    "fr": "Droit", 
+    "en": "Law", 
+    "de": "Recht", 
+    "it": "Droit"
+  }, 
+  "02": {
+    "fr": "Bibliothéconomie", 
+    "en": "Library sciences", 
+    "de": "Bibliothekswissenschaft", 
+    "it": "Bibliothéconomie"
+  }, 
+  "796": {
+    "fr": "Sciences du sport", 
+    "en": "Sports sciences", 
+    "de": "Sportwissenschaften", 
+    "it": "Sciences du sport"
+  }, 
+  "621.38": {
+    "fr": "Electronique", 
+    "en": "Electronics", 
+    "de": "Elektronik", 
+    "it": "Electronique"
+  }, 
+  "621.39": {
+    "fr": "Télécommunications", 
+    "en": "Telecommunications", 
+    "de": "Nachrichtentechnik", 
+    "it": "Télécommunications"
+  }, 
+  "543": {
+    "fr": "Chimie analytique", 
+    "en": "Analytical chemistry", 
+    "de": "Analytische Chemie", 
+    "it": "Chimie analytique"
+  }, 
+  "159.9": {
+    "fr": "Psychologie", 
+    "en": "Psychology", 
+    "de": "Psychologie", 
+    "it": "Psychologie"
+  }, 
+  "82": {
+    "fr": "Littérature", 
+    "en": "Literature", 
+    "de": "Literatur", 
+    "it": "Littérature"
+  }, 
+  "57/59": {
+    "fr": "Biologie, Sciences de la vie", 
+    "en": "Biology, Life sciences", 
+    "de": "Biologie, Biowissenschaften", 
+    "it": "Biologie, Sciences de la vie"
+  }, 
+  "81`28": {
+    "fr": "Dialectologie", 
+    "en": "Dialectology", 
+    "de": "Dialektologie", 
+    "it": "Dialectologie"
+  }, 
+  "94": {
+    "fr": "Histoire médiévale et moderne", 
+    "en": "Medieval and modern history", 
+    "de": "Geschichte des Mittelalters und der Neuzeit", 
+    "it": "Histoire médiévale et moderne"
+  }, 
+  "1": {
+    "fr": "Philosophie", 
+    "en": "Philosophy", 
+    "de": "Philosophie", 
+    "it": "Philosophie"
+  }, 
+  "621.3": {
+    "fr": "Electricité", 
+    "en": "Electricity", 
+    "de": "Electrizität", 
+    "it": "Electricité"
+  }, 
+  "3": {
+    "fr": "Sciences sociales", 
+    "en": "Social sciences", 
+    "de": "Sozialwissenschaften", 
+    "it": "Sciences sociales"
+  }, 
+  "2": {
+    "fr": "Religion, Théologie", 
+    "en": "Religion, Theology", 
+    "de": "Religion, Theologie", 
+    "it": "Religion, Théologie"
+  }, 
+  "620.9": {
+    "fr": "Energie", 
+    "en": "Energy", 
+    "de": "Energie", 
+    "it": "Energie"
+  }, 
+  "6": {
+    "fr": "Technologie, Sciences de l'ingénieur", 
+    "en": "Engineering", 
+    "de": "Technik, Ingenieurwissenschaften", 
+    "it": "Technologie, Sciences de l'ingénieur"
+  }, 
+  "548": {
+    "fr": "Cristallographie", 
+    "en": "Crystallography", 
+    "de": "Kristallographie", 
+    "it": "Cristallographie"
+  }, 
+  "549": {
+    "fr": "Minéralogie", 
+    "en": "Mineralogy", 
+    "de": "Mineralogie", 
+    "it": "Minéralogie"
+  }, 
+  "620.1": {
+    "fr": "Matériaux", 
+    "en": "Materials", 
+    "de": "Werkstoffe", 
+    "it": "Matériaux"
+  }, 
+  "159.953": {
+    "fr": "Mémoire, Apprentissage, Amnésie", 
+    "en": "Memory and learning", 
+    "de": "Gedächtnis, Lernen, Gedächtnisschwund", 
+    "it": "Memoria, Apprendimento, Amnesia"
+  }, 
+  "75": {
+    "fr": "Peinture", 
+    "en": "Painting", 
+    "de": "Malerei", 
+    "it": "Peinture"
+  }, 
+  "556": {
+    "fr": "Hydrologie", 
+    "en": "Hydrology", 
+    "de": "Hydrologie", 
+    "it": "Hydrologie"
+  }, 
+  "93/94": {
+    "fr": "Histoire", 
+    "en": "History", 
+    "de": "Geschichte", 
+    "it": "Histoire"
+  }, 
+  "7": {
+    "fr": "Arts", 
+    "en": "Arts", 
+    "de": "Kunst", 
+    "it": "Arts"
+  }, 
+  "621.762": {
+    "fr": "Métallurgie des poudres", 
+    "en": "Powder metallurgy", 
+    "de": "Pulvermetallurgie", 
+    "it": "Métallurgie des poudres"
+  }, 
+  "616-083": {
+    "fr": "Soins infirmiers", 
+    "en": "Nursing", 
+    "de": "Krankenpflege", 
+    "it": "Infermieristica"
+  }, 
+  "294/299": {
+    "fr": "Orientalisme", 
+    "en": "Orientalism", 
+    "de": "Orientalistik", 
+    "it": "Orientalisme"
+  }, 
+  "616": {
+    "fr": "Médecine clinique", 
+    "en": "Clinical medicine", 
+    "de": "Klinische Medizin", 
+    "it": "Médecine clinique"
+  }, 
+  "73/77": {
+    "fr": "Arts visuels", 
+    "en": "Visual arts", 
+    "de": "Darstellende Kunst", 
+    "it": "Arts visuels"
+  }, 
+  "615": {
+    "fr": "Thérapeutique. Pharmacie, Pharmacologie", 
+    "en": "Therapeutic. Pharmacy, Pharmacology", 
+    "de": "Therapeutisch. Pharmazie, Pharmakologie", 
+    "it": "Terapeutico. Pharmacie, Pharmacologie"
+  }, 
+  "77": {
+    "fr": "Photographie", 
+    "en": "Photography", 
+    "de": "Photographie", 
+    "it": "Photographie"
+  }, 
+  "621.01": {
+    "fr": "Mécanique", 
+    "en": "Mechanics", 
+    "de": "Mechanik", 
+    "it": "Mécanique"
+  }, 
+  "614.253.5": {
+    "fr": "Sage femme", 
+    "en": "Midwife", 
+    "de": "Sage femme", 
+    "it": "Sage femme"
+  }, 
+  "929.5": {
+    "fr": "Généalogie", 
+    "en": "Genealogy", 
+    "de": "Genealogie", 
+    "it": "Genealogia"
+  }, 
+  "72": {
+    "fr": "Architecture", 
+    "en": "Architecture", 
+    "de": "Architektur", 
+    "it": "Architecture"
+  }, 
+  "71": {
+    "fr": "Urbanisme", 
+    "en": "Urbanism", 
+    "de": "Raumplanung, Städtebau", 
+    "it": "Urbanisme"
+  }, 
+  "004": {
+    "fr": "Informatique", 
+    "en": "Computer science", 
+    "de": "Informatik", 
+    "it": "Informatique"
+  }, 
+  "91": {
+    "fr": "Géographie", 
+    "en": "Geography", 
+    "de": "Geographie", 
+    "it": "Géographie"
+  }, 
+  "616.31": {
+    "fr": "Médecine dentaire", 
+    "en": "Dental medicine", 
+    "de": "Zahnmedizin", 
+    "it": "Médecine dentaire"
+  }, 
+  "378.6": {
+    "fr": "Hautes écoles", 
+    "en": "Higher Education Institutions", 
+    "de": "Hochschulen", 
+    "it": "Scuole universitarie"
+  }, 
+  "931": {
+    "fr": "Histoire ancienne", 
+    "en": "Ancient history", 
+    "de": "Altertum", 
+    "it": "Histoire ancienne"
+  }, 
+  "32": {
+    "fr": "Sciences politiques", 
+    "en": "Political sciences", 
+    "de": "Politikwissenschaften", 
+    "it": "Sciences politiques"
+  }, 
+  "78": {
+    "fr": "Musique", 
+    "en": "Music", 
+    "de": "Musik", 
+    "it": "Musique"
+  }, 
+  "902": {
+    "fr": "Archéologie", 
+    "en": "Archeology", 
+    "de": "Archäologie", 
+    "it": "Archéologie"
+  }, 
+  "55/56": {
+    "fr": "Sciences de la terre", 
+    "en": "Earth sciences", 
+    "de": "Erdwissenschaften", 
+    "it": "Sciences de la terre"
+  }, 
+  "39": {
+    "fr": "Anthropologie, Ethnologie", 
+    "en": "Anthropology, Ethnology", 
+    "de": "Anthropologie, Ethnologie", 
+    "it": "Anthropologie, Ethnologie"
+  }, 
+  "615.8": {
+    "fr": "Physiothérapie", 
+    "en": "Physiotherapy", 
+    "de": "Krankengymnastik", 
+    "it": "Fisioterapia"
+  }, 
+  "59": {
+    "fr": "Zoologie", 
+    "en": "Zoology", 
+    "de": "Zoologie", 
+    "it": "Zoologie"
+  }, 
+  "58": {
+    "fr": "Botanique", 
+    "en": "Botany", 
+    "de": "Botanik", 
+    "it": "Botanique"
+  }, 
+  "613.2": {
+    "fr": "Nutrition et diététique", 
+    "en": "Nutrition and Dietetics", 
+    "de": "Ernährung und Diätetik", 
+    "it": "Nutrizione e Dietetica"
+  }, 
+  "55": {
+    "fr": "Géologie", 
+    "en": "Geology", 
+    "de": "Geologie", 
+    "it": "Géologie"
+  }, 
+  "681": {
+    "fr": "Microtechnique", 
+    "en": "Microengineering", 
+    "de": "Mikrotechnik", 
+    "it": "Microtechnique"
+  }, 
+  "57": {
+    "fr": "Biologie", 
+    "en": "Biology", 
+    "de": "Biologie", 
+    "it": "Biologie"
+  }, 
+  "56": {
+    "fr": "Paléontologie", 
+    "en": "Paleontology", 
+    "de": "Paläontologie", 
+    "it": "Paléontologie"
+  }, 
+  "51": {
+    "fr": "Mathématiques", 
+    "en": "Mathematics", 
+    "de": "Mathematik", 
+    "it": "Mathématiques"
+  }, 
+  "519.2": {
+    "fr": "Probabilités, Statistiques", 
+    "en": "Probabilites, Statistics", 
+    "de": "Wahrscheinlichkeit, Statistik", 
+    "it": "Probabilità, Statistica"
+  }, 
+  "53": {
+    "fr": "Physique", 
+    "en": "Physics", 
+    "de": "Physik", 
+    "it": "Physique"
+  }, 
+  "52": {
+    "fr": "Astronomie, Astrophysique", 
+    "en": "Astronomy, Astrophysics", 
+    "de": "Astronomie, Astrophysik", 
+    "it": "Astronomie, Astrophysique"
+  }, 
+  "33": {
+    "fr": "Economie", 
+    "en": "Economics", 
+    "de": "Wirtschaft", 
+    "it": "Economie"
+  }, 
+  "16": {
+    "fr": "Logique", 
+    "en": "Logic", 
+    "de": "Logik", 
+    "it": "Logique"
+  }, 
+  "54": {
+    "fr": "Chimie", 
+    "en": "Chemistry", 
+    "de": "Chemie", 
+    "it": "Chimie"
+  }, 
+  "7.071": {
+    "fr": "Histoire de l'art", 
+    "en": "Art history", 
+    "de": "Kunstgeschichte", 
+    "it": "Histoire de l'art"
+  }, 
+  "370": {
+    "fr": "Orthophonie", 
+    "en": "Orthophony", 
+    "de": "Logopädie", 
+    "it": "Orthophonie"
+  }, 
+  "551": {
+    "fr": "Climat", 
+    "en": "Climate", 
+    "de": "Klima", 
+    "it": "Climat"
+  }, 
+  "31": {
+    "fr": "Démographie, Sociologie, Statistique", 
+    "en": "Demography, Sociology, Statistics", 
+    "de": "Demographie, Soziologie, Statistik", 
+    "it": "Démographie, Sociologie, Statistique"
+  }, 
+  "376": {
+    "fr": "Education spécialisée", 
+    "en": "Special education", 
+    "de": "Heil- und Sonderpädagogik", 
+    "it": "Educazione speciale"
+  }
+}
