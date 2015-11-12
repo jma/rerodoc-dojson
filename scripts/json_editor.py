@@ -73,7 +73,7 @@ def json_editor():
           // Require all properties by default
           required_by_default: true
       });
-      
+
       document.getElementById('submit').addEventListener('click',function() {
         // Get the value from the editor
         console.log(editor.getValue());
@@ -82,6 +82,7 @@ def json_editor():
   </body>
 </html>
 """
+
 
 @app.route('/edit/<recid>')
 def edit(recid):
@@ -137,7 +138,7 @@ def edit(recid):
           // Require all properties by default
           required_by_default: true
       });
-      
+
       document.getElementById('submit').addEventListener('click',function() {
         // Get the value from the editor
         console.log(editor.getValue());
