@@ -38,7 +38,6 @@ class TestCorporate:
             'corporate': ['Corporate name', 'Corporate name2']
         }
         converted = record2jsonld(record, book_context)
-        print converted
         assert converted == [{
             '@id': 'http://doc.rero.ch/record/1234',
             'http://purl.org/dc/elements/1.1/contributor': [{
