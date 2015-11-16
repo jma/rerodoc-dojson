@@ -6,27 +6,12 @@
         "type": "object",
         "id": "author_item",
         "properties": {
-            "first_name": {
-                "propertyOrder": 1,
-                "title": "First name",
-                "type": "string"
-            },
-            "last_name": {
-                "propertyOrder": 2,
-                "title": "Last name",
-                "type": "string"
-            },
             "name": {
                 "propertyOrder": 3,
                 "title": "Author name",
                 "type": "string",
                 "description": "author name as it appears in the paper",
-                "format": ".+, .+",
-                "template": "{{last_name}}, {{first_name}}",
-                "watch": {
-                    "first_name": "author_item.first_name",
-                    "last_name": "author_item.last_name"
-                }
+                "format": ".+, .+"
             },
             "date": {
                 "propertyOrder": 4,
