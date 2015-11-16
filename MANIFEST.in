@@ -1,3 +1,5 @@
 recursive-include rerodoc/dojson *.json
+recursive-include rerodoc/udc *.json
+recursive-include rerodoc/udc *.rdf
 recursive-include scripts/static *.js
 recursive-include scripts/static *.json
