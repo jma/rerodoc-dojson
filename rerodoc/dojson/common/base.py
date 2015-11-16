@@ -358,6 +358,26 @@ def content_note2marc(self, key, value):
     }
 
 
+@book.over('summary', '^520__')
+@utils.for_each_value
+def summary(self, key, value):
+    """Summary Statement."""
+    return {
+        'content': value.get('a'),
+        'lang': value.get('9')
+    }
+
+
+@book2marc.over('520__', 'summary')
+@utils.for_each_value
+def series2marc(self, key, value):
+    """Summary Statement."""
+    return {
+        'a': value.get('content'),
+        '9': value.get('lang')
+    }
+
+
 @book.over('corporate', '^710__')
 @utils.for_each_value
 def corporate(self, key, value):

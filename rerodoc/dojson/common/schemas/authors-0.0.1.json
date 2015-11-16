@@ -2,6 +2,9 @@
 	"propertyOrder": 8,
     "uniqueItems": true,
     "minItems" : 1,
+    "type": "array",
+    "description": "List with all the authors",
+    "title": "Authors",
     "items": {
         "type": "object",
         "id": "author_item",
@@ -56,8 +59,5 @@
             }
         },
         "title": "Author"
-    },
-    "type": "array",
-    "description": "List with all the authors",
-    "title": "Authors"
+    }
 }

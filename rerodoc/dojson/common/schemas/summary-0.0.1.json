@@ -1,0 +1,26 @@
+{
+    "uniqueItems": true,
+    "minItems" : 1,
+    "type": "array",
+    "title": "Summaries in Several Languages",
+    "items": {
+        "type": "object",
+        "title": "Summary",
+        "properties": {
+            "lang": {
+                 "allOf": [{
+                        "propertyOrder": 1,
+                        "title": "Summay language"
+                    }, {
+                        "$ref": "/schema/common/lang"
+                }]
+            },
+            "content": {
+                "propertyOrder": 2,
+                "type": "string",
+                "format": "textarea",
+                "title": "Content of the Summary"
+            }
+        }
+    }
+}
