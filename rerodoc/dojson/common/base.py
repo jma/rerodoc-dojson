@@ -402,6 +402,28 @@ def reproduction2marc(self, key, value):
     }
 
 
+@book.over('subject', '^600__')
+@utils.for_each_value
+def subject(self, key, value):
+    """Subject Statement."""
+    return {
+        'vocabulary': value.get('2'),
+        'tag': value.get('9'),
+        'content': value.get('a')
+    }
+
+
+@book2marc.over('600__', 'subject')
+@utils.for_each_value
+def subject2marc(self, key, value):
+    """Subject Statement."""
+    return {
+        '2': value.get('vocabulary'),
+        '9': value.get('tag'),
+        'a': value.get('content')
+    }
+
+
 @book.over('corporate', '^710__')
 @utils.for_each_value
 def corporate(self, key, value):

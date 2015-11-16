@@ -1,0 +1,43 @@
+{
+    "uniqueItems": true,
+    "minItems" : 0,
+    "options": {
+        "disable_array_add": true,
+        "disable_array_delete": true,
+        "disable_array_reorder": true
+    },
+    "type": "array",
+    "title": "Subject from the Collective Catalog",
+    "items": {
+        "type": "object",
+        "title": "Subject",
+        "properties": {
+            "vocabulary": {
+                "readOnly": true,
+                "propertyOrder": 1,
+                "type": "string",
+                "title": "Vocabulary",
+                "enum": [
+                    "rero",
+                    "chrero",
+                    "cjurivoc",
+                    "rerovoc",
+                    "jurivoc"
+                ]
+            },
+            "tag": {
+                "readOnly": true,
+                "propertyOrder": 2,
+                "type": "string",
+                "title": "Original Marc Field",
+                 "pattern": "^6[0-9]{2}[0-9,_]{2}$"
+            },
+            "content": {
+                "readOnly": true,
+                "propertyOrder": 3,
+                "type": "string",
+                "title": "Dimension of the document"
+            }
+        }
+    }
+}

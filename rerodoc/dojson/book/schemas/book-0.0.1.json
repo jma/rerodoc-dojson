@@ -33,6 +33,7 @@
         "note": {"$ref": "/schema/common/note"},
         "content_note": {"$ref": "/schema/common/content_note"},
         "summary": {"$ref": "/schema/common/summary"},
-        "reproduction": {"$ref": "/schema/common/reproduction"}
+        "reproduction": {"$ref": "/schema/common/reproduction"},
+        "subject": {"$ref": "/schema/common/subject"}
     }
 }
