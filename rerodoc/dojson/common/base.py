@@ -502,6 +502,33 @@ def other_edition2marc(self, key, value):
     }
 
 
+@book.over('document', '^8564_')
+@utils.for_each_value
+def documen(self, key, value):
+    return {
+        'name': value.get('f'),
+        'mime': value.get('q'),
+        'size': int(value.get('s')),
+        'url': value.get('u'),
+        'order': int(value.get('y').replace('order:', '')),
+        'label': value.get('z')
+    }
+
+
+@book2marc.over('8564_', 'document')
+@utils.for_each_value
+def documen2marc(self, key, value):
+    """Document Statement."""
+    return {
+        'f': value.get('name'),
+        'q': value.get('mime'),
+        's': str(value.get('size')),
+        'u': value.get('url'),
+        'y': "order:%s" % value.get('order'),
+        'z': value.get('label')
+    }
+
+
 @book.over('media_type', '^980__')
 def media_type(self, key, value):
     """Record Document Type."""
