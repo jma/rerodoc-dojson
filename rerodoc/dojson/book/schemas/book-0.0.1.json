@@ -35,6 +35,8 @@
         "summary": {"$ref": "/schema/common/summary"},
         "reproduction": {"$ref": "/schema/common/reproduction"},
         "subject": {"$ref": "/schema/common/subject"},
-        "keyword": {"$ref": "/schema/common/keyword"}
+        "keyword": {"$ref": "/schema/common/keyword"},
+        "other_edition": {"$ref": "/schema/common/other_edition"}
+
     }
 }

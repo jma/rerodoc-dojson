@@ -483,6 +483,25 @@ def meeting2marc(self, key, value):
     }
 
 
+@book.over('other_edition', '^775__')
+@utils.filter_values
+def other_edition(self, key, value):
+    return {
+        'type': value.get('g'),
+        'url': value.get('o')
+    }
+
+
+@book2marc.over('775__', 'other_edition')
+@utils.filter_values
+def other_edition2marc(self, key, value):
+    """Other Edition Statement."""
+    return {
+        "g": value.get("type"),
+        "o": value.get("url")
+    }
+
+
 @book.over('media_type', '^980__')
 def media_type(self, key, value):
     """Record Document Type."""
