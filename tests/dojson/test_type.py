@@ -20,7 +20,16 @@ class TestType:
         assert record.get('type') == ['bibrec', 'book', 'text']
 
     def test_marc2marc(self):
-        marc = {'980__': {'a': 'BOOK'}}
+        marc = {
+            '919__': {
+                'a': 'HES-SO Valais',
+                'b': 'Sion'
+            },
+            '980__': {
+                'b': 'HEVS_',
+                'a': 'BOOK'
+            }
+        }
         converted = marc2marc(marc)
         assert marc == converted
 

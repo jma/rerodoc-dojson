@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "title": "Institution",
+    "properties": {
+        "name": {
+            "propertyOrder": 1,
+            "type": "string",
+            "readOnly": true,
+            "title": "Name"
+        },
+        "code": {
+            "propertyOrder": 2,
+            "type": "string",
+            "enum": [
+                "UNIFR",
+                "UNIGE",
+                "UNIL",
+                "UNINE",
+                "UNISI",
+                "EPFL",
+                "BCUFR",
+                "BPUGE",
+                "HEGGE",
+                "ECAV",
+                "MEDVS",
+                "HEVS_",
+                "CREM",
+                "HETSGE",
+                "BAAGE",
+                "ELSVD",
+                "HEPVS",
+                "BVCFNE",
+                "MHNGE",
+                "BPUNE",
+                "BMUGE",
+                "COEGE",
+                "IMVGE",
+                "CIO",
+                "PA16JU",
+                "IUKB",
+                "MEDVS ",
+                "BICJ",
+                "HEDSFR",
+                "HEPLVD",
+                "BMJBL",
+                "HESAV",
+                "IHEID",
+                "HEDSGE",
+                "AEGE",
+                "HEPBEJUNE",
+                "HEPFR",
+                "IRDP",
+                "SAEF",
+                "EESP"
+            ],
+            "readOnly": true,
+            "title": "Code"
+        },
+        "locality": {
+            "propertyOrder": 3,
+            "type": "string",
+            "readOnly": true,
+            "title": "Location",
+            "enum": [
+                "Genève",
+                "Neuchâtel",
+                "Lausanne",
+                "Fribourg",
+                "Lugano",
+                "Sion"
+            ]
+        }
+    }
+}

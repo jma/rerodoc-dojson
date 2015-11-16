@@ -529,6 +529,32 @@ def documen2marc(self, key, value):
     }
 
 
+@book.over('institution', '^(919|980)__')
+@utils.filter_values
+def institution(self, key, value):
+    institution = self.get('institution', {})
+    if key.startswith('919'):
+        institution.update({
+            'name': value.get('a'),
+            'locality': value.get('b')
+        })
+    if key.startswith('980'):
+        institution.update({
+            'code': value.get('b')
+        })
+    return institution
+
+
+@book2marc.over('919__', 'institution')
+@utils.filter_values
+def institution2marc(self, key, value):
+    """Institution Statement."""
+    return {
+        "a": value.get("name"),
+        "b": value.get("locality")
+    }
+
+
 @book.over('media_type', '^980__')
 def media_type(self, key, value):
     """Record Document Type."""
@@ -542,9 +568,16 @@ def document_type(self, key, value):
     return ['bibrec', doc_type.lower(), 'text']
 
 
-@book2marc.over('980__', 'type')
+@book2marc.over('980__', '(type|institution)')
 def document_type2marc(self, key, value):
     """Record Document Type."""
-    return {
-        "a": value[1].upper()
-    }
+    marc = self.get('980__', {})
+    if key.startswith('type'):
+        marc.update({
+            'a': value[1].upper()
+        })
+    elif key.startswith('institution'):
+        marc.update({
+            'b': value.get('code')
+        })
+    return marc
