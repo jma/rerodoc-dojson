@@ -424,6 +424,26 @@ def subject2marc(self, key, value):
     }
 
 
+@book.over('keyword', '^695__')
+@utils.for_each_value
+def keyword(self, key, value):
+    """Keyword Statement."""
+    return {
+        'lang': value.get('9'),
+        'content': [v.strip() for v in value.get('a').split(";")]
+    }
+
+
+@book2marc.over('695__', 'keyword')
+@utils.for_each_value
+def subject2marc(self, key, value):
+    """Subject Statement."""
+    return {
+        '9': value.get('lang'),
+        'a': " ; ".join(value.get('content'))
+    }
+
+
 @book.over('corporate', '^710__')
 @utils.for_each_value
 def corporate(self, key, value):

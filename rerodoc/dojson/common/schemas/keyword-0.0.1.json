@@ -1,0 +1,30 @@
+{
+    "uniqueItems": true,
+    "minItems" : 1,
+    "type": "array",
+    "title": "Keywords in Several Languages",
+    "items": {
+        "type": "object",
+        "title": "keyword",
+        "properties": {
+            "lang": {
+                 "allOf": [{
+                        "propertyOrder": 1,
+                        "title": "Keyword language"
+                    }, {
+                        "$ref": "/schema/common/lang"
+                }]
+            },
+            "content": {
+                "propertyOrder": 2,
+                "uniqueItems": true,
+                "minItems" : 1,
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "title": "One keyword"
+                }
+            }
+        }
+    }
+}
