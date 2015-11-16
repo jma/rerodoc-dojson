@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "title": "Reproduction",
+    "properties": {
+        "type": {
+            "propertyOrder": 1,
+            "type": "string",
+            "title": "Type"
+        },
+        "location": {
+            "propertyOrder": 2,
+            "type": "string",
+            "title": "Location"
+        },
+        "agency": {
+            "propertyOrder": 3,
+            "type": "string",
+            "title": "Agency"
+        },
+        "full": {
+            "propertyOrder": 4,
+            "type": "string",
+            "title": "Date"
+        }
+    }
+}

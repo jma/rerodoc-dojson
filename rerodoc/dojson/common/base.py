@@ -378,6 +378,30 @@ def series2marc(self, key, value):
     }
 
 
+@book.over('reproduction', '^533__')
+@utils.filter_values
+def reproduction(self, key, value):
+    """Reproduction Statement."""
+    return {
+        'type': value.get('a'),
+        'location': value.get('b'),
+        'agency': value.get('c'),
+        'date': value.get('d')
+    }
+
+
+@book2marc.over('533__', 'reproduction')
+@utils.filter_values
+def reproduction2marc(self, key, value):
+    """Summary Statement."""
+    return {
+        'a': value.get('type'),
+        'b': value.get('location'),
+        'c': value.get('agency'),
+        'd': value.get('date')
+    }
+
+
 @book.over('corporate', '^710__')
 @utils.for_each_value
 def corporate(self, key, value):

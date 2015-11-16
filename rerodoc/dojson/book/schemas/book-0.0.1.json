@@ -32,7 +32,7 @@
         "series": {"$ref": "/schema/common/series"},
         "note": {"$ref": "/schema/common/note"},
         "content_note": {"$ref": "/schema/common/content_note"},
-        "summary": {"$ref": "/schema/common/summary"}
-
+        "summary": {"$ref": "/schema/common/summary"},
+        "reproduction": {"$ref": "/schema/common/reproduction"}
     }
 }
