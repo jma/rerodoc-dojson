@@ -30,6 +30,7 @@
         "n_pages": {"$ref": "/schema/common/n_pages"},
         "publication_date": {"$ref": "/schema/common/publication_date"},
         "series": {"$ref": "/schema/common/series"},
-        "note": {"$ref": "/schema/common/note"}
+        "note": {"$ref": "/schema/common/note"},
+        "content_note": {"$ref": "/schema/common/content_note"}
     }
 }

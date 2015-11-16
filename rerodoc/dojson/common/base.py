@@ -332,13 +332,27 @@ def series2marc(self, key, value):
 
 @book.over('note', '^500__')
 def note(self, key, value):
-    """Edition Statement."""
+    """Note Statement."""
     return value.get('a')
 
 
 @book2marc.over('500__', 'note')
-def edition2marc(self, key, value):
-    """Edition Statement."""
+def note2marc(self, key, value):
+    """Note Statement."""
+    return {
+        'a': value
+    }
+
+
+@book.over('content_note', '^505__')
+def content_note(self, key, value):
+    """Content Note Statement."""
+    return value.get('a')
+
+
+@book2marc.over('505__', 'content_note')
+def content_note2marc(self, key, value):
+    """Content Note Statement."""
     return {
         'a': value
     }
