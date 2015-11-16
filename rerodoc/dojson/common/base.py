@@ -330,6 +330,20 @@ def series2marc(self, key, value):
     }
 
 
+@book.over('note', '^500__')
+def note(self, key, value):
+    """Edition Statement."""
+    return value.get('a')
+
+
+@book2marc.over('500__', 'note')
+def edition2marc(self, key, value):
+    """Edition Statement."""
+    return {
+        'a': value
+    }
+
+
 @book.over('corporate', '^710__')
 @utils.for_each_value
 def corporate(self, key, value):

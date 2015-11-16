@@ -29,6 +29,7 @@
         "dimension": {"$ref": "/schema/common/dimension"},
         "n_pages": {"$ref": "/schema/common/n_pages"},
         "publication_date": {"$ref": "/schema/common/publication_date"},
-        "series": {"$ref": "/schema/common/series"}
+        "series": {"$ref": "/schema/common/series"},
+        "note": {"$ref": "/schema/common/note"}
     }
 }
