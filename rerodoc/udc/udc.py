@@ -90,7 +90,7 @@ def update_udc():
 
 
 def get_udc(code):
-    code = UDC.get(code)
-    if not code:
+    to_return = UDC.get(code)
+    if not to_return:
         raise UnsupportedError(code, 'not used in RERO DOC')
-    return code
+    return to_return
