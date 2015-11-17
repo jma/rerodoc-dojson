@@ -4,14 +4,40 @@
         "fr",
         "de",
         "en",
-        "it"
+        "it",
+        "sq",
+        "hr",
+        "nl",
+        "hu",
+        "la",
+        "pl",
+        "pt",
+        "rm",
+        "ro",
+        "rn",
+        "es",
+        "sr",
+        "sw"
     ],
     "options": {
         "enum_titles": [
           "French",
           "German",
           "English",
-          "Italian"
+          "Italian",
+          "Albanian",
+          "Croatian",
+          "Dutch",
+          "Hungarian",
+          "Latin",
+          "Polish",
+          "Portuguese",
+          "Romansh",
+          "Romanian",
+          "Kirundi",
+          "Spanish",
+          "Serbian",
+          "Swahili"
         ]
     }
 }

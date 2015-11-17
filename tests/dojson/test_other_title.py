@@ -21,7 +21,7 @@ class TestOtherTitle:
         record = marc2record({
             '246__': {
                 'a': 'Other Title',
-                '9': 'en'
+                '9': 'eng'
             }
         })
         assert record == {
@@ -36,7 +36,7 @@ class TestOtherTitle:
         marc = {
             '246__': {
                 'a': 'Other Title',
-                '9': 'en'
+                '9': 'eng'
             }
         }
         converted = marc2marc(marc)

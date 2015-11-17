@@ -17,7 +17,8 @@
                 "propertyOrder": 2,
                 "type": "string",
                 "enum": [
-                	"application/pdf"
+                	"application/pdf",
+                	"image/jpeg"
                 ],
                 "readOnly": true,
                 "title": "Mime Type"

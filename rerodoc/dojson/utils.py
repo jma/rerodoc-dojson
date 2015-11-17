@@ -99,3 +99,49 @@ def get_context(name, version="0.0.1"):
     if not os.path.isfile(context_file_name):
         return None
     return json.load(file(context_file_name))
+
+
+def ln2lang(ln):
+    mapping = {
+        'en': 'eng',
+        'fr': 'fre',
+        'de': 'ger',
+        'it': 'ita',
+        'sq': 'alb',
+        'hr': 'hrv',
+        'nl': 'dut',
+        'hu': 'hun',
+        'la': 'lat',
+        'pl': 'pol',
+        'pt': 'por',
+        'rm': 'roh',
+        'ro': 'rum',
+        'rn': 'run',
+        'es': 'spa',
+        'sr': 'srp',
+        'sw': 'swa'
+    }
+    return mapping.get(ln, ln)
+
+
+def lang2ln(lang):
+    mapping = {
+        'eng': 'en',
+        'fre': 'fr',
+        'ger': 'de',
+        'ita': 'it',
+        'alb': 'sq',
+        'hrv': 'hr',
+        'dut': 'nl',
+        'hun': 'hu',
+        'lat': 'la',
+        'pol': 'pl',
+        'por': 'pt',
+        'roh': 'rm',
+        'rum': 'ro',
+        'run': 'rn',
+        'spa': 'es',
+        'srp': 'sr',
+        'swa': 'sw'
+    }
+    return mapping.get(lang, lang)

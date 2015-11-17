@@ -5,6 +5,7 @@
 from dojson import utils
 from ..book.model import book, book2marc
 from .. import utils as myutils
+from ..utils import ln2lang, lang2ln
 import re
 
 
@@ -37,14 +38,14 @@ def language2marc(self, key, value):
 @book.over('language', '^041[10_].')
 def language(self, key, value):
     """Language Code."""
-    return value.get('a')
+    return lang2ln(value.get('a'))
 
 
 @book2marc.over('041__', 'language')
 def language2marc(self, key, value):
     """Language Code."""
     return {
-        'a': value
+        'a': ln2lang(value)
     }
 
 
@@ -129,7 +130,7 @@ def title(self, key, value):
         'maintitle': value.get('a'),
         'subtitle': value.get('b'),
         'full': myutils.concatenate(value, ['a', 'b']),
-        'lang': value.get('9')
+        'lang': lang2ln(value.get('9'))
     }
 
 
@@ -140,7 +141,7 @@ def title2marc(self, key, value):
     return {
         'a': value.get('maintitle'),
         'b': value.get('subtitle'),
-        '9': value.get('lang')
+        '9': ln2lang(value.get('lang'))
     }
 
 
@@ -151,7 +152,7 @@ def other_title(self, key, value):
     return {
         'maintitle': value.get('a'),
         'full': value.get('a'),
-        'lang': value.get('9')
+        'lang': lang2ln(value.get('9'))
     }
 
 
@@ -161,7 +162,7 @@ def other_title2marc(self, key, value):
     """Title Statement."""
     return {
         'a': value.get('maintitle'),
-        '9': value.get('lang')
+        '9': ln2lang(value.get('lang'))
     }
 
 
@@ -369,7 +370,7 @@ def summary(self, key, value):
     """Summary Statement."""
     return {
         'content': value.get('a'),
-        'lang': value.get('9')
+        'lang': lang2ln(value.get('9'))
     }
 
 
@@ -379,7 +380,7 @@ def series2marc(self, key, value):
     """Summary Statement."""
     return {
         'a': value.get('content'),
-        '9': value.get('lang')
+        '9': ln2lang(value.get('lang'))
     }
 
 
@@ -434,7 +435,7 @@ def subject2marc(self, key, value):
 def keyword(self, key, value):
     """Keyword Statement."""
     return {
-        'lang': value.get('9'),
+        'lang': lang2ln(value.get('9')),
         'content': [v.strip() for v in value.get('a').split(";")]
     }
 
@@ -444,7 +445,7 @@ def keyword(self, key, value):
 def subject2marc(self, key, value):
     """Subject Statement."""
     return {
-        '9': value.get('lang'),
+        '9': ln2lang(value.get('lang')),
         'a': " ; ".join(value.get('content'))
     }
 
@@ -633,6 +634,7 @@ def type_institution2marc(self, key, value):
 
 @book.over('specific_collection', '^982__')
 @utils.for_each_value
+@utils.filter_values
 def specific_collection(self, key, value):
     """Specific Collection Statement."""
     return {
@@ -643,6 +645,7 @@ def specific_collection(self, key, value):
 
 @book2marc.over('982__', 'specific_collection')
 @utils.for_each_value
+@utils.filter_values
 def series2marc(self, key, value):
     """Specific Collection Statement."""
     return {

@@ -19,7 +19,7 @@ class TestKeyword:
     def test_from_marc(self):
         record = marc2record({
             '695__': [{
-                '9': 'en',
+                '9': 'eng',
                 'a': 'keyword1 ; keyword2'
             }]
         })
@@ -33,7 +33,7 @@ class TestKeyword:
     def test_marc2marc(self):
         marc = {
             '695__': [{
-                '9': 'en',
+                '9': 'eng',
                 'a': 'keyword1 ; keyword2'
             }]
         }

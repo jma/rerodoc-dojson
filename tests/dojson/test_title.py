@@ -25,7 +25,7 @@ class TestTitle:
             '245__': {
                 'a': 'Main Title',
                 'b': "Subtitle",
-                '9': 'en'
+                '9': 'eng'
             }
         })
         assert record == {
@@ -42,7 +42,7 @@ class TestTitle:
             '245__': {
                 'a': 'Neuchâtel mon amour',
                 'b': "Subtitle",
-                '9': 'en'
+                '9': 'eng'
             }
         })
         assert record == {
@@ -59,7 +59,7 @@ class TestTitle:
             '245__': {
                 'a': 'Main Title',
                 'b': "Subtitle",
-                '9': 'en'
+                '9': 'eng'
             }
         }
         converted = marc2marc(marc)

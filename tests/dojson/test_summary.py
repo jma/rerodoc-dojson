@@ -20,7 +20,7 @@ class TestSummary:
         record = marc2record({
             '520__': [{
                 'a': 'Summary Line 1\n Line2',
-                '9': 'en'
+                '9': 'eng'
             }]
         })
         assert record == {
@@ -34,7 +34,7 @@ class TestSummary:
         marc = {
             '520__': [{
                 'a': 'Summary Line 1\n Line2',
-                '9': 'en'
+                '9': 'eng'
             }]
         }
         converted = marc2marc(marc)

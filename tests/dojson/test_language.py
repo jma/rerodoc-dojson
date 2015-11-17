@@ -15,12 +15,12 @@ class TestLanguage:
 
     def test_from_marc(self):
         record = marc2record({
-            '041__': {'a': 'en'}
+            '041__': {'a': 'eng'}
         })
         assert record.get('language') == 'en'
 
     def test_marc2marc(self):
-        marc = {'041__': {'a': 'en'}}
+        marc = {'041__': {'a': 'eng'}}
         converted = marc2marc(marc)
         assert marc == converted
 
