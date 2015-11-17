@@ -1,0 +1,9 @@
+{
+    "propertyOrder": 1,
+    "title": "Submission Number",
+    "uniqueItems": true,
+    "type": "string",
+    "title": "Submission Number",
+    "readOnly": true,
+    "pattern": "^[0-9]{14}-[A-Z]{2}$"
+}

@@ -40,6 +40,7 @@
         "institution": {"$ref": "/schema/common/institution"},
         "document": {"$ref": "/schema/common/document"},
         "document_type": {"$ref": "/schema/common/document_type"},
-        "specific_collection": {"$ref": "/schema/common/specific_collection"}
+        "specific_collection": {"$ref": "/schema/common/specific_collection"},
+        "submission_number": {"$ref": "/schema/common/submission_number"}
     }
 }

@@ -621,3 +621,17 @@ def series2marc(self, key, value):
         'a': value.get('code'),
         'b': value.get('name')
     }
+
+
+@book.over('submission_number', '^990__')
+def submission_number(self, key, value):
+    """Submission Number Statement."""
+    return value.get('a')
+
+
+@book2marc.over('990__', 'submission_number')
+def submission_number2marc(self, key, value):
+    """Submission Number Statement."""
+    return {
+        'a': value
+    }
