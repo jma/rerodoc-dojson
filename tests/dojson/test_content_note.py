@@ -11,15 +11,15 @@ class TestContentNote:
         return get_schema('content_note', 'common')
 
     def test_validate_record(self):
-        validate('Note line 1\n Line 2', self.get_schema())
+        validate(['Note line 1\n Line 2'], self.get_schema())
 
     def test_from_marc(self):
         record = marc2record({
-            '505__': {'a': 'Note Line 1\n Line 2'}
+            '505__': [{'a': 'Note Line 1\n Line 2'}]
         })
-        assert record.get('content_note') == 'Note Line 1\n Line 2'
+        assert record.get('content_note') == ['Note Line 1\n Line 2']
 
     def test_marc2marc(self):
-        marc = {'505__': {'a': 'Note line 1\n Line 2'}}
+        marc = {'505__': [{'a': 'Note line 1\n Line 2'}]}
         converted = marc2marc(marc)
         assert marc == converted

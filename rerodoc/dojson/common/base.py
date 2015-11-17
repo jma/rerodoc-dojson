@@ -49,16 +49,19 @@ def language2marc(self, key, value):
 
 
 @book.over('udc', '^080__')
+@utils.ignore_value
 def udc(self, key, value):
     """Language Code."""
     from rerodoc.udc.udc import get_udc
     code = value.get('a')
     values = get_udc(code)
-    values['code'] = code
+    if values:
+        values['code'] = code
     return values
 
 
 @book2marc.over('080__', 'udc')
+@utils.ignore_value
 def udc2marc(self, key, value):
     """Language Code."""
     return {
@@ -345,12 +348,14 @@ def note2marc(self, key, value):
 
 
 @book.over('content_note', '^505__')
+@utils.for_each_value
 def content_note(self, key, value):
     """Content Note Statement."""
     return value.get('a')
 
 
 @book2marc.over('505__', 'content_note')
+@utils.for_each_value
 def content_note2marc(self, key, value):
     """Content Note Statement."""
     return {

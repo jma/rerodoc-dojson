@@ -1,5 +1,10 @@
 {
-    "type": "string",
-    "format": "textarea",
-    "title": "Content Note"
+    "uniqueItems": true,
+    "type": "array",
+    "title": "Content Note",
+    "items": {
+    	"type": "string",
+    	"format": "textarea",
+    	"title": "Content Note"
+    }
 }
