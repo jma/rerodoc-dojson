@@ -515,7 +515,7 @@ def documen(self, key, value):
     }
 
 
-@book2marc.over('8564_', 'document')
+@book2marc.over('8564_', '^document$')
 @utils.for_each_value
 def documen2marc(self, key, value):
     """Document Statement."""
@@ -563,19 +563,38 @@ def media_type(self, key, value):
 
 
 @book.over('type', '^980__')
-def document_type(self, key, value):
+def type(self, key, value):
     """Record Document Type."""
-    doc_type = value.get("a")
+    doc_type = value.get('a')
     return ['bibrec', doc_type.lower(), 'text']
 
 
-@book2marc.over('980__', '(type|institution)')
-def document_type2marc(self, key, value):
+@book.over('document_type', '^980__')
+@utils.filter_values
+def document_type(self, key, value):
     """Record Document Type."""
+    doc_type = value.get('a').lower()
+    doc_subtype = value.get('f')
+    if doc_subtype:
+        doc_subtype = doc_subtype.lower()
+    return {
+        'main': doc_type,
+        'sub': doc_subtype
+    }
+
+
+@book2marc.over('980__', '(document_type|institution)')
+@utils.filter_values
+def type_institution2marc(self, key, value):
+    """Record Document Type and Institution."""
     marc = self.get('980__', {})
-    if key.startswith('type'):
+    if key.startswith('document_type'):
+        doc_subtype = value.get('sub')
+        if doc_subtype:
+            doc_subtype = doc_subtype.upper()
         marc.update({
-            'a': value[1].upper()
+            'a': value.get('main').upper(),
+            'f': doc_subtype
         })
     elif key.startswith('institution'):
         marc.update({

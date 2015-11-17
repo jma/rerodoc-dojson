@@ -1,0 +1,45 @@
+{
+    "propertyOrder": 1,
+    "title": "Document type",
+    "type": "object",
+    "properties": {
+        "main": {
+            "propertyOrder": 1,
+            "type": "string",
+            "title": "Main Document Type",
+            "enum": [
+                "book",
+                "journal",
+                "thesis",
+                "postprint",
+                "preprint",
+                "dissertation",
+                "report",
+                "newspaper",
+                "partition",
+                "newspapers",
+                "map",
+                "audio",
+                "print_media",
+                "issue"
+            ]
+        },
+        "sub": {
+            "propertyOrder": 2,
+            "type": "string",
+            "title": "Sub Type",
+            "enum": [
+                "art_journal",
+                "diss_master",
+                "th_phd",
+                "diss_bachelor",
+                "art_inbook",
+                "diss_cont_edu",
+                "art_inproc",
+                "th_habilit",
+                "book_monogr",
+                "book_proceed"
+            ]
+        }
+    }
+}
