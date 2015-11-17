@@ -11,6 +11,24 @@ UDC_FILE = os.path.join(CONFIG_DIR, "udc.json")
 UDC = json.load(file(UDC_FILE))
 
 
+class Error(Exception):
+    """Base class for exceptions in this module."""
+    pass
+
+
+class UnsupportedError(Error):
+    """Exception raised for unknown CUD code.
+
+    Attributes:
+        expr -- input expression in which the error occurred
+        msg  -- explanation of the error
+    """
+
+    def __init__(self, expr, msg):
+        self.expr = expr
+        self.msg = msg
+
+
 def extract_rdf(file_name=RDF_UDC_FILE, lang=["en", "fr", "it", "de"]):
 
     skos = Namespace("http://www.w3.org/2004/02/skos/core#")
@@ -72,4 +90,7 @@ def update_udc():
 
 
 def get_udc(code):
-    return UDC.get(code)
+    code = UDC.get(code)
+    if not code:
+        raise UnsupportedError(code, 'not used in RERO DOC')
+    return code

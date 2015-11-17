@@ -1,6 +1,6 @@
 import pytest
 
-from rerodoc.udc.udc import extract_rdf, update_udc, get_udc
+from rerodoc.udc.udc import extract_rdf, update_udc, get_udc, UnsupportedError
 
 slow = pytest.mark.skipif(
     not pytest.config.getoption('--runslow'),
@@ -37,3 +37,7 @@ class TestUDC:
         assert get_udc('614.253.5').get('uri') == [
             'http://udcdata.info/038191'
         ]
+
+    def test_wrong_value(self):
+        with pytest.raises(UnsupportedError):
+            get_udc('foo')
