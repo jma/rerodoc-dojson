@@ -509,7 +509,10 @@ def other_edition2marc(self, key, value):
 
 @book.over('document', '^8564_')
 @utils.for_each_value
-def documen(self, key, value):
+@utils.ignore_value
+def document(self, key, value):
+    if not value.get('q'):
+        return None
     return {
         'name': value.get('f'),
         'mime': value.get('q'),
@@ -520,17 +523,37 @@ def documen(self, key, value):
     }
 
 
-@book2marc.over('8564_', '^document$')
+@book2marc.over('8564_', '(^document$|external_link)')
 @utils.for_each_value
-def documen2marc(self, key, value):
+def document2marc(self, key, value):
     """Document Statement."""
+    if key.startswith('external_link'):
+        return {
+            'u': value.get('url'),
+            'y': value.get('datetime'),
+            'z': value.get('label')
+        }
+    else:
+        return {
+            'f': value.get('name'),
+            'q': value.get('mime'),
+            's': str(value.get('size')),
+            'u': value.get('url'),
+            'y': "order:%s" % value.get('order'),
+            'z': value.get('label')
+        }
+
+
+@book.over('external_link', '^8564_')
+@utils.for_each_value
+@utils.ignore_value
+def external_link(self, key, value):
+    if value.get('q'):
+        return None
     return {
-        'f': value.get('name'),
-        'q': value.get('mime'),
-        's': str(value.get('size')),
-        'u': value.get('url'),
-        'y': "order:%s" % value.get('order'),
-        'z': value.get('label')
+        'url': value.get('u'),
+        'datetime': value.get('y'),
+        'label': value.get('z')
     }
 
 
