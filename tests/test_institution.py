@@ -38,7 +38,8 @@ class TestInstitution:
         marc = {
             '919__': {
                 'a': 'HES-SO Valais',
-                'b': 'Sion'
+                'b': 'Sion',
+                'd': 'doc.support@rero.ch'
             },
             '980__': {
                 'b': 'HEVS_',

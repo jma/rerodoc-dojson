@@ -550,8 +550,9 @@ def institution(self, key, value):
 def institution2marc(self, key, value):
     """Institution Statement."""
     return {
-        "a": value.get("name"),
-        "b": value.get("locality")
+        'a': value.get('name'),
+        'b': value.get('locality'),
+        'd': 'doc.support@rero.ch'
     }
 
 
