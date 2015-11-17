@@ -37,6 +37,9 @@
         "subject": {"$ref": "/schema/common/subject"},
         "keyword": {"$ref": "/schema/common/keyword"},
         "other_edition": {"$ref": "/schema/common/other_edition"},
-        "document": {"$ref": "/schema/common/document"}
+        "institution": {"$ref": "/schema/common/institution"},
+        "document": {"$ref": "/schema/common/document"},
+        "document_type": {"$ref": "/schema/common/document_type"},
+        "specific_collection": {"$ref": "/schema/common/specific_collection"}
     }
 }

@@ -601,3 +601,23 @@ def type_institution2marc(self, key, value):
             'b': value.get('code')
         })
     return marc
+
+
+@book.over('specific_collection', '^982__')
+@utils.for_each_value
+def specific_collection(self, key, value):
+    """Specific Collection Statement."""
+    return {
+        'code': value.get('a'),
+        'name': value.get('b')
+    }
+
+
+@book2marc.over('982__', 'specific_collection')
+@utils.for_each_value
+def series2marc(self, key, value):
+    """Specific Collection Statement."""
+    return {
+        'a': value.get('code'),
+        'b': value.get('name')
+    }
