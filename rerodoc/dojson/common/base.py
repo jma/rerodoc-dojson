@@ -412,22 +412,35 @@ def reproduction2marc(self, key, value):
 @utils.for_each_value
 def subject(self, key, value):
     """Subject Statement."""
-    return {
-        'vocabulary': value.get('2'),
+    to_return = {
         'tag': value.get('9'),
         'content': value.get('a')
     }
+    vocabulary = value.get('2')
+    if not vocabulary:
+        ind = value.get('9')[-1]
+        if ind == '2':
+            vocabulary = 'mesh'
+        elif ind == '_':
+            vocabulary = 'lcsh'
+    if vocabulary:
+        to_return['vocabulary'] = vocabulary
+
+    return to_return
 
 
 @book2marc.over('600__', 'subject')
 @utils.for_each_value
 def subject2marc(self, key, value):
     """Subject Statement."""
-    return {
-        '2': value.get('vocabulary'),
+    to_return = {
         '9': value.get('tag'),
         'a': value.get('content')
     }
+    vocabulary = value.get('vocabulary')
+    if vocabulary and vocabulary not in ['mesh', 'lcsh']:
+        to_return['2'] = vocabulary
+    return to_return
 
 
 @book.over('keyword', '^695__')
