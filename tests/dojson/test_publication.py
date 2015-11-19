@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pytest
 from conftest import marc2record, marc2marc, record2jsonld
 from jsonschema import validate, ValidationError
@@ -47,6 +48,24 @@ class TestPublication:
                 'c': '2015-',
                 'e': 'Print Location',
                 'f': 'Printer'
+            }
+        }
+        converted = marc2marc(marc)
+        assert marc == converted
+
+    def test_empty_260_marc2marc(self):
+        marc = {
+            "260__": {
+                "a": "A Lausanne :",
+                "c": "1744",
+                "b": "chez Bousquet & Compagnie,",
+                "e": "Lausanne"
+            },
+            "035__": {
+                "a": "R004127217"
+            },
+            "990__": {
+                "a": "20061123145722-ML"
             }
         }
         converted = marc2marc(marc)

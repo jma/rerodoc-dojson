@@ -13,6 +13,7 @@ def marc2record(marc):
 def marc2marc(marc):
     from rerodoc.dojson.book import book, book2marc
     record = book.do(marc)
+    print record
     return book2marc.do(record)
 
 

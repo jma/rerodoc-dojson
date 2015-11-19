@@ -5,7 +5,7 @@ from dojson import utils
 import re
 
 ISBN10_REGEX = re.compile(r'^[0-9]{1,5}-[0-9]{1,7}-[0-9]{1,7}-[0-9,X]{1}$')
-ISBN13_REGEX = re.compile(r'^978[0-9]{9}[0-9]{1}$')
+ISBN13_REGEX = re.compile(r'^[0-9]{13}$')
 
 
 @book.over('isbn10', '^020..')

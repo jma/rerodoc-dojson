@@ -234,7 +234,7 @@ def publication(self, key, value):
     }
 
 
-@book2marc.over('260__', 'publication')
+@book2marc.over('260__', '^publication$')
 @utils.filter_values
 def publication2marc(self, key, value):
     """Edition Statement."""
@@ -522,53 +522,71 @@ def other_edition2marc(self, key, value):
 
 
 @book.over('document', '^8564_')
-@utils.for_each_value
 @utils.ignore_value
 def document(self, key, value):
-    if not value.get('q'):
-        return None
-    return {
-        'name': value.get('f'),
-        'mime': value.get('q'),
-        'size': int(value.get('s')),
-        'url': value.get('u'),
-        'order': int(value.get('y').replace('order:', '')),
-        'label': value.get('z')
-    }
+    value = utils.force_list(value)
+    document = self.get('document', [])
+
+    def get_value(value):
+        return {
+            'name': value.get('f'),
+            'mime': value.get('q'),
+            'size': int(value.get('s')),
+            'url': value.get('u'),
+            'order': int(value.get('y').replace('order:', '')),
+            'label': value.get('z')
+        }
+    for val in value:
+        if val.get('q'):
+            document.append(get_value(val))
+    return document or None
 
 
 @book2marc.over('8564_', '(^document$|external_link)')
-@utils.for_each_value
 def document2marc(self, key, value):
     """Document Statement."""
+    value = utils.force_list(value)
+    f8564 = self.get('8564_', [])
     if key.startswith('external_link'):
-        return {
-            'u': value.get('url'),
-            'y': value.get('datetime'),
-            'z': value.get('label')
-        }
+        def get_value(value):
+            return {
+                'u': value.get('url'),
+                'y': value.get('datetime'),
+                'z': value.get('label')
+            }
+        for val in value:
+            f8564.append(get_value(val))
     else:
-        return {
-            'f': value.get('name'),
-            'q': value.get('mime'),
-            's': str(value.get('size')),
-            'u': value.get('url'),
-            'y': "order:%s" % value.get('order'),
-            'z': value.get('label')
-        }
+        def get_value(value):
+            return {
+                'f': value.get('name'),
+                'q': value.get('mime'),
+                's': str(value.get('size')),
+                'u': value.get('url'),
+                'y': "order:%s" % value.get('order'),
+                'z': value.get('label')
+            }
+        for val in value:
+            f8564.append(get_value(val))
+    return f8564
 
 
 @book.over('external_link', '^8564_')
-@utils.for_each_value
 @utils.ignore_value
 def external_link(self, key, value):
-    if value.get('q'):
-        return None
-    return {
-        'url': value.get('u'),
-        'datetime': value.get('y'),
-        'label': value.get('z')
-    }
+    value = utils.force_list(value)
+    links = self.get('external_link', [])
+
+    def get_value(value):
+        return {
+            'url': value.get('u'),
+            'datetime': value.get('y'),
+            'label': value.get('z')
+        }
+    for val in value:
+        if not val.get('q'):
+            links.append(get_value(val))
+    return links or None
 
 
 @book.over('institution', '^(919|980)__')

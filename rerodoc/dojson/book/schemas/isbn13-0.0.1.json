@@ -2,5 +2,5 @@
     "propertyOrder": 5,
     "type": "string",
     "title": "ISBN identifier with 13 digits",
-    "pattern": "^978[0-9]{9}[0-9]{1}$"
+    "pattern": "^[0-9]{13}$"
 }

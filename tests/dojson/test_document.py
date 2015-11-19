@@ -56,6 +56,47 @@ class TestDocument:
         converted = marc2marc(marc)
         assert marc == converted
 
+    def test_multiple_marc2marc(self):
+        marc = {
+            '8564_': [{
+                'f': 'digs_complete_abstract.pdf',
+                'q': 'application/pdf',
+                's': '6361',
+                'u': 'http://doc.rero.ch/record/8488/files/digs_complete_abstract.pdf',
+                'y': 'order:4',
+                'z': u'R\xe9sum\xe9'
+            }, {
+                'f': 'digs_complete_postprint_v1.pdf',
+                'q': 'application/pdf',
+                's': '2086891',
+                'u': 'http://doc.rero.ch/record/8488/files/digs_complete_postprint_v1.pdf',
+                'y': 'order:1',
+                'z': u'Texte int\xe9gral'
+            }, {
+                'f': 'digs_cover_front.pdf',
+                'q': 'application/pdf',
+                's': '2605703',
+                'u': 'http://doc.rero.ch/record/8488/files/digs_cover_front.pdf',
+                'y': 'order:2',
+                'z': 'Couverture avant'
+            }, {
+                'f': 'digs_cover_rear.pdf',
+                'q': 'application/pdf',
+                's': '192617',
+                'u': 'http://doc.rero.ch/record/8488/files/digs_cover_rear.pdf',
+                'y': 'order:3',
+                'z': u'Couverture arri\xe8re'
+            }, {
+                'u': 'http://www.unige.ch/lettres/alman/digs/welcome.html',
+                'y': '2007-11-25 23:47:43',
+                'z': 'Homepage DiGS'
+            }]
+        }
+        converted = marc2marc(marc)
+        import json
+        print(json.dumps(converted, indent=2))
+        assert marc == converted
+
     def test_wrong_url_value(self):
         with pytest.raises(ValidationError):
             validate([{'url': 'http://rero.ch/files/test.pdf'}], self.get_schema())
