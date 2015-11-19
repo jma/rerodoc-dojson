@@ -547,6 +547,8 @@ def document2marc(self, key, value):
     """Document Statement."""
     value = utils.force_list(value)
     f8564 = self.get('8564_', [])
+    links = []
+    document = []
     if key.startswith('external_link'):
         def get_value(value):
             return {
@@ -555,7 +557,8 @@ def document2marc(self, key, value):
                 'z': value.get('label')
             }
         for val in value:
-            f8564.append(get_value(val))
+            links.append(get_value(val))
+        return links + f8564
     else:
         def get_value(value):
             return {
@@ -567,7 +570,8 @@ def document2marc(self, key, value):
                 'z': value.get('label')
             }
         for val in value:
-            f8564.append(get_value(val))
+            document.append(get_value(val))
+        return f8564 + document
     return f8564
 
 

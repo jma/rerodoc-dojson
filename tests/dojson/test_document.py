@@ -59,6 +59,10 @@ class TestDocument:
     def test_multiple_marc2marc(self):
         marc = {
             '8564_': [{
+                'u': 'http://www.unige.ch/lettres/alman/digs/welcome.html',
+                'y': '2007-11-25 23:47:43',
+                'z': 'Homepage DiGS'
+            }, {
                 'f': 'digs_complete_abstract.pdf',
                 'q': 'application/pdf',
                 's': '6361',
@@ -86,10 +90,6 @@ class TestDocument:
                 'u': 'http://doc.rero.ch/record/8488/files/digs_cover_rear.pdf',
                 'y': 'order:3',
                 'z': u'Couverture arri\xe8re'
-            }, {
-                'u': 'http://www.unige.ch/lettres/alman/digs/welcome.html',
-                'y': '2007-11-25 23:47:43',
-                'z': 'Homepage DiGS'
             }]
         }
         converted = marc2marc(marc)
