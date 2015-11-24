@@ -364,6 +364,27 @@ def content_note2marc(self, key, value):
     }
 
 
+@book.over('access_restriction', '^506__')
+@utils.filter_values
+def access_restriction(self, key, value):
+    """Content Note Statement."""
+    to_return = {}
+    return {
+        'message': value.get('a'),
+        'code': value.get('f')
+    }
+
+
+@book2marc.over('506__', 'access_restriction')
+@utils.filter_values
+def access_restriction2marc(self, key, value):
+    """Content Note Statement."""
+    return {
+        'a': value.get('message'),
+        'f': value.get('code')
+    }
+
+
 @book.over('summary', '^520__')
 @utils.for_each_value
 def summary(self, key, value):
