@@ -94,7 +94,6 @@ class TestDocument:
         }
         converted = marc2marc(marc)
         import json
-        print(json.dumps(converted, indent=2))
         assert marc == converted
 
     def test_wrong_url_value(self):

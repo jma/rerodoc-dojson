@@ -48,8 +48,6 @@ class TestInstitution:
         }
 
         converted = marc2marc(marc)
-        print marc
-        print converted
         assert marc == converted
 
     def test_wrong_code_value(self):
