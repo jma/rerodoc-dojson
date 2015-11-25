@@ -3,14 +3,17 @@
     "title": "Part of series",
     "properties": {
         "name": {
-            "propertyOrder": 1,
-            "type": "string",
-            "title": "Name of the series"
+            "title": "Name of the series",
+            "type": "string"
         },
         "volume": {
-            "propertyOrder": 2,
-            "type": "string",
-            "title": "Volume number of the series"
+            "title": "Volume number of the series",
+            "type": "string"
+        },
+        "full": {
+            "title": "Series as string",
+            "type": "string"
         }
-    }
+    },
+    "additionalProperties": false
 }

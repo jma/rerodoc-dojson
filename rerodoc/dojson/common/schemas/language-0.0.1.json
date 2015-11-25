@@ -1,9 +1,3 @@
 {
-    "allOf": [{
-            "propertyOrder": 6,
-            "description": "FIXME: we shall provide the ISO enum",
-            "title": "Language"
-        }, {
-            "$ref": "/schema/common/lang"
-    }]
+	"$ref": "/schema/common/lang"
 }

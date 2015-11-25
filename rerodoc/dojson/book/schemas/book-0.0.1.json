@@ -1,14 +1,14 @@
 {
-    "description": "A book document...",
     "title": "Book",
+    "description": "A book document...",
+    "id": "http://doc.rero.ch/schema/book/book-0.0.1.json",
+    "$schema": "http://json-schema.org/schema#",
     "required": [
         "title",
         "language",
         "recid",
         "type"
     ],
-    "id": "http://doc.rero.ch/schema/book/book-0.0.1.json",
-    "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
         "type": {"$ref": "/schema/common/type"},
@@ -39,8 +39,12 @@
         "other_edition": {"$ref": "/schema/common/other_edition"},
         "institution": {"$ref": "/schema/common/institution"},
         "document": {"$ref": "/schema/common/document"},
+        "external_link": {"$ref": "/schema/common/external_link"},
         "document_type": {"$ref": "/schema/common/document_type"},
         "specific_collection": {"$ref": "/schema/common/specific_collection"},
-        "submission_number": {"$ref": "/schema/common/submission_number"}
-    }
+        "submission_number": {"$ref": "/schema/common/submission_number"},
+        "udc": {"$ref": "/schema/common/udc"},
+        "access_restriction": {"$ref": "/schema/common/access_restriction"}
+    },
+    "additionalProperties": false
 }

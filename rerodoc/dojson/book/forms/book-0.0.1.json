@@ -1,0 +1,17 @@
+[
+    {
+        "type": "template",
+        "template": "<h1>Book for {{model.recid}}</h1>"
+    },
+    {"$ref": "/forms/common/identifiers"},
+    {"$ref": "/forms/common/publication_sec"},
+    {"$ref": "/forms/common/reproduction_sec"},
+    {"$ref": "/forms/common/link_sec"},
+    {"$ref": "/forms/common/institution_sec"},
+    {"$ref": "/forms/common/udc_sec"},
+    {"$ref": "/forms/common/summary_sec"},
+   {
+      "type": "submit",
+      "title": "Save"
+    }
+]

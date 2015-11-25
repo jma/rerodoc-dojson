@@ -12,12 +12,11 @@ class TestAuthors:
 
     def test_validate_record(self):
         record = [{
-            'first_name': 'FirstName',
-            'last_name': 'LastName',
+            'name': 'LastName, FirstName',
             'name': 'LastName, FirstName',
             'date': '1971-',
             'role': 'Dir.',
-            'affilation': 'Affiliation',
+            'affiliation': 'Affiliation',
             'full': 'LastName, FirstName 1971-',
             'orcid': 'http://orcid.org/0000-0001-8368-5460'
         }]

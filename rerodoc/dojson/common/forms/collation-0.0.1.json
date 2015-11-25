@@ -1,0 +1,20 @@
+{
+    "title": "Collation",
+    "type": "fieldset",
+    "htmlClass": "row",
+    "items": [{
+            "type": "section",
+            "htmlClass": "col-md-6",
+            "items": [
+                "collation.page",
+                "collation.other"
+            ]
+        }, {
+            "type": "section",
+            "htmlClass": "col-md-6",
+            "items": [
+                "collation.dimension"
+            ]
+        }
+    ]
+}

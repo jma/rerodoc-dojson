@@ -1,39 +1,26 @@
  {
-    "propertyOrder": 7,
-    "type": "object",
     "title": "Document title",
+    "type": "object",
     "required": [
         "maintitle",
         "lang"
     ],
     "properties": {
         "lang": {
-             "allOf": [{
-                    "propertyOrder": 1,
-                    "title": "Title language"
-                }, {
-                    "$ref": "/schema/common/lang"
-            }]
+            "$ref": "/schema/common/lang"
         },
         "maintitle": {
-            "propertyOrder": 2,
-            "type": "string",
-            "title": "Main title of the document"
+            "title": "Main title of the document",
+            "type": "string"
         },
         "subtitle": {
-            "propertyOrder": 3,
-            "type": "string",
-            "title": "Subtitle of the document"
+            "title": "Subtitle of the document",
+            "type": "string"
         },
         "full": {
-            "propertyOrder": 4,
-            "type": "string",
             "title": "Concatenation of title and subtitle",
-            "template": "{{maintitle}}: {{subtitle}}",
-            "watch": {
-                "maintitle": "title.maintitle",
-                "subtitle": "title.subtitle"
-            }
+            "type": "string"
         }
-    }
+    },
+    "additionalProperties": false
 }

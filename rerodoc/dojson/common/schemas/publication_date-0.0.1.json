@@ -1,28 +1,19 @@
 {
-    "type": "object",
     "title": "Date of publication",
+    "type": "object",
     "properties": {
         "from": {
-            "propertyOrder": 1,
-            "type": "integer",
             "title": "From date",
-            "default": 2005
+            "type": "integer"
             },
         "to": {
-            "propertyOrder": 2,
-            "type": "integer",
             "title": "To date",
-            "default": 2015
+            "type": "integer"
         },
         "full": {
-            "propertyOrder": 3,
-            "type": "string",
             "title": "Date as string",
-            "template": "{{fdate}}-{{tdate}}",
-            "watch": {
-                "fdate": "publication_date.from",
-                "tdate": "publication_date.to"
-            }
+            "type": "string"
         }
-    }
+    },
+    "additionalProperties": false
 }

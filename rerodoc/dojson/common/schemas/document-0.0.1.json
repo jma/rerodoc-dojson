@@ -1,51 +1,47 @@
 {
+    "title": "Document",
     "uniqueItems": true,
     "minItems" : 1,
     "type": "array",
-    "title": "Document",
     "items": {
-        "type": "object",
         "title": "Document",
+        "type": "object",
         "properties": {
             "name": {
-                "propertyOrder": 1,
+                "title": "Name",
                 "type": "string",
-                "readOnly": true,
-                "title": "Name"
+                "readOnly": true
             },
             "mime": {
-                "propertyOrder": 2,
+                "title": "Mime Type",
                 "type": "string",
                 "enum": [
                 	"application/pdf",
-                	"image/jpeg"
+                	"image/jpeg",
+                	"audio/mpeg"
                 ],
-                "readOnly": true,
-                "title": "Mime Type"
+                "readOnly": true
             },
             "size": {
-                "propertyOrder": 3,
+                "title": "Size",
                 "type": "integer",
-                "readOnly": true,
-                "title": "Size"
+                "readOnly": true
             },
             "url": {
-                "propertyOrder": 4,
+                "title": "URL",
                 "type": "string",
                 "format": "url",
-                "title": "URL",
                 "pattern": "^http(s{0,1})://doc.rero.ch/record"
             },
             "order": {
-                "propertyOrder": 5,
-                "type": "integer",
-                "title": "Order"
+                "title": "Order",
+                "type": "integer"
             },
             "label": {
-                "propertyOrder": 6,
-                "type": "string",
-                "title": "Label"
+                "title": "Label",
+                "type": "string"
             }
-        }
+        },
+        "additionalProperties": false
     }
 }

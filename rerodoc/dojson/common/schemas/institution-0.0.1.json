@@ -3,13 +3,12 @@
     "title": "Institution",
     "properties": {
         "name": {
-            "propertyOrder": 1,
+            "title": "Name",
             "type": "string",
-            "readOnly": true,
-            "title": "Name"
+            "readOnly": true
         },
         "code": {
-            "propertyOrder": 2,
+            "title": "Code",
             "type": "string",
             "enum": [
                 "UNIFR",
@@ -53,14 +52,11 @@
                 "SAEF",
                 "EESP"
             ],
-            "readOnly": true,
-            "title": "Code"
+            "readOnly": true
         },
         "locality": {
-            "propertyOrder": 3,
-            "type": "string",
-            "readOnly": true,
             "title": "Location",
+            "type": "string",
             "enum": [
                 "Genève",
                 "Neuchâtel",
@@ -70,7 +66,9 @@
                 "Sion",
                 "La Chaux-de-Fonds",
                 "Porrentruy"
-            ]
+            ],
+            "readOnly": true
         }
-    }
+    },
+    "additionalProperties": false
 }

@@ -1,5 +1,4 @@
 {
-    "propertyOrder": 13,
-    "type": "integer",
-    "title": "Number of Pages"
+    "title": "Number of Pages",
+    "type": "integer"
 }

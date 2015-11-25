@@ -7,23 +7,21 @@
         "title": "Extenal Link",
         "properties": {           
             "datetime": {
-                "propertyOrder": 2,
+                "title": "Date Time Added",
                 "type": "string",
-                "readOnly": true,
-                "title": "Date Time Added"
+                "readOnly": true
             },
             "url": {
-                "propertyOrder": 1,
+                "title": "URL",
                 "type": "string",
                 "format": "url",
-                "title": "URL",
                 "pattern": "^http(s{0,1})://"
             },
             "label": {
-                "propertyOrder": 3,
-                "type": "string",
-                "title": "Label"
+                "title": "Label",
+                "type": "string"
             }
         }
-    }
+    },
+    "additionalProperties": false
 }

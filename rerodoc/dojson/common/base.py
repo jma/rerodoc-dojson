@@ -4,30 +4,35 @@
 
 from dojson import utils
 from ..book.model import book, book2marc
+from ..audio.model import audio, audio2marc
 from .. import utils as myutils
 from ..utils import ln2lang, lang2ln
 import re
 
 
 @book.over('recid', '^001')
+@audio.over('recid', '^001')
 def control_number(self, key, value):
     """Record Identifier."""
     return value[0]
 
 
 @book2marc.over('001', 'recid')
+@audio2marc.over('001', 'recid')
 def control_number2marc(self, key, value):
     """Record Identifier."""
     return [value]
 
 
 @book.over('rero_id', '^035__')
+@audio.over('rero_id', '^035__')
 def rero_id(self, key, value):
     """Language Code."""
     return "http://data.rero.ch/01-" + value.get('a')
 
 
 @book2marc.over('035__', 'rero_id')
+@audio2marc.over('035__', 'rero_id')
 def language2marc(self, key, value):
     """Language Code."""
     return {
@@ -36,12 +41,14 @@ def language2marc(self, key, value):
 
 
 @book.over('language', '^041[10_].')
+@audio.over('language', '^041[10_].')
 def language(self, key, value):
     """Language Code."""
     return lang2ln(value.get('a'))
 
 
 @book2marc.over('041__', 'language')
+@audio2marc.over('041__', 'language')
 def language2marc(self, key, value):
     """Language Code."""
     return {
@@ -50,6 +57,7 @@ def language2marc(self, key, value):
 
 
 @book.over('udc', '^080__')
+@audio.over('udc', '^080__')
 @utils.ignore_value
 def udc(self, key, value):
     """Language Code."""
@@ -62,6 +70,7 @@ def udc(self, key, value):
 
 
 @book2marc.over('080__', 'udc')
+@audio2marc.over('080__', 'udc')
 @utils.ignore_value
 def udc2marc(self, key, value):
     """Language Code."""
@@ -71,6 +80,7 @@ def udc2marc(self, key, value):
 
 
 @book.over('authors', '^[17]00__')
+@audio.over('authors', '^[17]00__')
 # @utils.filter_values
 def authors(self, key, value):
     """Record Document Type."""
@@ -100,6 +110,7 @@ def authors(self, key, value):
 
 
 @book2marc.over('100__', 'authors')
+@audio2marc.over('100__', 'authors')
 # @utils.filter_values
 def authors2marc(self, key, value):
     """Main Entry-Personal Name."""
@@ -123,6 +134,7 @@ def authors2marc(self, key, value):
 
 
 @book.over('title', '^245__')
+@audio.over('title', '^245__')
 @utils.filter_values
 def title(self, key, value):
     """Other title Statement."""
@@ -135,6 +147,7 @@ def title(self, key, value):
 
 
 @book2marc.over('245__', 'title')
+@audio2marc.over('245__', 'title')
 @utils.filter_values
 def title2marc(self, key, value):
     """Title Statement."""
@@ -146,6 +159,7 @@ def title2marc(self, key, value):
 
 
 @book.over('other_title', '^246__')
+@audio.over('other_title', '^246__')
 @utils.filter_values
 def other_title(self, key, value):
     """Other title Statement."""
@@ -157,6 +171,7 @@ def other_title(self, key, value):
 
 
 @book2marc.over('246__', 'other_title')
+@audio2marc.over('246__', 'other_title')
 @utils.filter_values
 def other_title2marc(self, key, value):
     """Title Statement."""
@@ -167,6 +182,7 @@ def other_title2marc(self, key, value):
 
 
 @book.over('edition', '^250__')
+@audio.over('edition', '^250__')
 @utils.filter_values
 def edition(self, key, value):
     """Edition Statement."""
@@ -178,6 +194,7 @@ def edition(self, key, value):
 
 
 @book2marc.over('250__', 'edition')
+@audio2marc.over('250__', 'edition')
 @utils.filter_values
 def edition2marc(self, key, value):
     """Edition Statement."""
@@ -314,6 +331,7 @@ def publication2marc(self, key, value):
 
 
 @book.over('series', '^490__')
+@audio.over('series', '^490__')
 @utils.filter_values
 def series(self, key, value):
     """Series Statement."""
@@ -325,6 +343,7 @@ def series(self, key, value):
 
 
 @book2marc.over('490__', 'series')
+@audio2marc.over('490__', 'series')
 @utils.filter_values
 def series2marc(self, key, value):
     """Collation Statement."""
@@ -335,12 +354,14 @@ def series2marc(self, key, value):
 
 
 @book.over('note', '^500__')
+@audio.over('note', '^500__')
 def note(self, key, value):
     """Note Statement."""
     return value.get('a')
 
 
 @book2marc.over('500__', 'note')
+@audio2marc.over('500__', 'note')
 def note2marc(self, key, value):
     """Note Statement."""
     return {
@@ -349,6 +370,7 @@ def note2marc(self, key, value):
 
 
 @book.over('content_note', '^505__')
+@audio.over('content_note', '^505__')
 @utils.for_each_value
 def content_note(self, key, value):
     """Content Note Statement."""
@@ -356,6 +378,7 @@ def content_note(self, key, value):
 
 
 @book2marc.over('505__', 'content_note')
+@audio2marc.over('505__', 'content_note')
 @utils.for_each_value
 def content_note2marc(self, key, value):
     """Content Note Statement."""
@@ -365,6 +388,7 @@ def content_note2marc(self, key, value):
 
 
 @book.over('access_restriction', '^506__')
+@audio.over('access_restriction', '^506__')
 @utils.filter_values
 def access_restriction(self, key, value):
     """Content Note Statement."""
@@ -376,6 +400,7 @@ def access_restriction(self, key, value):
 
 
 @book2marc.over('506__', 'access_restriction')
+@audio2marc.over('506__', 'access_restriction')
 @utils.filter_values
 def access_restriction2marc(self, key, value):
     """Content Note Statement."""
@@ -386,6 +411,7 @@ def access_restriction2marc(self, key, value):
 
 
 @book.over('summary', '^520__')
+@audio.over('summary', '^520__')
 @utils.for_each_value
 def summary(self, key, value):
     """Summary Statement."""
@@ -396,6 +422,7 @@ def summary(self, key, value):
 
 
 @book2marc.over('520__', 'summary')
+@audio2marc.over('520__', 'summary')
 @utils.for_each_value
 def series2marc(self, key, value):
     """Summary Statement."""
@@ -406,6 +433,7 @@ def series2marc(self, key, value):
 
 
 @book.over('reproduction', '^533__')
+@audio.over('reproduction', '^533__')
 @utils.filter_values
 def reproduction(self, key, value):
     """Reproduction Statement."""
@@ -418,6 +446,7 @@ def reproduction(self, key, value):
 
 
 @book2marc.over('533__', 'reproduction')
+@audio2marc.over('533__', 'reproduction')
 @utils.filter_values
 def reproduction2marc(self, key, value):
     """Summary Statement."""
@@ -430,6 +459,7 @@ def reproduction2marc(self, key, value):
 
 
 @book.over('subject', '^600__')
+@audio.over('subject', '^600__')
 @utils.for_each_value
 def subject(self, key, value):
     """Subject Statement."""
@@ -451,6 +481,7 @@ def subject(self, key, value):
 
 
 @book2marc.over('600__', 'subject')
+@audio2marc.over('600__', 'subject')
 @utils.for_each_value
 def subject2marc(self, key, value):
     """Subject Statement."""
@@ -465,6 +496,7 @@ def subject2marc(self, key, value):
 
 
 @book.over('keyword', '^695__')
+@audio.over('keyword', '^695__')
 @utils.for_each_value
 def keyword(self, key, value):
     """Keyword Statement."""
@@ -475,6 +507,7 @@ def keyword(self, key, value):
 
 
 @book2marc.over('695__', 'keyword')
+@audio2marc.over('695__', 'keyword')
 @utils.for_each_value
 def subject2marc(self, key, value):
     """Subject Statement."""
@@ -485,12 +518,14 @@ def subject2marc(self, key, value):
 
 
 @book.over('corporate', '^710__')
+@audio.over('corporate', '^710__')
 @utils.for_each_value
 def corporate(self, key, value):
     return value.get('a')
 
 
 @book2marc.over('710__', 'corporate')
+@audio2marc.over('710__', 'corporate')
 @utils.for_each_value
 def corporate2marc(self, key, value):
     """Meeting Statement."""
@@ -500,6 +535,7 @@ def corporate2marc(self, key, value):
 
 
 @book.over('meeting', '^711__')
+@audio.over('meeting', '^711__')
 @utils.filter_values
 def meeting(self, key, value):
     return {
@@ -512,6 +548,7 @@ def meeting(self, key, value):
 
 
 @book2marc.over('711__', 'meeting')
+@audio2marc.over('711__', 'meeting')
 @utils.filter_values
 def meeting2marc(self, key, value):
     """Meeting Statement."""
@@ -524,6 +561,7 @@ def meeting2marc(self, key, value):
 
 
 @book.over('other_edition', '^775__')
+@audio.over('other_edition', '^775__')
 @utils.filter_values
 def other_edition(self, key, value):
     return {
@@ -533,6 +571,7 @@ def other_edition(self, key, value):
 
 
 @book2marc.over('775__', 'other_edition')
+@audio2marc.over('775__', 'other_edition')
 @utils.filter_values
 def other_edition2marc(self, key, value):
     """Other Edition Statement."""
@@ -543,6 +582,7 @@ def other_edition2marc(self, key, value):
 
 
 @book.over('document', '^8564_')
+@audio.over('document', '^8564_')
 @utils.ignore_value
 def document(self, key, value):
     value = utils.force_list(value)
@@ -564,6 +604,7 @@ def document(self, key, value):
 
 
 @book2marc.over('8564_', '(^document$|external_link)')
+@audio2marc.over('8564_', '(^document$|external_link)')
 def document2marc(self, key, value):
     """Document Statement."""
     value = utils.force_list(value)
@@ -597,6 +638,7 @@ def document2marc(self, key, value):
 
 
 @book.over('external_link', '^8564_')
+@audio.over('external_link', '^8564_')
 @utils.ignore_value
 def external_link(self, key, value):
     value = utils.force_list(value)
@@ -615,6 +657,7 @@ def external_link(self, key, value):
 
 
 @book.over('institution', '^(919|980)__')
+@audio.over('institution', '^(919|980)__')
 @utils.filter_values
 def institution(self, key, value):
     institution = self.get('institution', {})
@@ -631,6 +674,7 @@ def institution(self, key, value):
 
 
 @book2marc.over('919__', 'institution')
+@audio2marc.over('919__', 'institution')
 @utils.filter_values
 def institution2marc(self, key, value):
     """Institution Statement."""
@@ -642,12 +686,14 @@ def institution2marc(self, key, value):
 
 
 @book.over('media_type', '^980__')
+@audio.over('media_type', '^980__')
 def media_type(self, key, value):
     """Record Document Type."""
     return "http://rdvocab.info/termList/RDAMediaType/1003"
 
 
 @book.over('type', '^980__')
+@audio.over('type', '^980__')
 def type(self, key, value):
     """Record Document Type."""
     doc_type = value.get('a')
@@ -655,6 +701,7 @@ def type(self, key, value):
 
 
 @book.over('document_type', '^980__')
+@audio.over('document_type', '^980__')
 @utils.filter_values
 def document_type(self, key, value):
     """Record Document Type."""
@@ -669,6 +716,7 @@ def document_type(self, key, value):
 
 
 @book2marc.over('980__', '(document_type|institution)')
+@audio2marc.over('980__', '(document_type|institution)')
 @utils.filter_values
 def type_institution2marc(self, key, value):
     """Record Document Type and Institution."""
@@ -689,6 +737,7 @@ def type_institution2marc(self, key, value):
 
 
 @book.over('specific_collection', '^982__')
+@audio.over('specific_collection', '^982__')
 @utils.for_each_value
 @utils.filter_values
 def specific_collection(self, key, value):
@@ -700,6 +749,7 @@ def specific_collection(self, key, value):
 
 
 @book2marc.over('982__', 'specific_collection')
+@audio2marc.over('982__', 'specific_collection')
 @utils.for_each_value
 @utils.filter_values
 def series2marc(self, key, value):
@@ -711,12 +761,14 @@ def series2marc(self, key, value):
 
 
 @book.over('submission_number', '^990__')
+@audio.over('submission_number', '^990__')
 def submission_number(self, key, value):
     """Submission Number Statement."""
     return value.get('a')
 
 
 @book2marc.over('990__', 'submission_number')
+@audio2marc.over('990__', 'submission_number')
 def submission_number2marc(self, key, value):
     """Submission Number Statement."""
     return {

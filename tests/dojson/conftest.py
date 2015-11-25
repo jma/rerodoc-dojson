@@ -5,15 +5,24 @@ import pytest
 import os
 
 
-def marc2record(marc):
+def marc2record(marc, record_type='book'):
     from rerodoc.dojson.book import book
-    return book.do(marc)
+    from rerodoc.dojson.audio import audio
+    if record_type == 'book':
+        return book.do(marc)
+    if record_type == 'audio':
+        return audio.do(marc)
 
 
-def marc2marc(marc):
+def marc2marc(marc, record_type='book'):
     from rerodoc.dojson.book import book, book2marc
-    record = book.do(marc)
-    return book2marc.do(record)
+    from rerodoc.dojson.audio import audio, audio2marc
+    if record_type == 'book':
+        record = book.do(marc)
+        return book2marc.do(record)
+    if record_type == 'audio':
+        record = audio.do(marc)
+        return audio2marc.do(record)
 
 
 def record2jsonld(record, context):

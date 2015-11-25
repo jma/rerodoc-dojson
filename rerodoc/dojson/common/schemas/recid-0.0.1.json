@@ -1,7 +1,5 @@
 {
-    "propertyOrder": 2,
-    "type": "string",
     "title": "RERO DOC identifier",
-    "readOnly": true,
-    "default": "1234"
+    "default": "1234",
+    "type": "string"
 }

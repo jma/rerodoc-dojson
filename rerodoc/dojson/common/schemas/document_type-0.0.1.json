@@ -1,12 +1,10 @@
 {
-    "propertyOrder": 1,
     "title": "Document type",
     "type": "object",
     "properties": {
         "main": {
-            "propertyOrder": 1,
-            "type": "string",
             "title": "Main Document Type",
+            "type": "string",
             "enum": [
                 "book",
                 "journal",
@@ -25,9 +23,8 @@
             ]
         },
         "sub": {
-            "propertyOrder": 2,
-            "type": "string",
             "title": "Sub Type",
+            "type": "string",
             "enum": [
                 "art_journal",
                 "diss_master",
@@ -41,5 +38,6 @@
                 "book_proceed"
             ]
         }
-    }
+    },
+    "additionalProperties": false
 }

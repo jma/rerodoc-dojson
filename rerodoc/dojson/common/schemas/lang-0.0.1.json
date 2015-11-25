@@ -1,5 +1,7 @@
 {
-      "type": "string",
+    "title": "Language",
+    "type": "string",
+    "default": "fr",
     "enum": [
         "fr",
         "de",
@@ -21,23 +23,23 @@
     ],
     "options": {
         "enum_titles": [
-          "French",
-          "German",
-          "English",
-          "Italian",
-          "Albanian",
-          "Croatian",
-          "Dutch",
-          "Hungarian",
-          "Latin",
-          "Polish",
-          "Portuguese",
-          "Romansh",
-          "Romanian",
-          "Kirundi",
-          "Spanish",
-          "Serbian",
-          "Swahili"
+            "French",
+            "German",
+            "English",
+            "Italian",
+            "Albanian",
+            "Croatian",
+            "Dutch",
+            "Hungarian",
+            "Latin",
+            "Polish",
+            "Portuguese",
+            "Romansh",
+            "Romanian",
+            "Kirundi",
+            "Spanish",
+            "Serbian",
+            "Swahili"
         ]
     }
 }

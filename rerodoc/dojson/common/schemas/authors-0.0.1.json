@@ -1,63 +1,52 @@
 {
-	"propertyOrder": 8,
-    "uniqueItems": true,
-    "minItems" : 1,
-    "type": "array",
-    "description": "List with all the authors",
     "title": "Authors",
+    "description": "List with all the authors",
+    "type": "array",
     "items": {
-        "type": "object",
+        "title": "Author",
         "id": "author_item",
+        "type": "object",
+        "required": ["name"],
         "properties": {
             "name": {
-                "propertyOrder": 3,
                 "title": "Author name",
-                "type": "string",
                 "description": "author name as it appears in the paper",
+                "type": "string",
                 "format": ".+, .+"
             },
             "date": {
-                "propertyOrder": 4,
                 "title": "Birth and death date of the author",
                 "type": "string"
             },
-             "affiliation": {
-                "propertyOrder": 5,
+            "affiliation": {
                 "title": "Affiliation",
-                "type": "string",
-                "description": "author's affiliation"
+                "description": "author's affiliation",
+                "type": "string"
             },
             "orcid": {
-                "propertyOrder": 6,
-                "pattern": "^http://orcid.org/\\d{4}-\\d{4}-\\d{4}-\\d{4}$",
                 "title": "ORCID ID",
-                "type": "string",
                 "description": "ORCID Id when available",
-                "format": "orcid"
+                "type": "string",
+                "pattern": "^http://orcid.org/\\d{4}-\\d{4}-\\d{4}-\\d{4}$",
+                "format": "uri"
             },
             "role": {
-                "propertyOrder": 7,
+                "title": "Role of the person",
+                "description": "Role of the author within the paper.",
+                "type": "string",
                 "enum": [
                     "Dir.",
                     "Codir."
-                ],
-                "type": "string",
-                "description": "Role of the author within the paper.",
-                "title": "Role of the person"
+                ]
             },
             "full": {
-                "propertyOrder": 8,
                 "title": "Author name",
-                "type": "string",
                 "description": "Author as string",
-                "template": "{{name}} {{date}} ({{role}})",
-                "watch": {
-                    "name": "author_item.name",
-                    "date": "author_item.date",
-                    "role": "author_item.role"
-                }
+                "type": "string"
             }
         },
-        "title": "Author"
-    }
+        "additionalProperties": false
+    },
+    "uniqueItems": true,
+    "minItems" : 0
 }

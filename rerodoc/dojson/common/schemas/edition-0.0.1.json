@@ -3,24 +3,17 @@
     "title": "Edition",
     "properties": { 
         "name": {
-            "propertyOrder": 1,
-            "type": "string",
-            "title": "Edition name"
+            "title": "Edition name",
+            "type": "string"
         },
         "remainder": {
-            "propertyOrder": 2,
-            "type": "string",
-            "title": "Remainder of the edition"
+            "title": "Remainder of the edition",
+            "type": "string"
         },
         "full": {
-            "propertyOrder": 3,
-            "type": "string",
             "title": "Edition as string",
-            "template": "{{name}} {{remainder}}",
-            "watch": {
-                "name": "edition.name",
-                "remainder": "edition.remainder"
-            }
+            "type": "string"
         }
-   }
+   },
+   "additionalProperties": false
 }

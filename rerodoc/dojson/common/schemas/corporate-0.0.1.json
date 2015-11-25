@@ -1,8 +1,7 @@
 {
-    "propertyOrder": 9,
+    "title": "Corporate Authors",
     "uniqueItems": true,
     "type": "array",
-    "title": "Corporate Authors",
     "items": {  
         "type": "string"
     }

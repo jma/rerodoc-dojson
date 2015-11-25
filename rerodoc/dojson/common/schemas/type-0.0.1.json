@@ -15,6 +15,7 @@
         "enum": [
             "bibrec",
             "book",
+            "audio",
             "text"
         ]
     }

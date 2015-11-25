@@ -28,11 +28,15 @@ def convert_marcxml(source):
 
     #from .book import book
     from .book import book
+    from .audio import audio
 
     for data in split_blob(source.read()):
         record = create_record(data)
-        #if _collection_in_record(record, 'book'):
-        #    yield book.do(record)
+        if _collection_in_record(record, 'book'):
+            yield book.do(record)
+        if _collection_in_record(record, 'audio'):
+            yield audio.do(record)
+
         #else:
         #    yield default.do(record)
         yield book.do(record)

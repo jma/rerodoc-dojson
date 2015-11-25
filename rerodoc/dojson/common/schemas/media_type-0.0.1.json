@@ -1,11 +1,10 @@
 {
-	"propertyOrder": 4,
-    "type": "string",
     "title": "media type",
-    "readOnly": true,
+    "type": "string",
     "format": "uri",
     "enum": [
     	"http://rdvocab.info/termList/RDAMediaType/1003"
     ],
-    "default": "http://rdvocab.info/termList/RDAMediaType/1003"
+    "default": "http://rdvocab.info/termList/RDAMediaType/1003",
+    "readOnly": true
 }

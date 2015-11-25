@@ -1,42 +1,29 @@
 {
-    "propertyOrder": 10,
-    "type": "object",
-    "id": "meeting",
     "title": "Meeting",
+    "type": "object",
     "properties": {
         "name": {
-            "propertyOrder": 1,
             "title": "name",
             "type": "string"
         },
         "location": {
-            "propertyOrder": 2,
             "title": "location",
             "type": "string"
         },
         "date": {
-            "propertyOrder": 3,
             "title": "Meeting date event",
             "type": "string"
         },
         "number": {
-            "propertyOrder": 4,
             "title": "Number",
             "type": "string",
             "description": "meeting number"
         },
         "full": {
-            "propertyOrder": 5,
             "title": "Author name",
             "type": "string",
-            "description": "Author as string",
-            "template": "{{name}} {{number}} {{date}} {{location}}",
-            "watch": {
-                "name": "meeting.name",
-                "location": "meeting.location",
-                "date": "meeting.date",
-                "number": "meeting.number"
-            }
+            "description": "Author as string"
         }
-    }
+    },
+    "additionalProperties": false
 }

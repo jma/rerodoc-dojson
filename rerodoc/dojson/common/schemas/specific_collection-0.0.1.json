@@ -1,23 +1,22 @@
 {
+    "title": "Specific Collection",
     "uniqueItems": true,
     "minItems" : 0,
     "type": "array",
-    "title": "Specific Collection",
     "items": {
         "title": "Specific Collection",
         "type": "object",
         "properties": {
             "code": {
-                "propertyOrder": 1,
-                "type": "string",
                 "title": "Collection Code",
+                "type": "string",
                 "readOnly": true
             },
             "name": {
-                "propertyOrder": 2,
-                "type": "string",
-                "title": "Collection Name"
+                "title": "Collection Name",
+                "type": "string"
             }
         }
-    }
+    },
+    "additionalProperties": false
 }

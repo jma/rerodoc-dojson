@@ -1,41 +1,23 @@
 {
-    "type": "object",
     "title": "Collation of the document",
+    "type": "object",
     "properties": {
         "pages": {
-            "propertyOrder": 1,
-            "type": "string",
-            "template": "{{n_pages}} p.",
             "title": "Number of pages",
-            "watch": {
-                "n_pages": "n_pages"
-            }
+            "type": "string"
         },
         "other": {
-            "propertyOrder": 2,
-            "type": "string",
-            "title": "Other infos"
+            "title": "Other infos",
+            "type": "string"
         },
         "dimension": {
-            "propertyOrder": 3,
-            "type": "string",
             "title": "Dimension of the document",
-            "template": "{{width}} x {{height}}",
-            "watch": {
-                "width": "dimension.width",
-                "height": "dimension.height"
-            }
+            "type": "string"
         },
         "full": {
-            "propertyOrder": 4,
-            "type": "string",
             "title": "Collation as string",
-            "template": "{{pages}} p. {{other}} {{dimension}} cm",
-            "watch": {
-                "pages": "collation.pages",
-                "other": "collation.other",
-                "dimension": "collation.dimension"
-            }
+            "type": "string"
         }
-    }
+    },
+    "additionalProperties": false
 }

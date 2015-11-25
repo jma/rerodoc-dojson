@@ -68,29 +68,44 @@ def concatenate(data, subfields, sep=" "):
     return None
 
 
+def expand(schema):
+    if isinstance(schema, list):
+        for s in schema:
+            expand(s)
+    if isinstance(schema, dict):
+        if schema.get('$ref'):
+            name = schema.get('$ref')
+            json_type, base, name = name.split('/')[1:]
+            if json_type == 'forms':
+                sub_schema = get_form(name, base)
+            else:
+                sub_schema = get_schema(name, base)
+            schema.update(sub_schema)
+            del(schema['$ref'])
+        for k, v in schema.iteritems():
+            expand(v)
+
+
 def get_schema(name, base='common', version="0.0.1"):
     schema_file_name = os.path.join(os.path.dirname(__file__), base,
                                     "schemas", name + "-" + version + ".json")
     if not os.path.isfile(schema_file_name):
         return None
 
-    def expand_schema(schema):
-        if isinstance(schema, list):
-            for s in schema:
-                expand_schema(s)
-        if isinstance(schema, dict):
-            if schema.get('$ref'):
-                name = schema.get('$ref')
-                base, name = name.split('/')[2:]
-                sub_schema = get_schema(name, base)
-                schema.update(sub_schema)
-                del(schema['$ref'])
-            for k, v in schema.iteritems():
-                expand_schema(v)
-
     schema = json.load(file(schema_file_name))
-    expand_schema(schema)
+    expand(schema)
     return schema
+
+
+def get_form(name, base='common', version="0.0.1"):
+    form_file_name = os.path.join(os.path.dirname(__file__), base,
+                                  "forms", name + "-" + version + ".json")
+    if not os.path.isfile(form_file_name):
+        return None
+
+    form = json.load(file(form_file_name))
+    expand(form)
+    return form
 
 
 def get_context(name, version="0.0.1"):

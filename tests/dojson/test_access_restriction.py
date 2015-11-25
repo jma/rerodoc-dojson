@@ -18,6 +18,20 @@ class TestRestrictedAccess:
             'code': 'Restricted access'
         }, self.get_schema())
 
+    def test_free_validate_record(self):
+        validate({
+            'code': 'free'
+        }, self.get_schema())
+
+    def test_date_validate_record(self):
+        validate({
+            'code': 'No access until 2015-01-01'
+        }, self.get_schema())
+
+    def test_wrong_value(self):
+        with pytest.raises(ValidationError):
+            validate({'code': 'No access until 2015'}, self.get_schema())
+
     def test_from_marc(self):
         record = marc2record({
             '506__': {

@@ -1,26 +1,23 @@
 {
-    "type": "object",
     "title": "Reproduction",
+    "type": "object",
     "properties": {
         "type": {
-            "propertyOrder": 1,
-            "type": "string",
-            "title": "Type"
+            "title": "Type",
+            "type": "string"
         },
         "location": {
-            "propertyOrder": 2,
-            "type": "string",
-            "title": "Location"
+            "title": "Location",
+            "type": "string"
         },
         "agency": {
-            "propertyOrder": 3,
-            "type": "string",
-            "title": "Agency"
+            "title": "Agency",
+            "type": "string"
         },
-        "full": {
-            "propertyOrder": 4,
-            "type": "string",
-            "title": "Date"
+        "date": {
+            "title": "Date",
+            "type": "string"
         }
-    }
+    },
+    "additionalProperties": false
 }

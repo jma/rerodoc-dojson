@@ -1,0 +1,26 @@
+{
+    "title": "General",
+    "type": "fieldset",
+    "htmlClass": "row",
+    "items": [
+        {
+            "type": "section",
+            "htmlClass": "col-md-8",
+            "items": [
+                {
+                    "key": "n_pages"
+                }
+            ]
+        }, {
+            "type": "section",
+            "htmlClass": "col-md-4",
+            "items": [
+                {
+                    "key": "language",
+                    "type": "select",
+                    "titleMap": { "$ref": "/forms/common/lang"}
+                }
+            ]
+        }
+    ]
+}
