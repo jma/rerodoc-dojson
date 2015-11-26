@@ -9,8 +9,7 @@
         "properties": {
             "name": {
                 "title": "Name",
-                "type": "string",
-                "readOnly": true
+                "type": "string"
             },
             "mime": {
                 "title": "Mime Type",
@@ -19,8 +18,7 @@
                 	"application/pdf",
                 	"image/jpeg",
                 	"audio/mpeg"
-                ],
-                "readOnly": true
+                ]
             },
             "size": {
                 "title": "Size",

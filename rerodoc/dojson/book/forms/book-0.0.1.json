@@ -10,6 +10,8 @@
     {"$ref": "/forms/common/institution_sec"},
     {"$ref": "/forms/common/udc_sec"},
     {"$ref": "/forms/common/summary_sec"},
+    {"$ref": "/forms/common/keyword_sec"},
+    {"$ref": "/forms/common/document_sec"},
    {
       "type": "submit",
       "title": "Save"

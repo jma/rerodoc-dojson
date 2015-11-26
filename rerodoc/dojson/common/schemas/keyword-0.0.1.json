@@ -8,11 +8,7 @@
         "title": "keyword",
         "properties": {
             "lang": {
-                "allOf": [{
-                    "title": "Keyword language"
-                }, {
-                    "$ref": "/schema/common/lang"
-                }]
+                "$ref": "/schema/common/lang"
             },
             "content": {
                 "uniqueItems": true,
