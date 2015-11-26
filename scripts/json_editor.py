@@ -19,6 +19,55 @@ __license__ = "Internal Use Only"
 
 app = Flask(__name__)
 
+@app.route('/angular/<doc_type>/edit/<recid>')
+def edit_angular(doc_type, recid):
+    from rerodoc.dojson.utils import get_schema, get_form
+    schema = get_schema(doc_type, doc_type)
+    form = get_form(doc_type, doc_type)
+    import json
+    return """
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JSON Editor to Test Submission</title>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <script type="text/javascript" src="/static/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/tv4/tv4.js"></script>
+    <script type="text/javascript" src="/static/bower_components/objectpath/lib/ObjectPath.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-schema-form/dist/schema-form.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-schema-form/dist/bootstrap-decorator.min.js"></script>
+  </head>
+
+    <style type='text/css'>
+    body {
+        max-width: 960px;
+        padding: 100px;
+        margin: auto auto;
+    }
+    </style>
+  <body ng-app="test">
+    <h1>Angular JSON Editor Example</h1>
+
+<div ng-controller="MyFormController">
+    <form sf-schema="schema" sf-form="form" sf-model="model"></form>
+</div>
+
+<script>
+    angular.module('test', ['schemaForm'])
+        .controller('MyFormController', function($scope) {
+        $scope.schema =%s;
+
+    $scope.form = %s;
+    $scope.model = %s;
+});
+    </script>
+  </body>
+</html>
+    """ % (json.dumps(schema, indent=2), json.dumps(form, indent=2), json.dumps(get_record(recid)))
 
 @app.route('/angular/<doc_type>')
 def angular(doc_type):
