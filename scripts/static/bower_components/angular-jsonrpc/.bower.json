@@ -1,0 +1,24 @@
+{
+  "name": "angular-jsonrpc",
+  "version": "0.1.4",
+  "main": "jsonrpc.min.js",
+  "dependencies": {
+    "angular": "~1.0.7",
+    "angular-uuid": "~0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ajsd/bower-angular-jsonrpc.git"
+  },
+  "homepage": "https://github.com/ajsd/bower-angular-jsonrpc",
+  "_release": "0.1.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.4",
+    "commit": "01eb252202d68544b59ca347eda0ccfd35b129e0"
+  },
+  "_source": "git://github.com/ajsd/bower-angular-jsonrpc.git",
+  "_target": "~0.1.4",
+  "_originalSource": "angular-jsonrpc",
+  "_direct": true
+}

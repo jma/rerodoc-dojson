@@ -47,65 +47,6 @@ def edit_angular(doc_type, recid):
     <meta charset="utf-8" />
     <title>JSON Editor to Test Submission</title>
       <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
-    <script type="text/javascript" src="/static/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/static/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script type="text/javascript" src="/static/bower_components/tv4/tv4.js"></script>
-    <script type="text/javascript" src="/static/bower_components/objectpath/lib/ObjectPath.js"></script>
-    <script type="text/javascript" src="/static/bower_components/angular-schema-form/dist/schema-form.min.js"></script>
-  </head>
-
-    <style type='text/css'>
-    body {
-        max-width: 960px;
-        padding: 100px;
-        margin: auto auto;
-    }
-    </style>
-  <body ng-app="test">
-    <h1>Angular JSON Editor Example</h1>
-
-<div ng-controller="MyFormController">
-    <form sf-schema="schema" sf-form="form" sf-model="model"></form>
-</div>
-
-<script>
-    app=angular.module('test', ['schemaForm'])
-        .controller('MyFormController', function($scope) {
-          $scope.schema =%s;
-          $scope.form = %s;
-          $scope.model = %s;
-          $scope.autocomplete = function (modelValue, form) {
-          alert(modelValue, form);
-              var to_return = [
-                "test1",
-                "test2
-              ];
-              return to_return;
-          };
-    });
-</script>
-    <script type="text/javascript" src="/static/bower_components/angular-schema-form/dist/bootstrap-decorator.min.js"></script>
-
-  </body>
-</html>
-    """ % (json.dumps(schema, indent=2), json.dumps(form, indent=2), json.dumps(get_record(recid)))
-
-
-@app.route('/angular/<doc_type>')
-def angular(doc_type):
-    from rerodoc.dojson.utils import get_schema, get_form
-    schema = get_schema(doc_type, doc_type)
-    form = get_form(doc_type, doc_type)
-    import json
-    return """
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>JSON Editor to Test Submission</title>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
     <script type="text/javascript" src="/static/bower_components/angular/angular.min.js"></script>
@@ -148,138 +89,79 @@ def angular(doc_type):
         app.controller('MyFormController', function($scope) {
             $scope.schema =%s;
             $scope.form = %s;           
+            $scope.model = %s;
+
+        });
+</script>
+
+  </body>
+</html>
+    """ % (json.dumps(schema, indent=2), json.dumps(form, indent=2), json.dumps(get_record(recid)))
+
+
+@app.route('/angular/<doc_type>')
+def angular(doc_type):
+    from rerodoc.dojson.utils import get_schema, get_form
+    schema = get_schema(doc_type, doc_type)
+    form = get_form(doc_type, doc_type)
+    import json
+    return """
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JSON Editor to Test Submission</title>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <script type="text/javascript" src="/static/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/tv4/tv4.js"></script>
+    <script type="text/javascript" src="/static/bower_components/objectpath/lib/ObjectPath.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-schema-form/dist/schema-form.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-schema-form/dist/bootstrap-decorator.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-uuid/uuid.min.js"></script>
+    <script type="text/javascript" src="/static/bower_components/angular-jsonrpc/jsonrpc.min.js"></script>
+    <script type="text/javascript" src="/static/js/app.js"></script>
+    <script type="text/javascript" src="/static/js/services/data.js"></script>
+    <script type="text/javascript" src="/static/js/directives/typeahead.js"></script>
+    <script type="text/javascript" src="/static/js/controllers/autocomplete.js"></script>
+
+
+  </head>
+
+    <style type='text/css'>
+    body {
+        max-width: 960px;
+        padding: 100px;
+        margin: auto auto;
+    }
+    .autocomplete .dropdown-menu {
+        max-height: 200px;
+        overflow-y: scroll;
+    }
+    </style>
+  <body ng-app="test">
+    <h1>Angular JSON Editor Example</h1>
+
+<div ng-controller="MyFormController">
+    <form sf-schema="schema" sf-form="form" sf-model="model"></form>
+</div>
+
+
+<script>
+        app.controller('MyFormController', function($scope) {
+            $scope.schema =%s;
+            $scope.form = %s;           
             $scope.model = {};
 
         });
-
 </script>
 
   </body>
 </html>
     """ % (json.dumps(schema, indent=2), json.dumps(form, indent=2))
-
-
-@app.route('/')
-def json_editor():
-    from rerodoc.dojson.utils import get_schema
-    schema = get_schema("book")
-    return """
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>JSON Editor to Test Submission</title>
-  <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <script src="/static/bower_components/json-editor/dist/jsoneditor.js"></script>
-  </head>
-
-    <style type='text/css'>
-    body {
-        width: 960px;
-        margin: auto auto;
-    }
-    </style>
-  <body>
-    <h1>Basic JSON Editor Example</h1>
-
-    <div id='editor_holder'></div>
-    <button id='submit'>Submit (console.log)</button>
-
-    <script>
-      // Initialize the editor with a JSON schema
-
-      var editor = new JSONEditor(document.getElementById('editor_holder'),{
-          ajax: true,
-          theme: 'bootstrap3',
-          iconlib: 'fontawesome4',
-          //disable_collapse: true,
-          disable_edit_json: true,
-          disable_properties: true,
-          schema: {
-                  "title": "Choose",
-                  "oneOf": [
-                    {$ref: "schema/book/book"},
-                    {$ref: "schema/audio/audio"}
-                  ]
-          },
-          // Disable additional properties
-          no_additional_properties: true,
-          // Require all properties by default
-          required_by_default: true
-      });
-
-      document.getElementById('submit').addEventListener('click',function() {
-        // Get the value from the editor
-        console.log(editor.getValue());
-      });
-    </script>
-  </body>
-</html>
-"""
-
-
-@app.route('/edit/<recid>')
-def edit(recid):
-    from rerodoc.dojson.utils import get_schema
-    schema = get_schema("book")
-    return """
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>JSON Editor to Test Submission</title>
-  <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <script src="/static/bower_components/json-editor/dist/jsoneditor.js"></script>
-  </head>
-
-    <style type='text/css'>
-    body {
-        width: 960px;
-        margin: auto auto;
-    }
-    </style>
-  <body>
-    <h1>Basic JSON Editor Example</h1>
-
-    <div id='editor_holder'></div>
-    <button id='submit'>Submit (console.log)</button>
-
-    <script>
-      // Initialize the editor with a JSON schema
-
-      var editor = new JSONEditor(document.getElementById('editor_holder'),{
-          ajax: true,
-          theme: 'bootstrap3',
-          iconlib: 'fontawesome4',
-          //disable_collapse: true,
-          disable_edit_json: true,
-          disable_properties: true,
-          startval: %s,
-          schema: {
-                  "title": "Choose",
-                  "oneOf": [
-                    //{$ref: "/schema/book/book"},
-                    {$ref: "/schema/audio/audio"}
-                  ]
-          },
-          // Disable additional properties
-          no_additional_properties: true,
-          // Require all properties by default
-          required_by_default: true
-      });
-
-      document.getElementById('submit').addEventListener('click',function() {
-        // Get the value from the editor
-        console.log(editor.getValue());
-      });
-    </script>
-  </body>
-</html>
-""" % (json.dumps(get_record(recid)))
 
 
 @app.route('/schema/<base>/<name>')
