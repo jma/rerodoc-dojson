@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
 import pytest
 
-from rerodoc.udc.udc import extract_rdf, update_udc, get_udc, UnsupportedError
+from rerodoc.udc.udc import extract_rdf, update_udc, get_udc, get_long_names, UnsupportedError
 
 slow = pytest.mark.skipif(
     not pytest.config.getoption('--runslow'),
@@ -33,11 +34,17 @@ class TestUDC:
             'http://udcdata.info/065307'
         ]
 
-    def test_parent(self):
+    def test_udc_parent(self):
         assert get_udc('614.253.5').get('uri') == [
             'http://udcdata.info/038191'
         ]
 
+    def test_hierarchy(self):
+        assert get_udc('616').get('parent') == '61'
+
     def test_wrong_value(self):
         with pytest.raises(UnsupportedError):
             get_udc('foo')
+
+    def test_long_names(self):
+        assert get_long_names().get('33', {}).get('name') == u'Arts, Human and Social Science ▸ Economics (33)'

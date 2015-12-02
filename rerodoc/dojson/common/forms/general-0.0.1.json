@@ -17,8 +17,10 @@
             "items": [
                 {
                     "key": "language",
+                    "title": "Document Language",
                     "type": "select",
-                    "titleMap": { "$ref": "/forms/common/lang"}
+                    "titleMap": { "$ref": "/forms/common/lang"},
+                    "copyValueTo": ["title.lang", "other_title.lang"]
                 }
             ]
         }

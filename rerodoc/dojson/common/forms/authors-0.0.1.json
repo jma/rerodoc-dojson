@@ -34,7 +34,9 @@
 				"type": "section",
     			"htmlClass": "col-md-4",
     			"items": [
-    			    "authors[].orcid",
+    			    {
+                        "key": "authors[].orcid"
+                    },
     			    {
                     	"key": "authors[].role",
                     	"condition": "model.authors[arrayIndex].name"

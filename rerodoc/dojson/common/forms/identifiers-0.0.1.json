@@ -10,7 +10,7 @@
             "rero_id",
             {
                 "type": "button",
-                "title": "Load from CC",
+                "title": "Load data",
                 "condition": "model.rero_id"
             }
         ]}, 

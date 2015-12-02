@@ -1,13 +1,14 @@
+# -*- coding: utf-8 -*-
 from rdflib import Graph, RDF, Namespace
 import os
 import json
 import codecs
 
 
-CONFIG_DIR = os.path.join(os.path.dirname(__file__), "config")
-RDF_UDC_FILE = os.path.join(CONFIG_DIR, "udcsummary-skos.rdf")
-RERO_UDC_FILE = os.path.join(CONFIG_DIR, "rerodoc_udc.json")
-UDC_FILE = os.path.join(CONFIG_DIR, "udc.json")
+CONFIG_DIR = os.path.join(os.path.dirname(__file__), 'config')
+RDF_UDC_FILE = os.path.join(CONFIG_DIR, 'udcsummary-skos.rdf')
+RERO_UDC_FILE = os.path.join(CONFIG_DIR, 'rerodoc_udc.json')
+UDC_FILE = os.path.join(CONFIG_DIR, 'udc.json')
 UDC = json.load(file(UDC_FILE))
 
 
@@ -69,6 +70,9 @@ def update_udc():
         return None
 
     for k, v in rero_udc.iteritems():
+        print k, v
+        if k.startswith("root"):
+            continue
         # range
         if k.find('/') != -1:
             _from, to = k.split('/')
@@ -87,6 +91,27 @@ def update_udc():
     json.dump(rero_udc, codecs.open(UDC_FILE, 'w', 'utf-8'), indent=2, ensure_ascii=False)
     UDC = json.load(file(UDC_FILE))
     return True
+
+
+def get_long_names(lang='en'):
+
+    def concatenate_parent_label(root, values={}, langs=['fr', 'en', 'de', 'it']):
+        for ln in langs:
+            values.setdefault(ln, []).insert(0, root.get(ln))
+        if root.get('parent'):
+            concatenate_parent_label(UDC.get(root.get('parent')), values, langs)
+        return values
+    to_return = {}
+    for k, v in UDC.iteritems():
+        labels = concatenate_parent_label(v, {})
+        if not k.startswith("root_"):
+            tmp = {
+                "name": u'%s (%s)' % (u' ▸ '.join(labels.get(lang)), k),
+                "code": k
+            }
+            tmp.update(v)
+            to_return[k] = tmp
+    return to_return
 
 
 def get_udc(code):

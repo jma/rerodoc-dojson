@@ -66,6 +66,8 @@ def udc(self, key, value):
     values = get_udc(code)
     if values:
         values['code'] = code
+    if values.get('parent'):
+        del(values['parent'])
     return values
 
 

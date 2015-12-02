@@ -7,8 +7,11 @@
             "htmlClass": "col-md-6",
             "items": [
                 "udc.en",
-                "udc.fr",
-                "udc.uri"
+                {
+                    "key": "udc.fr"
+                },{
+                    "key": "udc.uri"
+                }
             ]
         }, {
             "type": "section",
